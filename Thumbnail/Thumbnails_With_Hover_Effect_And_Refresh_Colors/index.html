@@ -115,13 +115,10 @@
       </div>
     </div>
     <!-- end-column -->
-
-
   </div>
   <!-- end-row -->
   <button class="btn btn-default" id="refresh">Refresh Colours</button>
   <h4>Placeholders powered by <a href="#" target="_blank">devanswer</a></h4>
-
 </div>
 <!-- end-container -->
 <!-- partial -->
@@ -130,10 +127,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 <script>
     function customThemes() {
-
         var customTheme = {};
         var numThemes = 200;
-
         for (var i = 0; i < numThemes; i++) {
             customTheme["pastel" + i] = {
                 background: getRandomPastel(),
@@ -142,16 +137,13 @@
         }
         return customTheme;
     }
-
     getRandomPastel = function () {
         var hue = Math.floor(Math.random() * 360);
         return 'hsl(' + hue + ', 85%, 80.5%)';
     };
-
     Holder.run({
         themes: customThemes()
     });
-
     $(function () {
         $("#refresh").click(function () {
             Holder.run({
@@ -164,13 +156,11 @@
     .row > div {
         margin: 15px auto;
     }
-
     .thumb {
         position: relative;
         margin: 0 auto;
         max-width: 533px;
     }
-
     .hover-opaque {
         background: #000;
         opacity: 0;
@@ -182,7 +172,6 @@
         -webkit-transition: all ease .5s;
         -moz-transition: all ease .5s;
     }
-
         .hover-opaque i {
             position: absolute;
             text-align: center;
@@ -192,7 +181,6 @@
             margin: -12px;
             border: 1px solid green;
         }
-
     .glyphicon {
         position: absolute;
         color: #fff;
@@ -205,17 +193,12 @@
         -webkit-transition: all ease .5s;
         -moz-transition: all ease .5s;
     }
-
     .thumb:hover .hover-opaque {
         opacity: 0.5;
     }
-
     .thumb:hover .glyphicon {
         opacity: 1;
     }
-
-
-
     .thumb-caption {
         background: #fff;
         border-color: #E6E6E6;
@@ -224,7 +207,6 @@
         color: #4E4E54;
         padding: 10px;
     }
-
     figcaption a {
         color: #4E4E54;
         -moz-transition: color 0.5s ease;
@@ -232,31 +214,24 @@
         transition: color 0.5s ease;
         font-size: 0.9em;
     }
-
         figcaption a:hover {
             color: #73A7F7;
             text-decoration: none;
         }
-
-
     body {
         background: #F5F5F5;
         margin: 50px;
         font-weight: 700;
     }
-
     button {
         margin: 15px;
     }
-
     h2, h4 {
         text-align: center;
     }
-
     h2 {
         margin-top: 0px;
     }
-
     h4 {
         margin-bottom: 0px;
     }
