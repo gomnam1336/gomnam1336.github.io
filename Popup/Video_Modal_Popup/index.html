@@ -1,0 +1,231 @@
+
+<head>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+<style>
+* {
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: darkslategrey;
+    background-image: url("https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"); /* Photo by Sagui Andrea from Pexels */
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.video-wrapper {
+    width: 100%;
+    max-width: 960px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 5px 0px #ffffff;
+    background-image: url("https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"); /* Photo by Sagui Andrea from Pexels */
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+    .video-wrapper .modal-body iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+    }
+
+    .video-wrapper button.play-button {
+        -webkit-appearance: none;
+        background: transparent;
+        border: none;
+        text-align: center;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        transition: background 0.5s ease-in-out;
+    }
+
+        .video-wrapper button.play-button:hover {
+            background: rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
+
+        .video-wrapper button.play-button i {
+            color: #fff;
+            font-size: 100px;
+        }
+
+.fa-play-circle:before {
+    content: "\f144";
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 102;
+    overflow: hidden;
+    outline: 0;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+    .modal.in {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+.fade {
+    transition: opacity 0.15s linear, visibility 0.15s linear;
+}
+
+    .fade:not(.show) {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: auto;
+    pointer-events: none;
+    max-width: 940px;
+    width: 80%;
+}
+
+.modal.fade .modal-dialog {
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    -webkit-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+}
+
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-clip: padding-box;
+    border-radius: 0.3rem;
+    outline: 0;
+}
+
+.modal-body {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+}
+
+.modal {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+    .modal.show {
+        display: flex;
+        padding: 1rem;
+    }
+
+    .modal.in .modal-dialog {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #000;
+}
+
+    .modal-backdrop.fade {
+        opacity: 0;
+    }
+
+    .modal-backdrop.show {
+        opacity: 0.6;
+    }
+
+.show.modal-backdrop {
+    z-index: 101;
+}
+
+.video-wrapper .modal-body {
+    padding: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    height: 0;
+    background-color: transparent;
+}
+</style>
+</head>
+<div class="video-wrapper">
+  <!-- Button trigger modal -->
+  <button type="button" class="play-button">
+    <i class="fa fal fa-play-circle"></i>
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="video">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <iframe allowfullscreen="" frameborder="0" mozallowfullscreen="" src="//player.vimeo.com/video/324179796?title=0&amp;portrait=0&amp;byline=0&amp;autoplay=1" webkitallowfullscreen=""></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade"></div>
+</div>
+<script>
+var videoId = document.querySelector(".play-button");
+var modalClass = document.querySelector("#video");
+var modOverlay = document.querySelector(".modal-backdrop");
+var bodyAttr = document.body;
+videoId.addEventListener("click", function (e) {
+    e.stopPropagation();
+    modalClass.classList.add("show");
+    modOverlay.classList.add("show");
+    setTimeout(function () {
+        modalClass.classList.add("in");
+    }, 80);
+});
+bodyAttr.addEventListener("click", function () {
+    modalClass.classList.remove("in");
+    setTimeout(function () {
+        modOverlay.classList.remove("show");
+        modalClass.classList.remove("show");
+    }, 130);
+});
+
+modalClass.children[0].addEventListener("click", function (e) {
+    e.stopPropagation();
+});
+</script>
+
