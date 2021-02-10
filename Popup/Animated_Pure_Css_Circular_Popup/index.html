@@ -1,0 +1,260 @@
+
+<head>
+
+<style>
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: #404040;
+    color: #eee;
+    margin: 0;
+    font-family: "Lato", "Trebuchet MS", sans-serif;
+    line-height: 1.3;
+    letter-spacing: 0.002em;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.2s;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.back-link {
+    color: rgba(255, 255, 255, 0.6);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+    .back-link:hover, .back-link:focus {
+        border-color: #fff;
+        color: #fff;
+    }
+
+.article__pointer {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    margin: -50px 0 0 -50px;
+    display: flex;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.article__pointer_blue {
+    top: 30%;
+    left: 30%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+    box-shadow: 0 0 0 10px #2980b9;
+}
+
+    .article__pointer_blue:hover, .article__pointer_blue:focus {
+        box-shadow: 0 0 0 20px #2980b9;
+    }
+
+.article__pointer_red {
+    top: 50%;
+    left: 60%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+    box-shadow: 0 0 0 10px #e74c3c;
+}
+
+    .article__pointer_red:hover, .article__pointer_red:focus {
+        box-shadow: 0 0 0 20px #e74c3c;
+    }
+
+.article__pointer_yellow {
+    top: 70%;
+    left: 40%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+    box-shadow: 0 0 0 10px #e67e22;
+}
+
+    .article__pointer_yellow:hover, .article__pointer_yellow:focus {
+        box-shadow: 0 0 0 20px #e67e22;
+    }
+
+.article__layer {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+    transform: scale(0);
+    transition: 0.6s ease-in-out;
+}
+
+.article__layer_blue {
+    background: #2980b9;
+    box-shadow: 0 0 0 100vw #2980b9, 0 0 0 100vh #2980b9;
+}
+
+.article__layer_red {
+    background: #e74c3c;
+    box-shadow: 0 0 0 100vw #e74c3c, 0 0 0 100vh #e74c3c;
+}
+
+.article__layer_yellow {
+    background: #e67e22;
+    box-shadow: 0 0 0 100vw #e67e22, 0 0 0 100vh #e67e22;
+}
+
+.article__panel {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: opacity, transform;
+    transition: 0.2s;
+}
+
+    .article__panel:target {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+        transition: 0.2s 0.4s;
+    }
+
+        .article__panel:target ~ a {
+            z-index: 1;
+        }
+
+            .article__panel:target ~ a span {
+                transform: scale(1);
+            }
+
+.article__panel_blue {
+    background: #2980b9;
+}
+
+.article__panel_red {
+    background: #e74c3c;
+}
+
+.article__panel_yellow {
+    background: #e67e22;
+}
+
+.article__body {
+    max-height: 100%;
+    width: 100%;
+    flex: 0 0 100%;
+    padding: 40px 20px;
+    line-height: 1.6;
+    letter-spacing: 0.025em;
+    color: rgba(255, 255, 255, 0.75);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.article__container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.article__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+</style>
+</head>
+<section class="article">
+  <article class="article__panel article__panel_blue" id="article-blue">
+    <div class="article__body">
+      <div class="article__container">
+        <header class="article__header">
+          <h2>The Mountains</h2>
+          <a role="button" href="#0" class="back-link">close</a>
+        </header>
+        <p>Bacon ipsum dolor amet jerky pig turducken pork belly, ham pork bresaola spare ribs short loin pork chop cupim. Venison tongue biltong ham hock t-bone cow tenderloin brisket, kevin short loin. Chuck jerky capicola pastrami short loin sausage kielbasa frankfurter pancetta tri-tip beef pork loin drumstick. Short loin burgdoggen fatback, ball tip bresaola capicola tri-tip beef sausage picanha venison. Biltong shoulder corned beef pork belly frankfurter.
+        </p>
+        <p>Bacon ipsum dolor amet jerky pig turducken pork belly, ham pork bresaola spare ribs short loin pork chop cupim. Venison tongue biltong ham hock t-bone cow tenderloin brisket, kevin short loin. Chuck jerky capicola pastrami short loin sausage kielbasa frankfurter pancetta tri-tip beef pork loin drumstick. Short loin burgdoggen fatback, ball tip bresaola capicola tri-tip beef sausage picanha venison. Biltong shoulder corned beef pork belly frankfurter.
+        </p>
+      </div>
+    </div>
+  </article>
+  <a role="button" class="article__pointer article__pointer_blue" href="#article-blue">
+    <span class="article__layer article__layer_blue" role="presentation"></span>
+    The Mountains
+  </a>
+</section>
+<section class="article">
+  <article class="article__panel article__panel_red" id="article-red">
+    <div class="article__body">
+      <div class="article__container">
+        <header class="article__header">
+          <h2>City Trips</h2>
+          <a role="button" href="#0" class="back-link">close</a>
+        </header>
+        <p>Bacon ipsum dolor amet jerky pig turducken pork belly, ham pork bresaola spare ribs short loin pork chop cupim. Venison tongue biltong ham hock t-bone cow tenderloin brisket, kevin short loin. Chuck jerky capicola pastrami short loin sausage kielbasa frankfurter pancetta tri-tip beef pork loin drumstick. Short loin burgdoggen fatback, ball tip bresaola capicola tri-tip beef sausage picanha venison. Biltong shoulder corned beef pork belly frankfurter.
+        </p>
+      </div>
+    </div>
+  </article>
+  <a role="button" class="article__pointer article__pointer_red" href="#article-red">
+  <span class="article__layer article__layer_red" role="presentation"></span>
+    City Trips
+  </a>
+</section>
+<section class="article">
+  <article class="article__panel article__panel_yellow" id="article-yellow">
+    <div class="article__body">
+      <div class="article__container">
+        <header class="article__header">
+          <h2>Foggy Highlands</h2>
+          <a role="button" href="#0" class="back-link">close</a>
+        </header>
+        <p>Venison tongue biltong ham hock t-bone cow tenderloin brisket, kevin short loin. Chuck jerky capicola pastrami short loin sausage kielbasa frankfurter pancetta tri-tip beef pork loin drumstick. Short loin burgdoggen fatback, ball tip bresaola capicola tri-tip beef sausage picanha venison. Biltong shoulder corned beef pork belly frankfurter.
+        </p>
+        <p>Bacon ipsum dolor amet jerky pig turducken pork belly, ham pork bresaola spare ribs short loin pork chop cupim. Venison tongue biltong ham hock t-bone cow tenderloin brisket, kevin short loin. Chuck jerky capicola pastrami short loin sausage kielbasa frankfurter pancetta tri-tip beef pork loin drumstick. Short loin burgdoggen fatback, ball tip bresaola capicola tri-tip beef sausage picanha venison. Biltong shoulder corned beef pork belly frankfurter.
+        </p>
+        <p>Bacon ipsum dolor amet jerky pig turducken pork belly, ham pork bresaola spare ribs short loin pork chop cupim. Venison tongue biltong ham hock t-bone cow tenderloin brisket, kevin short loin.
+        </p>
+      </div>
+    </div>
+  </article>
+  <a role="button" class="article__pointer article__pointer_yellow" href="#article-yellow">
+    <span class="article__layer article__layer_yellow" role="presentation"></span>
+    Foggy Highlands
+  </a>
+</section>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
