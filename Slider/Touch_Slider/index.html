@@ -1,0 +1,170 @@
+<head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: "Open Sans", sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #6c60b3;
+    color: #fff;
+    line-height: 1.7;
+}
+
+.slider-container {
+    height: 100vh;
+    display: inline-flex;
+    overflow: hidden;
+    transform: translateX(0);
+    transition: transform 0.3s ease-out;
+    cursor: grab;
+}
+
+.slide {
+    max-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    user-select: none;
+}
+
+    .slide img {
+        max-width: 100%;
+        max-height: 60%;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .slide h2 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .slide h4 {
+        font-size: 1.3rem;
+    }
+
+.btn {
+    background-color: #020202;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 28px;
+}
+
+.grabbing {
+    cursor: grabbing;
+}
+
+    .grabbing .slide img {
+        transform: scale(0.9);
+    }
+</style>
+</head>
+<div class="slider-container">
+      <div class="slide">
+        <h2>AirPods</h2>
+        <h4>$199</h4>
+        <img src="https://i.ibb.co/y08W0Jx/image1.png" alt="" />
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+      <div class="slide">
+        <h2>iPhone 12</h2>
+        <h4>$799</h4>
+        <img src="https://i.ibb.co/NYdGg2q/image2.png" alt="" />
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+      <div class="slide">
+        <h2>iPad</h2>
+        <h4>$599</h4>
+        <img src="https://i.ibb.co/Jd3t4hQ/image3.png" alt="" />
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+    </div>
+<script>
+const slider = document.querySelector(".slider-container"),
+    slides = Array.from(document.querySelectorAll(".slide"));
+
+let isDragging = false,
+    startPos = 0,
+    currentTranslate = 0,
+    prevTranslate = 0,
+    animationID = 0,
+    currentIndex = 0;
+
+// Disable context menu
+window.oncontextmenu = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+};
+
+const getPositionX = (event) =>
+    event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
+
+const setSliderPosition = () => {
+    slider.style.transform = `translateX(${currentTranslate}px)`;
+};
+
+const animation = () => {
+    setSliderPosition();
+    if (isDragging) requestAnimationFrame(animation);
+};
+
+const setPositionByIndex = () => {
+    currentTranslate = currentIndex * -window.innerWidth;
+    prevTranslate = currentTranslate;
+    setSliderPosition();
+};
+
+const touchStart = (index) => {
+    return (event) => {
+        currentIndex = index;
+        startPos = getPositionX(event);
+        isDragging = true;
+        animationID = requestAnimationFrame(animation);
+        slider.classList.add("grabbing");
+    };
+};
+
+const touchEnd = () => {
+    isDragging = false;
+    cancelAnimationFrame(animationID);
+    const movedBy = currentTranslate - prevTranslate;
+    if (movedBy < -100 && currentIndex < slides.length - 1) currentIndex += 1;
+    if (movedBy > 100 && currentIndex > 0) currentIndex -= 1;
+    setPositionByIndex();
+    slider.classList.remove("grabbing");
+};
+
+const touchMove = (event) => {
+    if (isDragging) {
+        const currentPosition = getPositionX(event);
+        currentTranslate = prevTranslate + currentPosition - startPos;
+    }
+};
+
+slides.forEach((slide, index) => {
+    const slideImage = slide.querySelector("img");
+    slideImage.addEventListener("dragstart", (e) => e.preventDefault());
+    // Touch events
+    slide.addEventListener("touchstart", touchStart(index));
+    slide.addEventListener("touchend", touchEnd);
+    slide.addEventListener("touchmove", touchMove);
+    // Mouse events
+    slide.addEventListener("mousedown", touchStart(index));
+    slide.addEventListener("mouseup", touchEnd);
+    slide.addEventListener("mouseleave", touchEnd);
+    slide.addEventListener("mousemove", touchMove);
+});
+</script>
