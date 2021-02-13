@@ -1,0 +1,310 @@
+<head>
+<link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+
+    body {
+        background: linear-gradient( 45deg, #b6f3ed, #e2108485);
+        font-family: sans-serif;
+    }
+
+header {
+    text-align: center;
+    line-height: 0.8em;
+}
+
+    h1 {
+        text-shadow: 0px 2px 3px #fff;
+        font-size: 50px;
+        font-family: 'Roboto Condensed', sans-serif;
+        color: #333;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        margin: 40px;
+    }
+
+    h1:hover {
+        color: #999;
+    }
+
+h2 {
+    font-size: 20px;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+}
+
+.wrap {
+    width: 200px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.social {
+    border-radius: 30px;
+    position: relative;
+    width: 150px;
+    height: 32px;
+    box-shadow: inset -1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+    .social .count {
+        width: 58px;
+        height: 31px;
+       
+        position: absolute;
+        top: 0;
+        right: -65px;
+        line-height: 31px;
+        text-align: center;
+        text-indent: 8px;
+        font-weight: bold;
+        font-size: 14px;
+        color: #868686;
+    }
+
+    .social span {
+        font-size: 12px;
+        color: #fff;
+        line-height: 30px;
+        display: block;
+        text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+        margin-left: 30px;
+        text-align: center;
+        width: 120px;
+    }
+
+    .social .button {
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        position: absolute;
+        left: 0;
+    }
+
+#twitter.social {
+    background: #55d4ff;
+}
+
+#twitter .button {
+    background: #fff  5px 5px no-repeat;
+    border: 1px solid #53d4ff;
+}
+
+#facebook.social {
+    background: #354970;
+}
+
+#facebook .button {
+    background: #fff  5px 5px no-repeat;
+    border: 1px solid #354970;
+}
+
+#dribbble.social {
+    background: #b73567;
+}
+
+#dribbble .button {
+    background: #fff  5px 5px no-repeat;
+    border: 1px solid #b73567;
+}
+
+#rss.social {
+    background: #db6610;
+}
+
+#rss .button {
+    background: #fff  5px 5px no-repeat;
+    border: 1px solid #db6610;
+}
+
+#googleplus.social {
+    background: #383638;
+}
+
+#googleplus .button {
+    background: #fff  5px 5px no-repeat;
+    border: 1px solid #383638;
+}
+
+#forrst.social {
+    background: #315c23;
+}
+
+#forrst .button {
+    background: #fff  5px 5px no-repeat;
+    border: 1px solid #315c23;
+}
+</style>
+</head>
+
+<header>
+<h1>Animated Social Network Button</h1>
+  <h2>By <a href="#" title="HTML5 CSS3 Tutorial">Designil</a></h2>
+</header>
+<div class="wrap">
+<a href="#" class="sociallink">
+  <div id="twitter" class="social" style="background-color: rgb(85, 212, 255);">
+    <div class="button" style="left: 0px;"></div>
+    <span style="color: rgb(255, 255, 255); margin-left: 30px;">Follow on Twitter</span>
+    <div class="count" style="display: none; opacity: 1;">990</div>
+  </div>
+</a>
+
+<br>
+
+<a href="#" class="sociallink">
+  <div id="facebook" class="social" style="background-color: rgb(53, 73, 112);">
+    <div class="button" style="left: 0px;"></div>
+    <span style="color: rgb(255, 255, 255); margin-left: 30px;">Follow on Facebook</span>
+    <div class="count" style="display: none; opacity: 1;">990</div>
+  </div>
+</a>
+
+<br>
+
+<a href="#" class="sociallink">
+  <div id="dribbble" class="social" style="background-color: rgb(183, 53, 103);">
+    <div class="button" style="left: 0px;"></div>
+    <span style="color: rgb(255, 255, 255); margin-left: 30px;">Follow on Dribbble</span>
+    <div class="count" style="display: none; opacity: 1;">990</div>
+  </div>
+</a>
+
+<br>
+
+<a href="#" class="sociallink">
+  <div id="rss" class="social" style="background-color: rgb(219, 102, 16);">
+    <div class="button" style="left: 0px;"></div>
+    <span style="color: rgb(255, 255, 255); margin-left: 30px;">Subscribe via RSS</span>
+    <div class="count" style="display: none; opacity: 1;">990</div>
+  </div>
+</a>
+
+<br>
+
+<a href="#" class="sociallink">
+  <div id="googleplus" class="social" style="background-color: rgb(56, 54, 56);">
+    <div class="button" style="left: 0px;"></div>
+    <span style="color: rgb(255, 255, 255); margin-left: 30px;">Follow on Google+</span>
+    <div class="count" style="display: none; opacity: 1;">990</div>
+  </div>
+</a>
+
+<br>
+
+<a href="#" class="sociallink">
+  <div id="forrst" class="social" style="background-color: rgb(49, 92, 35);">
+    <div class="button" style="left: 0px;"></div>
+    <span style="color: rgb(255, 255, 255); margin-left: 30px;">Follow on Forrst</span>
+    <div class="count" style="display: none; opacity: 1;">990</div>
+  </div>
+</a>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function () {
+    $('.count').hide();
+
+    $('.sociallink').hover(
+        function () {
+            // Set Hover Color
+            social_id = $(this).find('.social').attr('id');
+            switch (social_id) {
+                case 'twitter':
+                    new_textcolor = '#55d4ff';
+                    new_text = 'Twitter friends';
+                    break;
+                case 'facebook':
+                    new_textcolor = '#354970';
+                    new_text = 'Facebook friends';
+                    break;
+                case 'dribbble':
+                    new_textcolor = '#b73567';
+                    new_text = 'Facebook friends';
+                    break;
+                case 'rss':
+                    new_textcolor = '#db6610';
+                    new_text = 'RSS Subscribers';
+                    break;
+                case 'googleplus':
+                    new_textcolor = '#383638';
+                    new_text = 'Google+ friends';
+                    break;
+                case 'forrst':
+                    new_textcolor = '#315c23';
+                    new_text = 'Forrst friends';
+                    break;
+            }
+
+            $(this).find('.button').stop().animate({
+                'left': '119px'
+            }, 700);
+            $(this).find('span').stop().animate({
+                'margin-left': '5px',
+                'color': new_textcolor
+            }, 500);
+            $(this).find('.social').stop().animate({
+                backgroundColor: '#fcfcfc'
+            }, 500);
+
+            $(this).find('span').text(new_text);
+
+            $(this).find('.count').stop().fadeIn("slow");
+
+        },
+        function () {
+            social_id = $(this).find('.social').attr('id');
+            switch (social_id) {
+                case 'twitter':
+                    new_bgcolor = '#55d4ff';
+                    new_text = 'Follow on Twitter';
+                    break;
+                case 'facebook':
+                    new_bgcolor = '#354970';
+                    new_text = 'Follow on Facebook';
+                    break;
+                case 'dribbble':
+                    new_bgcolor = '#b73567';
+                    new_text = 'Follow on Dribbble';
+                    break;
+                case 'rss':
+                    new_bgcolor = '#db6610';
+                    new_text = 'Subscribe via RSS';
+                    break;
+                case 'googleplus':
+                    new_bgcolor = '#383638';
+                    new_text = 'Follow on Google+';
+                    break;
+                case 'forrst':
+                    new_bgcolor = '#315c23';
+                    new_text = 'Follow on Forrst';
+                    break;
+            }
+
+            $(this).find('.button').stop().animate({
+                'left': '0'
+            }, 700);
+            $(this).find('span').stop().animate({
+                'margin-left': '30px',
+                'color': '#ffffff'
+            }, 600);
+            $(this).find('.social').stop().animate({
+                backgroundColor: new_bgcolor
+            }, 500);
+
+            $(this).find('span').text(new_text);
+
+            $(this).find('.count').stop().fadeOut("slow");
+        });
+});
+</script>
