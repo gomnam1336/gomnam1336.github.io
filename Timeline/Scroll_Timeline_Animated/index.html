@@ -1,0 +1,268 @@
+<style>
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+h1 {
+    position: relative;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+    h1::before {
+        content: "";
+        position: absolute;
+        left: -86px;
+        top: 3px;
+        width: 15px;
+        height: 15px;
+        background-color: #fff;
+        border: 5px solid #ccc;
+        border-radius: 50%;
+        z-index: 11;
+    }
+
+    h1.active::before {
+        border-color: #2c3250;
+        background-color: #2c3250;
+        animation: 250ms ease 0s forwards 1 pulse;
+        z-index: 12;
+    }
+
+main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+    main header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 600px;
+        color: #fff;
+        font-size: 80px;
+        font-family: sans-serif;
+        background-image: url(https://wallpapercave.com/wp/cAO5uXj.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        z-index: 10;
+    }
+
+    main article {
+        padding: 50px 150px;
+    }
+
+        main article::before, main article::after {
+            content: "";
+            position: fixed;
+            left: 70px;
+            top: 0px;
+            width: 3px;
+            z-index: 9;
+        }
+
+        main article::before {
+            height: 100vh;
+            background-color: #ccc;
+        }
+
+        main article::after {
+            height: 25vh;
+            background-color: #2c3250;
+        }
+
+        main article:last-child {
+            padding-bottom: 300px;
+        }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.6, 1.6);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+</style>
+<main>
+        <header>
+            Timeline
+        </header>
+        <article>
+            <section id="box">
+                <h1 id="c1">Title</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+            </section>
+            <section id="box2">
+                <h1 id="c2">Title</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+            </section>
+            <section id="box3">
+                <h1 id="c3">Title</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+            </section>
+            <section id="box4">
+                <h1 id="c4">Title</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+            </section>
+            <section id="box5">
+                <h1 id="c5">Title</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, commodi ut consectetur molestias asperiores, mollitia fugit maxime similique deserunt cupiditate aperiam architecto quos soluta incidunt excepturi natus odio nesciunt voluptatem.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore est ut consequuntur! Dolor doloremque aliquam beatae laboriosam adipisci itaque quaerat, temporibus ut. Repellat reprehenderit at asperiores exercitationem, cupiditate nemo!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis excepturi exercitationem magni mollitia dolorum ex illo? Repellat explicabo velit quo sint voluptates quod, cumque, delectus quidem quos ducimus dolores cupiditate!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis incidunt quod, recusandae in, labore a fugit aspernatur earum assumenda odio tempore eius at molestiae necessitatibus doloribus repellat? Esse, id inventore!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum est excepturi quo esse, illum accusamus quos consequatur ea, repellat perspiciatis architecto blanditiis veniam tempore sint odio, nostrum eligendi ab dignissimos.
+                </p>
+            </section>
+        </article>
+    </main>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js'></script>
+<script>
+var controller = new ScrollMagic.Controller();
+var scene1 = new ScrollMagic.Scene({
+    triggerElement: "#box",
+    triggerHook: 0.24
+})
+    .setClassToggle("#c1", "active")
+    .addTo(controller);
+var scene2 = new ScrollMagic.Scene({
+    triggerElement: "#box2",
+    triggerHook: 0.24
+})
+    .setClassToggle("#c2", "active")
+    .addTo(controller);
+var scene3 = new ScrollMagic.Scene({
+    triggerElement: "#box3",
+    triggerHook: 0.24
+})
+    .setClassToggle("#c3", "active")
+    .addTo(controller);
+var scene4 = new ScrollMagic.Scene({
+    triggerElement: "#box4",
+    triggerHook: 0.24
+})
+    .setClassToggle("#c4", "active")
+    .addTo(controller);
+var scene5 = new ScrollMagic.Scene({
+    triggerElement: "#box5",
+    triggerHook: 0.24
+})
+    .setClassToggle("#c5", "active")
+    .addTo(controller);
+</script>
