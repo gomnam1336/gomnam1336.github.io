@@ -1,0 +1,743 @@
+<style>
+a {
+    text-decoration: none;
+}
+
+section.price-section {
+    padding-bottom: 40px;
+    background: #101318;
+}
+
+@media (min-width: 800px) {
+    section.price-section {
+        padding-bottom: 80px;
+    }
+}
+
+section.price-section h2 {
+    text-align: center;
+}
+
+section.price-section .btn--gs {
+    display: inline-block;
+    max-width: 200px;
+    padding: 16px 24px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    color: #283341;
+    background: white;
+    border-radius: 50px;
+    padding-right: 10px;
+    background: #fafafb;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+    border-radius: 122px;
+}
+
+    section.price-section .btn--gs:hover {
+        transform: translateY(0px);
+        max-width: 205px;
+    }
+
+        section.price-section .btn--gs:hover svg {
+            margin-left: 18px;
+            transition: all 0.1s ease-in;
+        }
+
+section.price-section .footer-links {
+    display: flex;
+    padding: 80px 0;
+    padding-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+    section.price-section .footer-links .brand {
+        margin-bottom: 48px;
+    }
+
+    section.price-section .footer-links .copyright {
+        margin-bottom: 16px;
+        color: #ffffff;
+        text-decoration: none;
+        opacity: 0.5;
+    }
+
+    section.price-section .footer-links a {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 100%;
+        /* identical to box height, or 14px */
+        letter-spacing: -0.25px;
+        color: #ffffff;
+        text-decoration: none;
+        opacity: 0.5;
+        margin: 12px;
+    }
+
+        section.price-section .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+section.price-section .pricing-plans {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 800px) {
+    section.price-section .pricing-plans {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+section.price-section .pricing-plans .pricing-plan {
+    max-width: 320px;
+    position: relative;
+}
+
+    section.price-section .pricing-plans .pricing-plan .pricing-plan-extras {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+        section.price-section .pricing-plans .pricing-plan .pricing-plan-extras ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 0;
+        }
+
+            section.price-section .pricing-plans .pricing-plan .pricing-plan-extras ul span {
+                opacity: 0.5;
+                color: #ffffff;
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+
+            section.price-section .pricing-plans .pricing-plan .pricing-plan-extras ul li {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 16px;
+                /* identical to box height, or 100% */
+                letter-spacing: -0.25px;
+                text-indent: 30px;
+                color: #ffffff;
+                position: relative;
+            }
+
+                section.price-section .pricing-plans .pricing-plan .pricing-plan-extras ul li span {
+                    opacity: 1;
+                    color: #ffffff;
+                    margin-top: 15px;
+                    margin-bottom: 10px;
+                }
+
+                section.price-section .pricing-plans .pricing-plan .pricing-plan-extras ul li:before {
+                    content: "";
+                    background: url("https://wee.bio/assets/icons/feature-icon.svg") no-repeat;
+                    background-size: 100%;
+                    display: inline-flex;
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 12px;
+                    position: absolute;
+                    left: 0px;
+                }
+
+                section.price-section .pricing-plans .pricing-plan .pricing-plan-extras ul li + li {
+                    margin-top: 20px;
+                }
+
+            section.price-section .pricing-plans .pricing-plan .pricing-plan-extras ul .coming-soon {
+                padding: 20px;
+                border-radius: 12px;
+                opacity: 1;
+                background: #040712;
+                margin-left: -20px;
+                width: 100%;
+                margin-top: 20px;
+                padding-bottom: 32px;
+            }
+
+                section.price-section .pricing-plans .pricing-plan .pricing-plan-extras ul .coming-soon .cs-header {
+                    font-size: 12px;
+                    text-align: left;
+                    text-transform: uppercase;
+                    padding-bottom: 12px;
+                    border-bottom: 1px solid #252943;
+                    margin-bottom: 20px;
+                }
+
+                section.price-section .pricing-plans .pricing-plan .pricing-plan-extras ul .coming-soon li {
+                    text-align: left;
+                }
+
+                    section.price-section .pricing-plans .pricing-plan .pricing-plan-extras ul .coming-soon li:first-of-type {
+                        margin: 0;
+                    }
+
+                    section.price-section .pricing-plans .pricing-plan .pricing-plan-extras ul .coming-soon li:before {
+                        content: "";
+                        background: url("https://wee.bio/assets/icons/feature-icon--cs.svg") no-repeat;
+                        background-size: 100%;
+                        display: inline-flex;
+                        width: 16px;
+                        height: 16px;
+                        margin-right: 12px;
+                        position: absolute;
+                        left: 0px;
+                    }
+
+    section.price-section .pricing-plans .pricing-plan .free-tier,
+    section.price-section .pricing-plans .pricing-plan .super-tier {
+        box-sizing: border-box;
+        padding: 20px;
+        padding-top: 40px;
+        padding-bottom: 48px;
+    }
+
+    section.price-section .pricing-plans .pricing-plan .plan-price {
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        margin-top: 48px;
+        margin-bottom: 24px;
+    }
+
+        section.price-section .pricing-plans .pricing-plan .plan-price .dollar {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 32px;
+            line-height: 100%;
+            /* or 72px */
+            letter-spacing: -0.25px;
+            color: #ffffff;
+            margin-right: 8px;
+            text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        section.price-section .pricing-plans .pricing-plan .plan-price .price {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 72px;
+            line-height: 56px;
+            /* or 72px */
+            letter-spacing: -0.25px;
+            color: #ffffff;
+            text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        section.price-section .pricing-plans .pricing-plan .plan-price .type {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 100%;
+            /* identical to box height, or 24px */
+            margin-left: 8px;
+            text-align: center;
+            letter-spacing: -0.25px;
+            color: #ffffff;
+            text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+        }
+
+    section.price-section .pricing-plans .pricing-plan + .pricing-plan {
+        margin-top: 40px;
+    }
+
+@media (min-width: 800px) {
+    section.price-section .pricing-plans .pricing-plan + .pricing-plan {
+        margin-top: 0;
+        margin-left: 100px;
+    }
+}
+
+section.price-section {
+    background: #101318;
+    padding-top: 120px;
+    position: relative;
+}
+
+    section.price-section .feature-header {
+        margin-top: 20px;
+        padding: 0 20px;
+    }
+
+@media (min-width: 800px) {
+    section.price-section .feature-header {
+        margin-top: 20px;
+    }
+}
+
+section.price-section .client-logo-cloud {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(64px, -webkit-max-content));
+    grid-template-columns: repeat(auto-fit, minmax(64px, max-content));
+    justify-content: center;
+    grid-gap: 1rem;
+    width: 100%;
+    padding-bottom: 60px;
+}
+
+@media (min-width: 800px) {
+    section.price-section .client-logo-cloud {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, -webkit-max-content));
+        grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
+        justify-content: center;
+        grid-gap: 1rem;
+        width: 100%;
+        padding-bottom: 120px;
+    }
+}
+
+section.price-section .client-logo-cloud .logo-container {
+    padding: 8px;
+    border: 1px solid #1e2127;
+    padding: 8px;
+    border: 1px solid #1e2127;
+    max-width: 64px;
+    margin: 0 auto;
+}
+
+section.price-section .pricing-obj-1 {
+    position: absolute;
+    top: 40px;
+    left: 10%;
+    width: 20%;
+    z-index: 10;
+    -webkit-animation: MoveUpDown 16s ease-out infinite;
+    animation: MoveUpDown 16s ease-out infinite;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    filter: drop-shadow(0px 24px 62px rgba(0, 0, 0, 0.5));
+}
+
+@media (min-width: 800px) {
+    section.price-section .pricing-obj-1 {
+        width: auto;
+        top: 150px;
+    }
+}
+
+section.price-section .pricing-obj-2 {
+    position: absolute;
+    top: 650px;
+    right: 10%;
+    z-index: 10;
+    -webkit-animation: MoveUpDown 12s ease-out infinite;
+    animation: MoveUpDown 12s ease-out infinite;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    filter: drop-shadow(0px 24px 62px rgba(0, 0, 0, 0.5));
+}
+
+section.price-section h2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 40px;
+    /* or 125% */
+    text-align: center;
+    letter-spacing: -1.25px;
+    color: #ffffff;
+}
+
+section.price-section .pricing-plan {
+    position: relative;
+}
+
+    section.price-section .pricing-plan .plan-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate3d(0%, 20%, 0);
+        margin: -36px;
+        max-width: 390px;
+    }
+
+    section.price-section .pricing-plan .obj-1 {
+        position: absolute;
+        top: 0;
+        right: -20%;
+        z-index: 10;
+        -webkit-animation: MoveUpDown 12s ease-out infinite;
+        animation: MoveUpDown 12s ease-out infinite;
+    }
+
+    section.price-section .pricing-plan .obj-2 {
+        position: absolute;
+        top: 350px;
+        left: -10%;
+        z-index: 10;
+        -webkit-animation: MoveUpDown 8s ease-out infinite;
+        animation: MoveUpDown 8s ease-out infinite;
+    }
+
+    section.price-section .pricing-plan .obj-3 {
+        position: absolute;
+        top: 370px;
+        right: 0px;
+        width: 40%;
+    }
+
+section.price-section .free-tier,
+section.price-section .super-tier {
+    background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: saturate(180%) blur(40px);
+    -webkit-backdrop-filter: saturate(180%) blur(40px);
+    padding-top: 44px !important;
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+    section.price-section .free-tier:after,
+    section.price-section .super-tier:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0px;
+        background: url("/assets/pattern/super-plan-border.svg") no-repeat;
+        background-size: cover;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    section.price-section .free-tier .plan-title,
+    section.price-section .super-tier .plan-title {
+        text-align: left;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 100%;
+        /* or 12px */
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ffffff;
+    }
+
+    section.price-section .free-tier .plan-price,
+    section.price-section .super-tier .plan-price {
+        text-align: left;
+        margin: 20px 0;
+    }
+
+    section.price-section .free-tier .plan-description,
+    section.price-section .super-tier .plan-description {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 32px;
+        /* or 178% */
+        letter-spacing: -0.25px;
+        z-index: 2;
+        color: #ffffff;
+    }
+
+        section.price-section .free-tier .plan-description span:first-of-type,
+        section.price-section .super-tier .plan-description span:first-of-type {
+            font-weight: 500;
+        }
+
+    section.price-section .free-tier::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0px;
+        background: url("/assets/pattern/free-plan-border.svg") no-repeat;
+        background-size: cover;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+section.price-section .plan-action {
+    margin-top: 15px;
+}
+
+    section.price-section .plan-action a {
+        background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+        -webkit-backdrop-filter: blur(42px);
+        backdrop-filter: blur(42px);
+        backdrop-filter: saturate(180%) blur(40px);
+        -webkit-backdrop-filter: saturate(180%) blur(40px);
+        /* Note: backdrop-filter has minimal browser support */
+        width: 100%;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 100%;
+        /* or 20px */
+        height: 72px;
+        margin-left: -1px;
+        width: 322px;
+        text-align: center;
+        letter-spacing: 2px;
+        padding: 25px 30px;
+        color: #ffffff;
+        border-radius: 12px;
+        position: relative;
+    }
+
+        section.price-section .plan-action a:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0px;
+            background: url("/assets/pattern/super-btn-border.svg") no-repeat;
+            background-size: cover;
+            border-radius: 0;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+section.price-section .free-tier + .plan-action a:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0px;
+    background: url("/assets/pattern/free-btn-border.svg") no-repeat;
+    background-size: cover;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.wee-cta {
+    padding: 100px 0;
+}
+
+    .wee-cta .flex-col-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wee-cta h2 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 100%;
+        /* or 72px */
+        text-align: center;
+        letter-spacing: -0.25px;
+        color: #f52053;
+        max-width: 1024px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+
+@media (min-width: 800px) {
+    .wee-cta h2 {
+        font-size: 72px;
+    }
+}
+
+@-webkit-keyframes MoveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes MoveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+.plan-action {
+    margin-top: 15px;
+}
+
+    .plan-action a {
+        box-sizing: border-box;
+        max-width: 100%;
+        display: inline-block;
+        background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+        -webkit-backdrop-filter: blur(42px);
+        backdrop-filter: blur(42px);
+        backdrop-filter: saturate(180%) blur(40px);
+        -webkit-backdrop-filter: saturate(180%) blur(40px);
+        /* Note: backdrop-filter has minimal browser support */
+        width: 100%;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 100%;
+        /* or 20px */
+        height: 72px;
+        margin-left: -1px;
+        width: 322px;
+        text-align: center;
+        letter-spacing: 2px;
+        padding: 25px 30px;
+        color: #ffffff;
+        border-radius: 12px;
+        position: relative;
+    }
+
+        .plan-action a:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0px;
+            background: url("https://wee.bio/assets/pattern/super-btn-border.svg") no-repeat;
+            background-size: cover;
+            border-radius: 0;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+.free-tier + .plan-action a:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0px;
+    background: url("https://wee.bio/assets/pattern/free-btn-border.svg") no-repeat;
+    background-size: cover;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+#badge {
+    position: fixed;
+    right: 0px;
+    bottom: 10px;
+    background: red;
+    z-index: 10;
+}
+
+    #badge a {
+        background: white;
+        padding: 10px 16px;
+        font-size: 12px;
+        color: #212121;
+        border-top-left-radius: 12px;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<div id="badge"><a href="#">Checkout Full Page</a></div>
+<section class="price-section" id="pricing">
+  <img src="https://wee.bio/assets/pattern/pricing-obj-1.svg" alt="plan background" class="pricing-obj-1" />
+  <img src="https://wee.bio/assets/pattern/pricing-obj-2.svg" alt="plan background" class="pricing-obj-2" />
+  <div class="container">
+    <div class="row center-xs">
+      <div class="col-xs-12">
+        <div class="feature">
+          <div class="feature-header">
+            <h2>Pricing</h2>
+          </div>
+          <div class="pricing-plans">
+            <div class="pricing-plan">
+              <div class="plan-bg"><img src="https://wee.bio/assets/pattern/free-plan-bg.svg" alt="plan background" /></div>
+              <div class="free-tier">
+                <div class="plan-title">Maker</div>
+                <div class="plan-price">
+                  <div class="price">FREE</div>
+                </div>
+                <div class="plan-description">
+                  <span>For The Starters</span>
+                  <span>The essentials to get you up and running. Comes with basic widget + upto 100 reviews per month across all sites.</span>
+                </div>
+              </div>
+              <div class="plan-action">
+                <a href="/register" class="btn btn--big btn--primary">START FOR FREE</a>
+              </div>
+              <div class="pricing-plan-extras">
+                <ul>
+                  <span>Includes:</span>
+                  <li>Unlimited Websites</li>
+                  <li>Upto 100 Reviews /mo</li>
+                  <li>Basic Analytics</li>
+                  <li>Bio, Social Links</li>
+                  <li>List multiple products</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pricing-plan">
+              <div class="plan-bg"><img src="https://wee.bio/assets/pattern/super-plan-bg.svg" alt="plan background" /></div>
+              <img src="https://wee.bio/assets/pattern/super-obj-1.png" alt="plan background" class="obj-1" />
+              <img src="https://wee.bio/assets/pattern/super-obj-2.png" alt="plan background" class="obj-2" />
+              <img src="https://wee.bio/assets/pattern/super-obj-3.png" alt="plan background" class="obj-3" />
+              <div class="super-tier">
+                <div class="plan-title">Super</div>
+                <div class="plan-price">
+                  <div class="dollar">$</div>
+                  <div class="price">3</div>
+                  <div class="type">/ month</div>
+                </div>
+                <div class="plan-description">
+                  <span>For Power Makers</span>
+                  <span> Growing their businesses and collecting a lot of feedback, advanced insights into their users sentiments.</span>
+                </div>
+              </div>
+              <div class="plan-action">
+                <a href="/register?plan=super" class="btn btn--big btn--primary">GET SUPER FOR $3</a>
+              </div>
+
+              <div class="pricing-plan-extras">
+                <ul>
+                  <span>Includes:</span>
+                  <li>Upto 1000 reviews /mo</li>
+                  <li>Advanced Analytics</li>
+                  <li>Patreon/Kofi/BuyMeACoffee Link</li>
+                  <li>Unlimited Websites</li>
+                  <li>Bio, Social Links</li>
+                  <li>List multiple products</li>
+                  <span class="coming-soon">
+                    <div class="cs-header">Coming Soon</div>
+                    <li>Custom Branding</li>
+                    <li>Wall of Fan </li>
+                    <li>Public Company Page </li>
+                  </span>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
