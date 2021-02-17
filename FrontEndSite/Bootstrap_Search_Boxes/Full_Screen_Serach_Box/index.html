@@ -1,0 +1,116 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<style>
+    * {
+        border-radius: 0 !important;
+    }   
+.openBtn {
+
+    background: #f1f1f1;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+    .openBtn:hover {
+        background: #bbb;
+    }
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+}
+
+.overlay-content {
+    position: relative;
+    top: 46%;
+    width: 80%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+    color: white;
+}
+
+    .overlay .closebtn:hover {
+        color: #ccc;
+    }
+
+.overlay input[type=text] {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: white;
+}
+
+    .overlay input[type=text]:hover {
+        background: #f1f1f1;
+    }
+
+.overlay button {
+    float: left;
+    width: 20%;
+    padding: 19px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+    .overlay button:hover {
+        background: #bbb;
+    }
+
+.SearchHero {
+    background: #333333; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #dd1818, #333333); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #dd1818, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #ffffff;
+    padding: 20px;
+}
+
+    .SearchHero p {
+        font-size: 13px;
+    }
+</style>
+<div id="FullScreenOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearchHero()" title="Close Overlay">×</span>
+  <div class="overlay-content">
+    <form >
+      <input type="text" placeholder="Name the thing you love, we find best price for you" name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+<div class="SearchHero text-center">
+  <h2>Name ONE thing you love</h2>
+  <button class="openBtn" onclick="openSearchHero()">Tap to search Products</button>
+  <p style="margin-top:5px;">You will find it here (We won't judge)</p>
+</div>
+<script>
+function openSearchHero() {
+    document.getElementById("FullScreenOverlay").style.display = "block";
+}
+
+function closeSearchHero() {
+    document.getElementById("FullScreenOverlay").style.display = "none";
+}
+</script>
