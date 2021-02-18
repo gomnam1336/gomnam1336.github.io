@@ -1,0 +1,128 @@
+<style>
+html,
+body {
+    padding: 30px;
+}
+
+[data-target=slide-content] {
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.slide-down {
+    animation: slide-down 0.3s linear both;
+}
+
+.slide-up {
+    animation: slide-up 0.3s linear both;
+}
+
+@keyframes slide-down {
+    0% {
+        visibility: hidden;
+        height: 0;
+    }
+
+    95% {
+        visibility: visible;
+        height: 250px;
+    }
+    /* Set height to 'auto' after animation for spacing showing form-invalid feedback message */
+    100% {
+        visibility: visible;
+        height: auto;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        visibility: visible;
+        height: 250px;
+    }
+
+    to {
+        visibility: hidden;
+        height: 0;
+    }
+}
+</style>
+
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css'>
+<script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js'></script>
+
+<div class="conatiner">
+    <h2>SlideUp and SlideDown effect with CSS Animation</h2>
+    <hr />
+    <div class="mb-4">
+        <button type="button" class="btn btn-secondary mr-2" data-target="slide-down">Slide Down</button>
+        <button type="button" class="btn btn-info" data-target="slide-up">Slide Up</button>
+    </div>
+    <div class="card" data-target="slide-content">
+        <div class="card-body">
+            <form class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name" required>
+                    <div class="invalid-feedback">
+                        You must enter email before submitting.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <div class="invalid-feedback">
+                        You must enter email before submitting.
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+const slideUpBtn = document.querySelector('[data-target="slide-up"]');
+const slideDownBtn = document.querySelector('[data-target="slide-down"]');
+const slideContent = document.querySelector('[data-target="slide-content"]');
+slideDownBtn.addEventListener("click", slideDown);
+slideUpBtn.addEventListener("click", slideUp);
+
+function slideDown(e) {
+    e.preventDefault();
+    slideContent.classList.add("slide-down");
+    slideContent.classList.remove("slide-up");
+}
+
+function slideUp(e) {
+    e.preventDefault();
+    slideContent.classList.add("slide-up");
+    slideContent.classList.remove("slide-down");
+}
+(function () {
+    "use strict";
+    window.addEventListener(
+        "load",
+        function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName("needs-validation");
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener(
+                    "submit",
+                    function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add("was-validated");
+                    },
+                    false
+                );
+            });
+        },
+        false
+    );
+})();
+</script>
