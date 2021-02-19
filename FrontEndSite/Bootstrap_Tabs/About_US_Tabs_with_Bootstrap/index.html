@@ -1,0 +1,705 @@
+<style>
+    a, a:hover, a:focus, a:active {
+        text-decoration: none;
+    }
+
+    .about-us-bg {
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .section-common-space {
+        padding: 100px 0;
+    }
+
+    .section-header-v2 .section-title {
+        text-transform: initial;
+        margin-bottom: 30px;
+        font-size: 36px;
+        color: #1c1c1c;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, .ft-fm-1 {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .section-header-v2 .section-subtitle {
+        font-size: 22px;
+        font-weight: 300;
+        color: #666666;
+    }
+
+    p, .ft-fm-2 {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    /*==================   ABOUT US  ==================*/
+    .tabbed-about-us .tab-pane {
+        margin-bottom: 80px;
+        display: none;
+        border: none;
+    }
+
+    .tabbed-about-us .tab-content > .tab-pane {
+        border: none;
+    }
+
+    .tabbed-about-us .tab-pane.active {
+        display: block;
+        -webkit-animation: fadeIn .5s ease-in-out .15s both;
+        animation: fadeIn .5s ease-in-out .15s both;
+    }
+
+    .tabbed-about-us .img-wrapper {
+        position: relative;
+        min-height: 400px;
+    }
+
+        .tabbed-about-us .img-wrapper img {
+            box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.22);
+        }
+
+        .tabbed-about-us .img-wrapper .img-one {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .tabbed-about-us .img-wrapper .img-two {
+            position: absolute;
+            top: 120px;
+            left: 138px;
+            display: none;
+        }
+
+        .tabbed-about-us .img-wrapper .img-three {
+            position: absolute;
+            top: 40px;
+            left: 345px;
+            display: none;
+        }
+
+    .tabbed-about-us .tab-pane.active .img-one {
+        display: block;
+        -webkit-animation: fadeIn .5s ease-in-out .15s both;
+        animation: fadeIn .5s ease-in-out .15s both;
+    }
+
+    .tabbed-about-us .tab-pane.active .img-two {
+        display: block;
+        -webkit-animation: fadeIn .5s ease-in-out .50s both;
+        animation: fadeIn .5s ease-in-out .50s both;
+    }
+
+    .tabbed-about-us .tab-pane.active .img-three {
+        display: block;
+        -webkit-animation: fadeIn .5s ease-in-out .85s both;
+        animation: fadeIn .5s ease-in-out .85s both;
+    }
+
+    .tabbed-about-us .details-wrapper {
+        padding-left: 30px;
+    }
+
+    .tabbed-about-us .details .title {
+        text-transform: uppercase;
+        color: #1c1c1c;
+        margin-bottom: 50px;
+    }
+
+    .tabbed-about-us .details p {
+        margin-bottom: 30px;
+    }
+
+        .tabbed-about-us .details p:last-child {
+            margin-bottom: 0;
+        }
+
+    .pie-title-center {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+    }
+
+    .circle > span {
+        display: block;
+        position: absolute;
+        font-size: 16px;
+        font-weight: 700;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin-top: -20px;
+        line-height: 40px;
+        color: #1c1c1c;
+    }
+
+        .circle > span:after {
+            content: '%';
+            margin-left: 0.1em;
+        }
+
+    .tabbed-about-us .work-progress {
+        margin-top: 60px;
+    }
+
+    .tabbed-about-us .tabs-nav {
+        padding: 30px 0 25px;
+        border: none;
+        text-align: center;
+        border-radius: 4px;
+    }
+
+        .tabbed-about-us .tabs-nav li {
+            display: inline-block;
+            text-transform: uppercase;
+            text-align: center;
+            margin-right: 130px;
+            position: relative;
+        }
+
+            .tabbed-about-us .tabs-nav li:last-child {
+                margin-right: 0;
+            }
+
+            .tabbed-about-us .tabs-nav li * {
+                color: #666666;
+            }
+
+            .tabbed-about-us .tabs-nav li span.icon {
+                display: block;
+                font-size: 30px;
+                padding-bottom: 5px;
+                transition: .3s;
+            }
+
+            .tabbed-about-us .tabs-nav li:after {
+                content: "";
+                position: absolute;
+                bottom: -25px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                transition: .3s;
+            }
+
+            .tabbed-about-us .tabs-nav li.active:after {
+                width: 100%;
+            }
+
+    /* ABOUT US VARAITONS **************************/
+    /*about-us-bg*/
+    .about-us-bg {
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+        .about-us-bg .section-header-v2 {
+            margin-bottom: 90px;
+        }
+
+    /*tabbed-about-us-v2*/
+    .tabbed-about-us-v2.tabbed-about-us .tabs-nav {
+        background-color: transparent;
+        padding: 0;
+    }
+
+        .tabbed-about-us-v2.tabbed-about-us .tabs-nav li {
+            display: table;
+            margin-right: 30px;
+            margin-bottom: 30px;
+            background-color: #f5f5f5;
+            width: 144px;
+            height: 144px;
+            float: left;
+            border-radius: 2px;
+            transition: .3s;
+        }
+
+            .tabbed-about-us-v2.tabbed-about-us .tabs-nav li > a {
+                display: table-cell;
+                vertical-align: middle;
+                position: relative;
+                z-index: 10;
+            }
+
+    .tabbed-about-us-v2.tabbed-about-us .details-wrapper {
+        padding-left: 0;
+    }
+
+    .tabbed-about-us-v2.tabbed-about-us .details p {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .tabbed-about-us-v2.tabbed-about-us .bgcolor-major-gradient-overlay {
+        z-index: 1;
+        opacity: 0;
+    }
+
+    .tabbed-about-us-v2.tabbed-about-us .tabs-nav li:hover .bgcolor-major-gradient-overlay,
+    .tabbed-about-us-v2.tabbed-about-us .tabs-nav li.active .bgcolor-major-gradient-overlay {
+        opacity: 1;
+    }
+
+    .tabbed-about-us-v2.tabbed-about-us .tabs-nav li:hover *,
+    .tabbed-about-us-v2.tabbed-about-us .tabs-nav li.active * {
+        color: #fff;
+    }
+
+    .tabbed-about-us-v2.tabbed-about-us .tabs-nav li:hover,
+    .tabbed-about-us-v2.tabbed-about-us .tabs-nav li.active {
+        box-shadow: 0px 25px 55px 0px rgba(0, 0, 0, 0.21),0px 16px 28px 0px rgba(0, 0, 0, 0.22);
+    }
+
+        .tabbed-about-us-v2.tabbed-about-us .tabs-nav li.active:hover:after,
+        .tabbed-about-us-v2.tabbed-about-us .tabs-nav li.active:after {
+            display: none;
+        }
+
+    .tabbed-about-us-v2.tabbed-about-us .work-progress {
+        margin-top: 40px;
+    }
+    /*------ End of about us  ------*/
+
+
+    /*==================   PIE CHARTS  ==================*/
+    .work-progress .each-item {
+        float: left;
+        margin-right: 60px;
+        text-align: center;
+    }
+
+        .work-progress .each-item:last-child {
+            margin-right: 0;
+        }
+
+        .work-progress .each-item > div {
+            display: inline-block;
+            position: relative;
+            text-align: center;
+        }
+
+        .work-progress .each-item .title {
+            color: #616161;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+    /*------ End of pie charts  ------*/
+    .bgcolor-major-gradient-overlay, .bgcolor-major-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        transition: .3s;
+    }
+
+    .tabbed-about-us-v2.tabbed-about-us .work-progress .circle > span {
+        color: #f3474b;
+    }
+
+
+    .tabbed-about-us .tabs-nav li:hover *, .tabbed-about-us .tabs-nav li.active * {
+        color: #f3474b;
+    }
+
+    .bgcolor-major-gradient-overlay {
+        background-image: -webkit-linear-gradient( 135deg, rgba(243,71,75,.9) 0%, rgba(255,152,0,.9) 100%);
+    }
+
+    .input:after {
+        background: #f3474b;
+    }
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+        .tabbed-about-us .details-wrapper {
+            padding-left: 0;
+        }
+
+        .tabbed-about-us .details .title {
+            margin-bottom: 20px;
+        }
+
+        .tabbed-about-us .work-progress {
+            margin-top: 30px;
+        }
+
+        .tabbed-about-us .tabs-nav li {
+            margin-right: 100px;
+        }
+    }
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+        /*about us*/
+        .tabbed-about-us .tabs-nav li {
+            margin-right: 40px;
+        }
+
+        .tabbed-about-us-v2.tabbed-about-us .tabs-nav li {
+            width: 120px;
+            height: 120px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+        /*tabbed-about-us*/
+        .tabbed-about-us .details .title {
+            margin-bottom: 20px;
+        }
+
+        .tabbed-about-us .details-wrapper {
+            padding-left: 0;
+        }
+
+        .tabbed-about-us .work-progress {
+            margin-top: 30px;
+        }
+
+        .work-progress .each-item {
+            margin-right: 25px;
+            margin-bottom: 15px;
+        }
+
+        .tabbed-about-us .tab-pane {
+            margin-bottom: 30px;
+        }
+
+        .tabbed-about-us:not(.tabbed-about-us-v2) .tabs-nav {
+            overflow: hidden;
+            padding: 15px 15px 5px;
+        }
+
+        .tabbed-about-us-v2 .tabs-nav {
+            float: left;
+        }
+
+        .tabbed-about-us .tabs-nav li {
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+            .tabbed-about-us .tabs-nav li:after {
+                display: none;
+            }
+
+            .tabbed-about-us .tabs-nav li a {
+                font-size: 13px;
+            }
+
+            .tabbed-about-us .tabs-nav li span.icon {
+                display: none;
+            }
+
+        .tabbed-about-us-v2.tabbed-about-us .tabs-nav li {
+            height: initial;
+            padding: 15px 10px;
+        }
+
+        .tabbed-about-us-v2.tabbed-about-us .details p {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        /*.pie*/
+        .pie-value {
+            font-size: 13px;
+        }
+    }
+
+    /* Extra Small Devices, Phones */
+    @media only screen and (max-width : 510px) {
+        /*tabbed-about-us*/
+        .tabbed-about-us .img-wrapper {
+            min-height: 350px;
+        }
+
+            .tabbed-about-us .img-wrapper .img-one {
+                width: 150px;
+            }
+
+            .tabbed-about-us .img-wrapper .img-two {
+                width: 200px;
+                top: 80px;
+                left: 90px;
+            }
+
+            .tabbed-about-us .img-wrapper .img-three {
+                width: 150px;
+            }
+
+        .about-us-bg {
+            background: none !important;
+        }
+
+        .tabbed-about-us-v2.tabbed-about-us .tabs-nav li {
+            width: 43%;
+        }
+    }
+
+    /* Custom, iPhone Retina */
+    @media only screen and (max-width : 360px) {
+        .tabbed-about-us .img-wrapper .img-one {
+            width: 130px;
+        }
+
+        .tabbed-about-us .img-wrapper .img-two {
+            width: 160px;
+            top: 70px;
+            left: 30px;
+        }
+
+        .tabbed-about-us .img-wrapper .img-three {
+            width: 130px;
+            right: 0;
+            left: initial;
+        }
+    }
+</style>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Roboto:300,400,500" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+
+<!-- ========== ABOUT US SECTION ========== -->
+<section id="about-us" class="about-us-bg section-common-space" style="background-image: url(http://northui.com/zim/img/about-us/about-bg.jpg);">
+    <div class="container">
+        <!-- ========== SECTION HEADER ========== -->
+        <div class="section-header section-header-v2 text-center">
+            <h2 class="section-title">Small teams. Big results.</h2>
+            <p class="section-subtitle ft-fm-2">
+                You’ll be working with a small, dedicated team built to fit the <br> needs of your project.
+            </p>
+        </div> <!-- //section-header -->
+
+        <div class="tabbed-about-us tabbed-about-us-v2">
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- ========== NAV TABS ========== -->
+                    <ul class="tabs-nav" role="tablist">
+                        <li class="active" role="presentation"><a href="#web" aria-controls="web" role="tab" data-toggle="tab"><span class="icon"><i class="fas fa-server"></i></span>Web Design</a><span class="bgcolor-major-gradient-overlay"></span></li>
+                        <li role="presentation"><a href="#print" aria-controls="print" role="tab" data-toggle="tab"><span class="icon"><i class="fas fa-print"></i></span>Print Design</a><span class="bgcolor-major-gradient-overlay"></span></li>
+                        <li role="presentation"><a href="#development" aria-controls="development" role="tab" data-toggle="tab"><span class="icon"><i class="fab fa-buromobelexperte"></i></span>Development</a><span class="bgcolor-major-gradient-overlay"></span></li>
+                        <li role="presentation"><a href="#branding" aria-controls="branding" role="tab" data-toggle="tab"><span class="icon"><i class="far fa-building"></i></span>Branding</a><span class="bgcolor-major-gradient-overlay"></span></li>
+                        <li role="presentation"><a href="#marketing" aria-controls="marketing" role="tab" data-toggle="tab"><span class="icon"><i class="fab fa-codiepie"></i></span>Marketing</a><span class="bgcolor-major-gradient-overlay"></span></li>
+                        <li role="presentation"><a href="#support" aria-controls="marketing" role="tab" data-toggle="tab"><span class="icon"><i class="fas fa-headset"></i></span>support</a><span class="bgcolor-major-gradient-overlay"></span></li>
+                    </ul>
+                </div> <!-- //.col-sm-6 -->
+
+                <div class="col-sm-6">
+                    <div class="tab-content">
+                        <!-- ========== TAB PANE ========== -->
+                        <div role="tabpanel" class="tab-pane active" id="web">
+                            <div class="details-wrapper">
+                                <div class="details">
+                                    <p>
+                                        Webdesign ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. quis nostrud exercitation ullamco.
+                                    </p>
+                                    <p>
+                                        Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.eu
+                                    </p>
+                                </div> <!-- //details -->
+                                <div class="work-progress">
+                                    <div class="each-item">
+                                        <div data-value="0.705" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">HTML</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.50" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">WORDPRESS</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.90" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">JAVASCRIPT</p>
+                                    </div>
+                                </div> <!-- //.work-progress -->
+                            </div> <!-- //.details-wrapper -->
+                        </div> <!-- //tab-pane -->
+                        <!-- ========== TAB PANE ========== -->
+                        <div role="tabpanel" class="tab-pane" id="print">
+                            <div class="details-wrapper">
+                                <div class="details">
+                                    <p>
+                                        Print Design ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. quis nostrud exercitation ullamco.
+                                    </p>
+                                    <p>
+                                        Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.eu
+                                    </p>
+                                </div> <!-- //details -->
+                                <div class="work-progress">
+                                    <div class="each-item">
+                                        <div data-value="0.705" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">HTML</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.50" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">WORDPRESS</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.909" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">JAVASCRIPT</p>
+                                    </div>
+                                </div> <!-- //.work-progress -->
+                            </div> <!-- //.details-wrapper -->
+                        </div> <!-- //tab-pane -->
+                        <!-- ========== TAB PANE ========== -->
+                        <div role="tabpanel" class="tab-pane" id="development">
+                            <div class="details-wrapper">
+                                <div class="details">
+                                    <p>
+                                        Development ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. quis nostrud exercitation ullamco.
+                                    </p>
+                                    <p>
+                                        Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.eu
+                                    </p>
+                                </div> <!-- //details -->
+                                <div class="work-progress">
+                                    <div class="each-item">
+                                        <div data-value="0.705" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">HTML</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.50" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">WORDPRESS</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.909" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">JAVASCRIPT</p>
+                                    </div>
+                                </div> <!-- //.work-progress -->
+                            </div> <!-- //.details-wrapper -->
+                        </div> <!-- //tab-pane -->
+                        <!-- ========== TAB PANE ========== -->
+                        <div role="tabpanel" class="tab-pane" id="branding">
+                            <div class="details-wrapper">
+                                <div class="details">
+                                    <p>
+                                        Branding ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. quis nostrud exercitation ullamco.
+                                    </p>
+                                    <p>
+                                        Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.eu
+                                    </p>
+                                </div> <!-- //details -->
+                                <div class="work-progress">
+                                    <div class="each-item">
+                                        <div data-value="0.705" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">HTML</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.50" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">WORDPRESS</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.909" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">JAVASCRIPT</p>
+                                    </div>
+                                </div> <!-- //.work-progress -->
+                            </div> <!-- //.details-wrapper -->
+                        </div> <!-- //tab-pane -->
+                        <!-- ========== TAB PANE ========== -->
+                        <div role="tabpanel" class="tab-pane" id="marketing">
+                            <div class="details-wrapper">
+                                <div class="details">
+                                    <p>
+                                        Marketing ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. quis nostrud exercitation ullamco.
+                                    </p>
+                                    <p>
+                                        Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.eu
+                                    </p>
+                                </div> <!-- //details -->
+                                <div class="work-progress">
+                                    <div class="each-item">
+                                        <div data-value="0.705" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">HTML</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.50" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">WORDPRESS</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.909" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">JAVASCRIPT</p>
+                                    </div>
+                                </div> <!-- //.work-progress -->
+                            </div> <!-- //.details-wrapper -->
+                        </div> <!-- //tab-pane -->
+                        <!-- ========== TAB PANE ========== -->
+                        <div role="tabpanel" class="tab-pane" id="support">
+                            <div class="details-wrapper">
+                                <div class="details">
+                                    <p>
+                                        Support ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. quis nostrud exercitation ullamco.
+                                    </p>
+                                    <p>
+                                        Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.eu
+                                    </p>
+                                </div> <!-- //details -->
+                                <div class="work-progress">
+                                    <div class="each-item">
+                                        <div data-value="0.705" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">HTML</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.50" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">WORDPRESS</p>
+                                    </div>
+                                    <div class="each-item">
+                                        <div data-value="0.909" data-thickness="10" class="circle circle-red">
+                                            <span></span>
+                                        </div>
+                                        <p class="title">JAVASCRIPT</p>
+                                    </div>
+                                </div> <!-- //.work-progress -->
+                            </div> <!-- //.details-wrapper -->
+                        </div> <!-- //tab-pane -->
+                    </div> <!-- //tab-content -->
+                </div>
+            </div><!-- //.row -->
+        </div> <!-- //tabbed-about-us -->
+    </div> <!-- //container -->
+</section>
+<!-- //End About us -->
