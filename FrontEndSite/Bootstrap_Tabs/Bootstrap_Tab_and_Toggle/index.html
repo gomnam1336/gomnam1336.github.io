@@ -1,0 +1,107 @@
+<style>
+body {
+    margin-top: 100px !important;
+}
+
+a:hover, a:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+.tab .nav-tabs {
+    border: none;
+    margin-bottom: 10px;
+}
+
+    .tab .nav-tabs li a {
+        border: none;
+        border-bottom: 7px solid rgba(0,0,0,0.7);
+        color: #fff;
+        background-color: #B1734A;
+        padding: 15px 20px;
+        margin: 0 10px 10px 0;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all 0.3s ease 0s;
+        position: relative;
+        border-radius: 10px 45px 10px 45px;
+    }
+
+        .tab .nav-tabs li a:hover,
+        .tab .nav-tabs li.active a {
+            border: none !important;
+            background-color: #A21927 !important;
+            color: #fff !important;
+            border-bottom: 7px solid rgba(0,0,0,0.7) !important;
+        }
+
+        .tab .nav-tabs li a:after {
+            content: "";
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            border-top: 10px solid rgb(0,0,0);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            opacity: 0;
+            transition: all 0.3s ease 0s;
+        }
+
+    .tab .nav-tabs li.active a:after {
+        opacity: 1;
+    }
+
+.tab .tab-content {
+    font-size: 15px;
+    background-color: #ACBEA3;
+    color: #fff;
+    line-height: 30px;
+    padding: 20px 40px;
+    margin-top: 0px;
+    letter-spacing: 1px;
+    border-radius: 20px 80px 20px 80px;
+    position: relative;
+    border-bottom: 7px solid rgba(0,0,0,0.7);
+}
+
+@media only screen and (max-width: 479px) {
+    .tab .nav-tabs li {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}
+</style>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"  >
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <div class="tab" role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab"> Heading-1</a></li>
+                    <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab">Heading-2</a></li>
+                    <li role="presentation"><a href="#Section3" aria-controls="messages" role="tab" data-toggle="tab">Heading-3</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content tabs">
+                    <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+                        <p>Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.  </p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="Section2">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="Section3">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
