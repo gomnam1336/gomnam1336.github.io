@@ -169,90 +169,90 @@ body {
 
 
 <script>
-    // animating entirely in JS
-    Vue.component('app-danger-alert', {
-        template: "<div class='alert alert-danger'>Danger!</div>"
-    })
+// animating entirely in JS
+Vue.component('app-danger-alert', {
+    template: "<div class='alert alert-danger'>Danger!</div>"
+})
 
-    Vue.component('app-success-alert', {
-        template: "<div class='alert alert-success'>Success!</div>"
-    })
+Vue.component('app-success-alert', {
+    template: "<div class='alert alert-success'>Success!</div>"
+})
 
-    new Vue({
-        el: "#app",
-        data: {
-            show: true,
-            load: true,
-            elementWidth: 300,
-            selected: 'app-success-alert',
-            numbers: [1, 2, 3, 4, 5]
-        },
-        mounted: function () {
+new Vue({
+    el: "#app",
+    data: {
+        show: true,
+        load: true,
+        elementWidth: 300,
+        selected: 'app-success-alert',
+        numbers: [1, 2, 3, 4, 5]
+    },
+    mounted: function () {
 
-            this.$nextTick(function () {
-                this.gimmeStyle();
-            })
+        this.$nextTick(function () {
+            this.gimmeStyle();
+        })
 
 
-        },
-        methods: {
-            gimmeStyle() {
+    },
+    methods: {
+        gimmeStyle() {
 
-                setTimeout(function () {
+            setTimeout(function () {
 
-                    $(".contain-item").each(function (index) {
+                $(".contain-item").each(function (index) {
 
-                        console.log($(this), index);
+                    console.log($(this), index);
 
-                        if ($(this)[0].style.backgroundImage == "") {
-                            var r = Math.floor(Math.random() * 4);
-                            console.log(r);
+                    if ($(this)[0].style.backgroundImage == "") {
+                        var r = Math.floor(Math.random() * 4);
+                        console.log(r);
 
-                            if (r == 0) {
-                                $(this).css("background", "linear-gradient( 135deg, #CE9FFC 10%, #7367F0 100%)")
-                            } else if (r == 1) {
-                                $(this).css("background", "linear-gradient( 135deg, #81FBB8 10%, #28C76F 100%)")
-                            } else if (r == 3) {
-                                $(this).css("background", "linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%)")
-                            } else {
-                                $(this).css("background", "linear-gradient( 135deg, #FFE985 10%, #FA742B 100%)")
-                            }
-
+                        if (r == 0) {
+                            $(this).css("background", "linear-gradient( 135deg, #CE9FFC 10%, #7367F0 100%)")
+                        } else if (r == 1) {
+                            $(this).css("background", "linear-gradient( 135deg, #81FBB8 10%, #28C76F 100%)")
+                        } else if (r == 3) {
+                            $(this).css("background", "linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%)")
+                        } else {
+                            $(this).css("background", "linear-gradient( 135deg, #FFE985 10%, #FA742B 100%)")
                         }
 
-                    })
+                    }
 
-                }, 10)
+                })
+
+            }, 10)
 
 
-            },
-            addItem: function () {
-                // var new_num = Math.floor(Math.random()*this.numbers.length);
-                this.numbers.splice(0, 0, this.numbers.length + 1) //0 = don't remove anything
-            },
-            removeItem: function (num) {
-                this.numbers.splice(num, 1); //remove the item at a given index
-            }
         },
-        watch: {
-            numbers: function () {
-                this.gimmeStyle()
-            }
+        addItem: function () {
+            // var new_num = Math.floor(Math.random()*this.numbers.length);
+            this.numbers.splice(0, 0, this.numbers.length + 1) //0 = don't remove anything
+        },
+        removeItem: function (num) {
+            this.numbers.splice(num, 1); //remove the item at a given index
         }
-    });
+    },
+    watch: {
+        numbers: function () {
+            this.gimmeStyle()
+        }
+    }
+});
 
-    setTimeout(function () {
-        var button = document.querySelector(".btn-primary")
-        button.click();
-    }, 400)
+setTimeout(function () {
+    var button = document.querySelector(".btn-primary")
+    button.click();
+}, 400)
 
-    setTimeout(function () {
-        var button = document.querySelector(".btn-primary")
-        button.click();
-    }, 1200)
+setTimeout(function () {
+    var button = document.querySelector(".btn-primary")
+    button.click();
+}, 1200)
 
-    setTimeout(function () {
-        var button = document.querySelector(".btn-primary")
-        button.click();
-    }, 2000)
+setTimeout(function () {
+    var button = document.querySelector(".btn-primary")
+    button.click();
+}, 2000)
 </script>
