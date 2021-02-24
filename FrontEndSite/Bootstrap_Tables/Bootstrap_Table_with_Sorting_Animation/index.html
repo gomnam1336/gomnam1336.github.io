@@ -1,0 +1,320 @@
+<style>
+.monospace {
+    font-family: "Courier New";
+}
+
+.computer.only, .mobile.only, .tablet.only {
+    display: none;
+}
+
+@media only screen and (min-width: 992px) {
+    .computer.only {
+        display: inline-block;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .tablet.only {
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .mobile.only {
+        display: inline-block;
+    }
+}
+
+.mix-btn {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+    .mix-btn button {
+        font-family: "Raleway";
+        border: 1px solid pink;
+        background: transparent;
+        border-radius: 5px;
+        margin: 0px 2px;
+        padding: 5px 10px;
+    }
+
+#mix-wrapper {
+    transition: all 3s ease;
+}
+
+    #mix-wrapper .mix-target {
+        display: none;
+    }
+
+@media only screen and (min-width: 992px) {
+    td.computer.only, th.computer.only {
+        display: table-cell;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    td.tablet.only, th.tablet.only {
+        display: table-cell;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    td.mobile.only, th.mobile.only {
+        display: table-cell;
+    }
+}
+
+.panel-body.edit {
+    padding: 0px;
+}
+
+    .panel-body.edit textarea {
+        border: 0px;
+        resize: none;
+    }
+
+.margin-bottom {
+    margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 992px) {
+    .footer {
+        height: 180px;
+        margin-top: -180px;
+    }
+}
+
+body {
+    height: 100%;
+}
+
+.body {
+    min-height: 100%;
+    margin-bottom: -180px;
+    padding-bottom: 180px;
+}
+
+.block {
+    border: 1px solid pink;
+    height: auto;
+}
+
+.panel-default {
+    border-color: rgba(251, 218, 98, 0.85);
+    border-width: 2px;
+}
+
+    .panel-default .panel-heading {
+        background: linear-gradient(-250deg, rgba(251, 218, 98, 0.85), rgba(251, 218, 98, 0.85));
+    }
+
+.btn {
+    transition: all 0.3s ease;
+}
+
+    .btn:hover {
+        background: rgba(251, 218, 98, 0.85);
+        border: 1px solid transparent;
+    }
+
+.table-hover > tbody > tr:hover {
+    transition: all 0.3s ease;
+    background: rgba(251, 218, 98, 0.85);
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js?v=2.1.9'></script>
+<h1 class="text-center">
+    Bootstrap Table with Sorting Animation
+</h1>
+<div class="mix-btn">
+    <button class="sort" data-sort="order:asc">Ascending</button>
+    <button class="sort" data-sort="order:desc">Descending</button>
+    <button class="distory-btn">change position</button>
+    <button class="condition-btn">change rank</button>
+</div>
+
+<div class="panel panel-default table-responsive">
+    <table class="table table-hover table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th id="head-rank">ID</th>
+                <th id="head-user">User</th>
+                <th id="head-score">point</th>
+                <th id="head-penalty">information</th>
+                <th><a href="">A</a></th>
+                <th><a href="">B</a></th>
+                <th><a href="">C</a></th>
+                <th><a href="">D</a></th>
+                <th><a href="">E</a></th>
+                <th><a href="">F</a></th>
+                <th id="head-total">Total credit</th>
+            </tr>
+        </thead>
+        <tbody id="mix-wrapper">
+            <tr id="user_11" class="mix-target NCTU" data-order="2">
+                <td data-type="rank"></td>
+                <td>
+                    <a href="/users/11/">11 boy</a>
+                </td>
+                <td data-type="score">--</td>
+                <td data-type="penalty">--</td>
+                <td data-type="problem_10045">--/--</td>
+                <td data-type="problem_10046">--/--</td>
+                <td data-type="problem_10047">--/--</td>
+                <td data-type="problem_10048">--/--</td>
+                <td data-type="problem_10049">--/--</td>
+                <td data-type="problem_10050">--/--</td>
+                <td data-type="total">--/--</td>
+            </tr>
+            <tr id="user_20" class="mix-target NCTU" data-order="3">
+                <td data-type="rank"></td>
+                <td>
+                    <a href="/users/20/">20 boy</a>
+                </td>
+                <td data-type="score">--</td>
+                <td data-type="penalty">--</td>
+                <td data-type="problem_10045">--/--</td>
+                <td data-type="problem_10046">--/--</td>
+                <td data-type="problem_10047">--/--</td>
+                <td data-type="problem_10048">--/--</td>
+                <td data-type="problem_10049">--/--</td>
+                <td data-type="problem_10050">--/--</td>
+                <td data-type="total">--/--</td>
+            </tr>
+            <tr id="user_38" class="mix-target NTU" data-order="4">
+                <td data-type="rank"></td>
+                <td>
+                    <a href="/users/38/">38 boy</a>
+                </td>
+                <td data-type="score">--</td>
+                <td data-type="penalty">--</td>
+                <td data-type="problem_10045">--/--</td>
+                <td data-type="problem_10046">--/--</td>
+                <td data-type="problem_10047">--/--</td>
+                <td data-type="problem_10048">--/--</td>
+                <td data-type="problem_10049">--/--</td>
+                <td data-type="problem_10050">--/--</td>
+                <td data-type="total">--/--</td>
+            </tr>
+            <tr id="user_3" class="mix-target NTU" data-order="1">
+                <td data-type="rank"></td>
+                <td>
+                    <a href="/users/3/">3 boy</a>
+                </td>
+                <td data-type="score">--</td>
+                <td data-type="penalty">--</td>
+                <td data-type="problem_10045">--/--</td>
+                <td data-type="problem_10046">--/--</td>
+                <td data-type="problem_10047">--/--</td>
+                <td data-type="problem_10048">--/--</td>
+                <td data-type="problem_10049">--/--</td>
+                <td data-type="problem_10050">--/--</td>
+                <td data-type="total">--/--</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr id="problem">
+                <td></td>
+                <td><b>condition</b></td>
+                <td></td>
+                <td></td>
+                <td data-type="problem_10045">10045</td>
+                <td data-type="problem_10046">10046</td>
+                <td data-type="problem_10047">10047</td>
+                <td data-type="problem_10048">10048</td>
+                <td data-type="problem_10049">10049</td>
+                <td data-type="problem_10050">10050</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<script>
+$('#mix-wrapper').mixItUp({
+    load: {
+        sort: 'order:asc' /* default:asc */
+    },
+    layout: {
+        display: 'table-row'
+    },
+    animation: {
+        effects: 'fade', /* fade scale */
+        duration: 700, /* 600 */
+    },
+    selectors: {
+        target: '.mix-target', /* .mix */
+        filter: '.filter', /* .filter */
+        sort: '.sort' /* .sort */
+    },
+    callbacks: {
+        onMixEnd: function (state) {
+            console.log(state) /* null */
+        }
+    }
+});
+$('.distory-btn').on("click", function () {
+    $('#mix-wrapper').mixItUp('destroy', true);
+
+    $('#mix-wrapper').html('<tr id="user_11" class="mix-target NCTU" data-order="2"><td data-type="rank"></td><td><a href="/users/11/">11 boy</a></td><td data-type="score">--</td><td data-type="penalty">--</td><td data-type="problem_10045">--/--</td><td data-type="problem_10046">--/--</td><td data-type="problem_10047">--/--</td><td data-type="problem_10048">--/--</td><td data-type="problem_10049">--/--</td><td data-type="problem_10050">--/--</td><td data-type="total">--/--</td></tr><tr id="user_3" class="mix-target NCTU" data-order="1"><td data-type="rank"></td><td><a href="/users3/">3 boy</a></td><td data-type="score">--</td><td data-type="penalty">--</td><td data-type="problem_10045">--/--</td><td data-type="problem_10046">--/--</td><td data-type="problem_10047">--/--</td><td data-type="problem_10048">--/--</td><td data-type="problem_10049">--/--</td><td data-type="problem_10050">--/--</td><td data-type="total">--/--</td></tr><tr id="user_20" class="mix-target NCTU" data-order="3"><td data-type="rank"></td><td><a href="/users/20/">20 boy</a></td><td data-type="score">--</td><td data-type="penalty">--</td><td data-type="problem_10045">--/--</td><td data-type="problem_10046">--/--</td><td data-type="problem_10047">--/--</td><td data-type="problem_10048">--/--</td><td data-type="problem_10049">--/--</td><td data-type="problem_10050">--/--</td><td data-type="total">--/--</td><tr id="user_38" class="mix-target NCTU" data-order="4"><td data-type="rank"></td><td><a href="/users/38/">38 boy</a></td><td data-type="score">--</td><td data-type="penalty">--</td><td data-type="problem_10045">--/--</td><td data-type="problem_10046">--/--</td><td data-type="problem_10047">--/--</td><td data-type="problem_10048">--/--</td><td data-type="problem_10049">--/--</td><td data-type="problem_10050">--/--</td><td data-type="total">--/--</td>');
+
+    $('#mix-wrapper').mixItUp({
+        load: {
+            sort: 'order:asc' /* default:asc */
+        },
+        layout: {
+            display: 'table-row'
+        },
+        animation: {
+            effects: 'fade', /* fade scale */
+            duration: 700, /* 600 */
+        },
+        selectors: {
+            target: '.mix-target', /* .mix */
+            filter: '.filter', /* .filter */
+            sort: '.sort' /* .sort */
+        },
+        callbacks: {
+            onMixEnd: function (state) {
+                console.log(state) /* null */
+            }
+        }
+    });
+});
+$('.condition-btn').on("click", function () {
+    $('#mix-wrapper').mixItUp('destroy', true);
+
+    $('#mix-wrapper').html('<tr id="user_11" class="mix-target NCTU" data-order="1"><td data-type="rank"></td><td><a href="/users/11/">11 boy</a></td><td data-type="score">--</td><td data-type="penalty">--</td><td data-type="problem_10045">--/--</td><td data-type="problem_10046">--/--</td><td data-type="problem_10047">--/--</td><td data-type="problem_10048">--/--</td><td data-type="problem_10049">--/--</td><td data-type="problem_10050">--/--</td><td data-type="total">--/--</td></tr><tr id="user_3" class="mix-target NCTU" data-order="2"><td data-type="rank"></td><td><a href="/users3/">3 boy</a></td><td data-type="score">--</td><td data-type="penalty">--</td><td data-type="problem_10045">--/--</td><td data-type="problem_10046">--/--</td><td data-type="problem_10047">--/--</td><td data-type="problem_10048">--/--</td><td data-type="problem_10049">--/--</td><td data-type="problem_10050">--/--</td><td data-type="total">--/--</td></tr><tr id="user_20" class="mix-target NCTU" data-order="4"><td data-type="rank"></td><td><a href="/users/20/">20 boy</a></td><td data-type="score">--</td><td data-type="penalty">--</td><td data-type="problem_10045">--/--</td><td data-type="problem_10046">--/--</td><td data-type="problem_10047">--/--</td><td data-type="problem_10048">--/--</td><td data-type="problem_10049">--/--</td><td data-type="problem_10050">--/--</td><td data-type="total">--/--</td><tr id="user_38" class="mix-target NCTU" data-order="3"><td data-type="rank"></td><td><a href="/users/38/">38 boy</a></td><td data-type="score">--</td><td data-type="penalty">--</td><td data-type="problem_10045">--/--</td><td data-type="problem_10046">--/--</td><td data-type="problem_10047">--/--</td><td data-type="problem_10048">--/--</td><td data-type="problem_10049">--/--</td><td data-type="problem_10050">--/--</td><td data-type="total">--/--</td>');
+
+    $('#mix-wrapper').mixItUp({
+        load: {
+            //sort: 'order:asc' /* default:asc */
+        },
+        layout: {
+            display: 'table-row'
+        },
+        animation: {
+            effects: 'fade', /* fade scale */
+            duration: 700, /* 600 */
+        },
+        selectors: {
+            target: '.mix-target', /* .mix */
+            filter: '.filter', /* .filter */
+            sort: '.sort' /* .sort */
+        },
+        callbacks: {
+            onMixEnd: function (state) {
+                console.log(state) /* null */
+            }
+        }
+    });
+    setTimeout(function () {
+        $('#mix-wrapper').mixItUp('sort', 'order:asc'); /* default:asc */
+    }, 1500);
+});
+</script>
