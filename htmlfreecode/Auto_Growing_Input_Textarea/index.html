@@ -1,0 +1,71 @@
+<style>
+.input-sizer {
+    display: inline-grid;
+    vertical-align: top;
+    align-items: center;
+    position: relative;
+    border-bottom: solid 1px #ced4da;
+}
+
+    .input-sizer.stacked {
+        width: 100%;
+        align-items: stretch;
+    }
+
+        .input-sizer.stacked::after,
+        .input-sizer.stacked input,
+        .input-sizer.stacked textarea {
+            grid-area: 2/1;
+        }
+
+    .input-sizer > span {
+        padding: 0.25em;
+        font-size: 1rem;
+    }
+
+    .input-sizer::after,
+    .input-sizer input,
+    .input-sizer textarea {
+        width: auto;
+        min-width: 1em;
+        grid-area: 1/2;
+        font: inherit;
+        padding: 0.25em;
+        margin: 0;
+        resize: none;
+        background: none;
+        appearance: none;
+        border: none;
+    }
+
+    .input-sizer::after {
+        content: attr(data-value) " ";
+        visibility: hidden;
+        white-space: pre-wrap;
+    }
+
+    .input-sizer:focus-within {
+        outline: none;
+        border-bottom: solid 1px blue;
+    }
+
+        .input-sizer:focus-within > span {
+            color: blue;
+        }
+
+        .input-sizer:focus-within textarea:focus,
+        .input-sizer:focus-within input:focus {
+            outline: none;
+        }
+</style>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
+
+<form action="">
+	<div class="form-group col-sm-12">
+		<label for="" class="input-sizer stacked">
+			<span>Your Message </span>
+			<textarea oninput="this.parentNode.dataset.value = this.value" rows="1" placeholder=""></textarea>
+		</label>
+	</div>
+</form>
