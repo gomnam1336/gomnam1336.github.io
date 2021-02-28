@@ -1,0 +1,94 @@
+<style>
+body {
+    margin: 40px;
+}
+
+.divider {
+    display: flex;
+}
+
+    .divider:before, .divider:after {
+        content: "";
+        flex: 1;
+    }
+
+.line {
+    align-items: center;
+    margin: 1em -1em;
+}
+
+    .line:before, .line:after {
+        height: 1px;
+        margin: 0 1em;
+    }
+
+.one-line:before, .one-line:after {
+    background: black;
+}
+
+.razor:before, .razor:after {
+    box-shadow: 0 0.5px 0 black;
+}
+
+.double-razor:before, .double-razor:after {
+    height: 3px;
+    box-shadow: 0 -0.5px 0 black, 0 0.5px 0 black;
+    border-width: 0;
+}
+
+.glow:before, .glow:after {
+    height: 6px;
+    -webkit-filter: blur(5px);
+    border-radius: 5px;
+}
+
+.glow:before {
+    background: linear-gradient(to right, blue, hotpink);
+}
+
+.glow:after {
+    background: linear-gradient(to left, blue, hotpink);
+}
+
+.gradient {
+    align-items: stretch;
+    margin: 1em 0;
+    height: 2em;
+    line-height: 2em;
+    color: white;
+    background: black;
+}
+
+    .gradient:before {
+        background: linear-gradient(to right, white, black);
+    }
+
+    .gradient:after {
+        background: linear-gradient(to left, white, black);
+    }
+
+.donotcross {
+    overflow: hidden;
+    align-items: center;
+    background: #ffd500;
+    color: black;
+    height: 2em;
+    line-height: 2em;
+}
+
+    .donotcross:before, .donotcross:after {
+        background: white;
+        padding: 50px 0;
+        height: 0;
+        transform: rotate(45deg);
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+<h2 class="divider line one-line" contenteditable>Simple 1px</h2>
+<h2 class="divider line razor" contenteditable>Razor Line 0.5px</h2>
+<h2 class="divider line double-razor" contenteditable>Double 0.5px</h2>
+<h2 class="divider line glow" contenteditable>Light Saber</h2>
+<h2 class="divider gradient" contenteditable>Gradient Heading</h2>
+<h2 class="divider donotcross" contenteditable>Do Not Cross</h2>
