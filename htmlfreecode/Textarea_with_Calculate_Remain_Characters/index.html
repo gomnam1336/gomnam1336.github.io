@@ -28,23 +28,24 @@ div {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
    
-<textarea maxlength="100"></textarea>
-<div><span></span> Characters Left</div>
+<textarea maxlength="100" id="textarea"></textarea>
+<div><span id="span"></span> Characters Left</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(function () {
-    $("span").text($("textarea").attr("maxlength"));
+    $("#span").text($("textarea").attr("maxlength"));
 
-    $("textarea").on("input", function () {
+    $("#textarea").on("input", function () {
 
         var textLength = $(this).val().length,
             maxChars = $(this).attr("maxlength"),
             remChars = maxChars - textLength;
 
-        $("span").text(remChars);
+        $("#span").text(remChars);
 
     });
 
 });
 </script>  
+
