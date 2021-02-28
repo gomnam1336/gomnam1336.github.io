@@ -1,0 +1,240 @@
+<style>
+html, body {
+    font-size: 16px;
+    line-height: 1.7rem;
+    font-family: "Open Sans";
+    width: 100%;
+    height: 100%;
+}
+
+    #container {
+        width: 386px;
+        float: right;
+        margin: 2rem auto 0;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    #container h1 {
+        flex-basis: 100%;
+        text-align: center;
+        color: #555;
+        font-size: 3rem;
+        font-weight: 100;
+    }
+
+    #container .column {
+        flex-basis: 30%;
+        flex-grow: 1;
+        flex-shrink: 1;
+        max-width: 336px;
+    }
+
+.card {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 2rem 0;
+    padding: 0 0 1rem 0;
+    width: 100%;
+    box-shadow: 0.3rem 0.3rem 2rem -2px rgba(51, 51, 51, 0.41);
+}
+
+    .card p {
+        margin: 0 1rem 1rem 1rem;
+        color: #333;
+        font-size: 1.2rem;
+        font-weight: 300;
+    }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+.tab-heading {
+    font-family: "Open Sans";
+    font-weight: 600;
+    border-top: 0.3rem solid #03a9f4;
+    margin: 0 0 1rem 0;
+    color: #fdfdfd;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+
+    .tab-heading:before, .tab-heading:after {
+        content: "";
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        background-color: transparent;
+        background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="#" width="100" height="100"><path fill="#03a9f4" id="concaveCurve" fill-rule="evenodd" d="M0 0c100 0 100 100 100 100V0z"/></svg>');
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-top: -1px;
+    }
+
+    .tab-heading:before {
+        margin: 0 0 0 1rem;
+    }
+
+    .tab-heading:after {
+        transform: rotateZ(270deg);
+    }
+
+    .tab-heading .text {
+        display: block;
+        background-color: #03a9f4;
+        padding: 0.2rem 1rem 0.5rem;
+        border-color: #03a9f4;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        position: relative;
+        box-shadow: 0.1rem 0.4rem 0.5rem -3px rgba(0, 0, 0, 0.56);
+        margin-top: -1px;
+    }
+
+        .tab-heading .text:before, .tab-heading .text:after {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .tab-heading .text:before {
+            bottom: 0.4rem;
+            right: 0.9rem;
+            width: 75%;
+            height: 1.6rem;
+            box-shadow: 0.8rem 0.4rem 1rem -0.9px rgba(0, 0, 0, 0.76);
+            transform: rotate(6deg);
+            border-bottom-right-radius: 1rem;
+        }
+
+        .tab-heading .text:after {
+            top: -0.7rem;
+            right: 0.65rem;
+            transform: rotate(20deg);
+            content: "(";
+            color: transparent;
+            font-size: 1.7rem;
+            font-weight: 900;
+            text-shadow: 1rem 0 0.4rem black;
+        }
+
+    .tab-heading.right, .tab-heading.snatch, .tab-heading.face-off, .tab-heading.terminator-2, .tab-heading.sherlock-holmes, .tab-heading.the-incredibles, .tab-heading.deadpool {
+        justify-content: flex-end;
+    }
+
+        .tab-heading.right:before, .tab-heading.snatch:before, .tab-heading.face-off:before, .tab-heading.terminator-2:before, .tab-heading.sherlock-holmes:before, .tab-heading.the-incredibles:before, .tab-heading.deadpool:before {
+            margin: 0;
+        }
+
+        .tab-heading.right:after, .tab-heading.snatch:after, .tab-heading.face-off:after, .tab-heading.terminator-2:after, .tab-heading.sherlock-holmes:after, .tab-heading.the-incredibles:after, .tab-heading.deadpool:after {
+            margin: 0 1rem 0 0;
+        }
+
+        .tab-heading.right .text, .tab-heading.snatch .text, .tab-heading.face-off .text, .tab-heading.terminator-2 .text, .tab-heading.sherlock-holmes .text, .tab-heading.the-incredibles .text, .tab-heading.deadpool .text {
+            box-shadow: -0.1rem 0.4rem 0.5rem -3px rgba(0, 0, 0, 0.56);
+        }
+
+            .tab-heading.right .text:before, .tab-heading.snatch .text:before, .tab-heading.face-off .text:before, .tab-heading.terminator-2 .text:before, .tab-heading.sherlock-holmes .text:before, .tab-heading.the-incredibles .text:before, .tab-heading.deadpool .text:before {
+                left: 0.9rem;
+                box-shadow: -0.8rem 0.4rem 1rem -0.9px rgba(0, 0, 0, 0.76);
+                transform: rotate(-6deg);
+                border-bottom-left-radius: 1rem;
+            }
+
+            .tab-heading.right .text:after, .tab-heading.snatch .text:after, .tab-heading.face-off .text:after, .tab-heading.terminator-2 .text:after, .tab-heading.sherlock-holmes .text:after, .tab-heading.the-incredibles .text:after, .tab-heading.deadpool .text:after {
+                left: 0.65rem;
+                right: auto;
+                transform: rotate(-20deg);
+                content: ")";
+                text-shadow: -1rem 0 0.4rem black;
+            }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+
+<div id="container">
+  <h1>Moving Pictures</h1>
+  <div class="column">
+    <div class="card inception">
+      <h3 class="tab-heading inception">
+        <div class="text">Inception</div>
+      </h3>
+      <p>A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.</p>
+    </div>
+    <div class="card snatch">
+      <h3 class="tab-heading snatch">
+        <div class="text">Snatch</div>
+      </h3>
+      <p>Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers, and supposedly Jewish jewelers fight to track down a priceless stolen diamond.</p>
+    </div>
+    <div class="card deadpool">
+      <h3 class="tab-heading deadpool">
+        <div class="text">Deadpool</div>
+      </h3>
+      <p>A fast-talking mercenary with a morbid sense of humor is subjected to a rogue experiment that leaves him with accelerated healing powers and a quest for revenge.</p>
+    </div>
+    <div class="card the-punisher">
+      <h3 class="tab-heading the-punisher">
+        <div class="text">The Punisher</div>
+      </h3>
+      <p>An undercover FBI agent becomes a vigilante assassin and sets out to unleash his wrath upon the corrupt businessman who slaughtered his entire family at a reunion.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card face-off">
+      <h3 class="tab-heading face-off">
+        <div class="text">Face/Off</div>
+      </h3>
+      <p>In order to foil an extortion plot, an FBI agent undergoes a facial transplant surgery and assumes the identity and physical appearance of a terrorist, but the plan turns from bad to worse when the same terrorist impersonates the FBI agent.</p>
+    </div>
+    <div class="card the-matrix">
+      <h3 class="tab-heading the-matrix">
+        <div class="text">The Matrix</div>
+      </h3>
+      <p>A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.</p>
+    </div>
+    <div class="card terminator-2">
+      <h3 class="tab-heading terminator-2">
+        <div class="text">Terminator 2</div>
+      </h3>
+      <p>A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten year old son, John Connor, from a more advanced cyborg.</p>
+    </div>
+    <div class="card the-incredibles">
+      <h3 class="tab-heading the-incredibles">
+        <div class="text">The Incredibles</div>
+      </h3>
+      <p>A family of undercover superheroes, while trying to live the quiet suburban life, are forced into action to save the world.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card ocean-s-eleven">
+      <h3 class="tab-heading ocean-s-eleven">
+        <div class="text">Ocean's Eleven</div>
+      </h3>
+      <p>Danny Ocean and his eleven accomplices plan to rob three Las Vegas casinos simultaneously.</p>
+    </div>
+    <div class="card sherlock-holmes">
+      <h3 class="tab-heading sherlock-holmes">
+        <div class="text">Sherlock Holmes</div>
+      </h3>
+      <p>Detective Sherlock Holmes and his stalwart partner Watson engage in a battle of wits and brawn with a nemesis whose plot is a threat to all of England.</p>
+    </div>
+    <div class="card x-men">
+      <h3 class="tab-heading x-men">
+        <div class="text">X-Men</div>
+      </h3>
+      <p>Two mutants come to a private academy for their kind whose resident superhero team must oppose a terrorist organization with similar powers.</p>
+    </div>
+    <div class="card the-equalizer">
+      <h3 class="tab-heading the-equalizer">
+        <div class="text">The Equalizer</div>
+      </h3>
+      <p>A man believes he has put his mysterious past behind him and has dedicated himself to beginning a new, quiet life. But when he meets a young girl under the control of ultra-violent Russian gangsters, he can't stand idly by - he has to help her.</p>
+    </div>
+  </div>
+</div>
