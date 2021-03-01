@@ -1,0 +1,334 @@
+<style>
+html, body {
+    background: #111;
+    color: #aaa;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.header-wrap {
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 10px 50px 10px 50px;
+    margin: auto;
+    text-align: center;
+    font-family: "Press Start 2P", cursive;
+    transform: perspective(200px) rotateX(10deg);
+    text-shadow: 0 -1px 0 #fff, 0 1px 0 #004d40, 0 2px 0 #00483B, 0 3px 0 #004639, 0 4px 0 #004336, 0 5px 0 #004134, 0 6px 0 #003F32, 0 7px 0 #003D30, 0 8px 0 #003A2D, 0 9px 0 #00382B, 0 10px 0 #003528, 0 11px 0 #003225, 0 12px 0 #002F22, 0 13px 0 #002B1E, 0 14px 0 #00281C, 0 15px 0 #001F13, 0 22px 30px rgba(0, 0, 0, 0.9), 0 22px 30px rgba(0, 0, 0, 0.9), 0 22px 15px rgba(0, 0, 0, 0.9), 0 11px 15px rgba(0, 0, 0, 0.9), 0 15px 20px rgba(0, 0, 0, 0.9), 0 15px 11px rgba(0, 0, 0, 0.9), 0 16px 11px rgba(0, 0, 0, 0.9);
+    transition: text-shadow 1s ease 0.2s, color 0.6s ease, transform 1s ease 0.2s, letter-spacing 1s ease 0.2s;
+}
+
+    .header-wrap:hover {
+        transition: text-shadow 1s ease, color 3s ease-in 1s, transform 0.8s ease, letter-spacing 0.8s ease;
+        color: #0A0A0A;
+        text-shadow: -1px -1px 1px #000, 2px 2px 1px #292929;
+        transform: translate(0px, 16px) perspective(200px) rotateX(10deg);
+        letter-spacing: 0.015em;
+    }
+
+.paragraph {
+    display: block;
+    padding: 10px;
+    margin: auto;
+    width: 994px;
+    padding-left: 50px;
+}
+
+    .paragraph p {
+        width: auto;
+        text-shadow: 0px 3px 3px #000;
+    }
+
+/* Custom Cursor */
+.typed::after {
+    content: "|";
+    display: inline;
+    animation: pulse 1s ease infinite;
+    /* Cursor Animation */
+}
+
+@keyframes pulse {
+    40% {
+        opacity: 0;
+    }
+
+    50%, 100% {
+        opacity: 1;
+    }
+}
+
+.header-wrap {
+    font-size: calc( 12px + (25 - 12) * (100vw - 420px) / (1545 - 420));
+}
+
+@media screen and (max-width: 420px) {
+    .header-wrap {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 1545px) {
+    .header-wrap {
+        font-size: 25px;
+    }
+}
+
+.paragraph {
+    font-size: calc( 10.5px + (30 - 10.5) * (100vw - 420px) / (1053 - 420));
+}
+
+@media screen and (max-width: 420px) {
+    .paragraph {
+        font-size: 10.5px;
+    }
+}
+
+@media screen and (min-width: 1053px) {
+    .paragraph {
+        font-size: 30px;
+    }
+}
+
+.icon {
+    position: relative;
+    margin: 150px auto 0 auto;
+    font-family: sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+    .icon svg {
+        width: 14px;
+        display: block;
+        margin: 10px auto;
+    }
+
+        .icon svg .arrow {
+            animation: anim 0.35s ease-in alternate infinite;
+        }
+
+@keyframes anim {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+.links {
+    position: fixed;
+    width: auto;
+    height: auto;
+    left: 0;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+    .links .fl-fl {
+        background: #004d40;
+        border-radius: 0 15px 15px 0;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        padding: 4px;
+        width: 191px;
+        position: relative;
+        margin: 4px 0;
+        left: -157px;
+        z-index: 1000;
+        text-align: right;
+        font: normal normal 10px Arial;
+        -webkit-transition: all 375ms cubic-bezier(0.86, 0, 0.07, 1);
+        -moz-transition: all 375ms cubic-bezier(0.86, 0, 0.07, 1);
+        -ms-transition: all 375ms cubic-bezier(0.86, 0, 0.07, 1);
+        -o-transition: all 375ms cubic-bezier(0.86, 0, 0.07, 1);
+        transition: all 375ms cubic-bezier(0.86, 0, 0.07, 1);
+    }
+
+        .links .fl-fl:hover {
+            left: 0;
+        }
+
+            .links .fl-fl:hover span, .links .fl-fl:hover .fa {
+                color: #fff;
+            }
+
+        .links .fl-fl a {
+            text-decoration: none;
+        }
+
+            .links .fl-fl a .fa {
+                transition: all 700ms ease 375ms;
+                float: right;
+                font-size: 20px;
+                color: #000;
+                padding: 10px 0;
+                width: 40px;
+                margin-right: 5px;
+            }
+
+                .links .fl-fl a .fa.fa-google-plus {
+                    padding: 12px 0;
+                    font-size: 18px;
+                    margin-right: -1px;
+                }
+
+            .links .fl-fl a span {
+                transition: all 700ms ease 427ms;
+                color: #111;
+                text-decoration: none;
+                text-align: center;
+                line-height: 43px !important;
+                vertical-align: top !important;
+            }
+</style>
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<script src='https://code.jquery.com/jquery-3.3.1.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.6/typed.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js'></script>
+
+<div class="header-wrap">
+    <h1><span id="header" class="typed"></span></h1>
+</div>
+
+<h1 class="icon">
+    scroll
+    <svg version="1.1" id="svg-arrow-down" xmlns="#" xmlns:xlink="#" x="0px" y="0px" viewBox="0 0 22 35" style="enable-background:new 0 0 22 35;" xml:space="preserve">
+    <polygon class="arrow" style="fill:#aaa;" points="20.58,11.584 12.004,20.158 12.004,0 9.996,0 9.996,20.158 1.42,11.584 0,13.004 11,24 22,13.004 "></polygon>
+  </svg>
+</h1>
+
+
+<div style="height: 30px"></div>
+
+<div class="paragraph">
+    <p id="line1" class="typed"></p>
+    <p id="line2" class="typed"></p>
+    <p id="line3" class="typed"></p>
+    <p id="line4" class="typed"></p>
+    <p id="line5" class="typed"></p>
+    <p id="line6" class="typed"></p>
+    <p id="line7" class="typed"></p>
+    <p id="line8" class="typed"></p>
+    <p id="line9" class="typed"></p>
+    <p id="line10" class="typed"></p>
+    <p id="line11" class="typed"></p>
+    <p id="line12" class="typed"></p>
+    <p id="line13" class="typed"></p>
+</div>
+
+<div style="height: 300px"></div>
+
+
+<!-- Follow Links -->
+<div class="links">
+    <div class="fl-fl">
+        <a href="#" target="_blank">
+            <span>Company Website</span>
+            <i class="fa fa-globe"></i>
+        </a>
+    </div>
+    <div class="fl-fl">
+        <a href="#" target="_blank">
+            <span>Other Pens</span>
+            <i class="fa fa-codepen"></i>
+        </a>
+    </div>
+    <div class="fl-fl">
+        <a href="#" target="_blank">
+            <span>Check Out Repos</span>
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+    <div class="fl-fl">
+        <a href="#" target="_blank">
+            <span>Follow Pages</span>
+            <i class="fa fa-google-plus"></i>
+        </a>
+    </div>
+    <div class="fl-fl">
+        <a href="#" target="_blank">
+            <span>Follow Page</span>
+            <i class="fa fa-facebook-square"></i>
+        </a>
+    </div>
+    <div class="fl-fl">
+        <a href="#" target="_blank">
+            <span>Follow Account</span>
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+</div>
+<script>
+var header = new Typed("#header", {
+    strings: ["Scroll Down", "&amp; Watch the Paragraph", "Type Itself."],
+    typeSpeed: 40,
+    backSpeed: 20,
+    backDelay: 1000,
+    showCursor: false,
+    loop: true,
+    loopCount: 4,
+});
+
+
+// Typed Paragraph Lines 
+
+function paragraphLine(lineNum, content, speed) {
+    new Waypoint({
+        element: document.getElementById(lineNum),
+        handler: function (direction) {
+            if (direction === 'down') {
+                new Typed(`#${lineNum}`, {
+                    strings: [content],
+                    typeSpeed: speed,
+                    showCursor: false,
+                    loop: false,
+                    onComplete: function () {
+                        setTimeout(function () {
+                            $(`#${lineNum}`).removeClass('typed');
+                        }, 1600)
+                    }
+                });
+
+                this.disable();   // disable waypoint after typed init
+            }
+        },
+        offset: 'bottom-in-view'
+    })
+}
+
+var paragraphContent = [
+    "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    "Unde fugiat ratione aperiam tempora cum voluptate atque asperiores.",
+    "Inventore consectetur, officiis officia repellendus, ipsum ab quis maiores quas e!",
+    "Provident? Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
+    "Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.",
+    "Ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+    "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+    "Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.",
+    "Adipisci velit, sed quia non numquam eius modi tempora incidunt.",
+    "Ut labore et dolore magnam aliquam quaerat voluptatem. dolores eos qui.",
+    "Veritatis et quasi architecto beatae vitae dicta sunt sed quia non!",
+    "Consequuntur magni dolores eos?"
+]
+
+var typeSpeed = 40;
+
+for (let i = 1; i <= 13; i++) {
+    paragraphLine(`line${i}`, paragraphContent[i - 1], typeSpeed);
+    typeSpeed += 6;
+}
+</script>
