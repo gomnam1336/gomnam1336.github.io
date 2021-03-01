@@ -1,0 +1,52 @@
+<style>
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    font-family: 'Comfortaa', cursive;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+section {
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+span {
+    cursor: pointer;
+}
+</style>
+<link href="https://fonts.googleapis.com/css?family=Comfortaa:700" rel="stylesheet">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<section>
+<h1>COOL HOVER EFFECT</h1>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+    takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+    et ea rebum. Stet clita kasd gubergren, no Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+    eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+</p>
+</section>
+<script>
+$(document).ready(function () {
+    var text = $("p").text();
+    var newtext = " <span> ";
+    var newchar = " </span><span> ";
+    newtext += text.split(' ').join(newchar);
+    $("p").html(newtext);
+    $("span").hover(function () {
+        $(this).css({
+            "background-color": "#ff5252",
+            "color": "#000"
+        });
+    }, function () {
+        $(this).css({
+            "background-color": "unset",
+            "color": "#fff"
+        });
+    });
+});
+</script>
