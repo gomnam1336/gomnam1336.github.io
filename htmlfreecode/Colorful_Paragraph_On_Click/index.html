@@ -1,0 +1,29 @@
+<style>
+#myColorfulParagraph {
+    font-size: 30px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+</style>
+<div class="container">
+<p id="myColorfulParagraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis enim quis eros rutrum, eu bibendum magna pulvinar. Phasellus pulvinar consectetur enim nec sagittis. Maecenas accumsan placerat erat ac tempor. Vivamus ut neque magna. Vestibulum
+    accumsan nunc non luctus laoreet. Vivamus eget scelerisque enim, sed posuere tortor. Etiam purus nisl, aliquet tincidunt turpis a, lacinia dictum odio. Fusce nec elit eu erat condimentum malesuada ut eu sapien. Proin mollis non est et suscipit.
+</p>
+</div>
+<h1>Goal: Click the paragraph to get a random color.
+			</h1>
+<script>
+document.addEventListener("DOMContentLoaded", theParagraph);
+function theParagraph() {
+    var div = document.getElementById('myColorfulParagraph');
+    div.addEventListener("click", multicolorChange);
+    document.body.appendChild(div);
+}
+
+function multicolorChange(z) {
+    var change = z.target;
+    change.style.color = '#' + Math.random().toString(16).substr(-6);
+}
+</script>
