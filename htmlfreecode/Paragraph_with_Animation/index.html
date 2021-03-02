@@ -4,6 +4,7 @@ html, body {
     color: #aaa;
     height: 100%;
     width: 100%;
+    margin:0;
 }
 
 body {
@@ -63,18 +64,18 @@ body {
 }
 
 .header-wrap {
-    font-size: calc( 12px + (25 - 12) * (100vw - 420px) / (1545 - 420));
+    font-size: calc( 7px + (25 - 12) * (100vw - 420px) / (1545 - 420));
 }
 
 @media screen and (max-width: 420px) {
     .header-wrap {
-        font-size: 12px;
+        font-size: 7px;
     }
 }
 
 @media screen and (min-width: 1545px) {
     .header-wrap {
-        font-size: 25px;
+        font-size: 12px;
     }
 }
 
@@ -96,7 +97,7 @@ body {
 
 .icon {
     position: relative;
-    margin: 150px auto 0 auto;
+    margin: 10px auto 0 auto;
     font-family: sans-serif;
     text-align: center;
     text-transform: uppercase;
@@ -211,25 +212,19 @@ body {
 </h1>
 
 
-<div style="height: 30px"></div>
 
 <div class="paragraph">
     <p id="line1" class="typed"></p>
     <p id="line2" class="typed"></p>
     <p id="line3" class="typed"></p>
     <p id="line4" class="typed"></p>
-    <p id="line5" class="typed"></p>
-    <p id="line6" class="typed"></p>
-    <p id="line7" class="typed"></p>
-    <p id="line8" class="typed"></p>
-    <p id="line9" class="typed"></p>
-    <p id="line10" class="typed"></p>
-    <p id="line11" class="typed"></p>
-    <p id="line12" class="typed"></p>
-    <p id="line13" class="typed"></p>
+    <a href="#" style="color:#fff;text-align:center">
+        HtmlFreeCode.com
+
+    </a>
 </div>
 
-<div style="height: 300px"></div>
+
 
 
 <!-- Follow Links -->
@@ -270,6 +265,7 @@ body {
             <i class="fa fa-twitter"></i>
         </a>
     </div>
+  
 </div>
 <script>
 var header = new Typed("#header", {
@@ -310,24 +306,15 @@ function paragraphLine(lineNum, content, speed) {
 }
 
 var paragraphContent = [
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-    "Unde fugiat ratione aperiam tempora cum voluptate atque asperiores.",
-    "Inventore consectetur, officiis officia repellendus, ipsum ab quis maiores quas e!",
-    "Provident? Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
-    "Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.",
-    "Ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-    "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-    "Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.",
-    "Adipisci velit, sed quia non numquam eius modi tempora incidunt.",
-    "Ut labore et dolore magnam aliquam quaerat voluptatem. dolores eos qui.",
-    "Veritatis et quasi architecto beatae vitae dicta sunt sed quia non!",
-    "Consequuntur magni dolores eos?"
+    "Lorem ipsum dolor sit, amet .",
+    "Unde fugiat ratione aperiam tempora ",
+    "Inventore consectetur, officiis !",
+    "Provident?"
 ]
 
 var typeSpeed = 40;
 
-for (let i = 1; i <= 13; i++) {
+for (let i = 1; i <= 4; i++) {
     paragraphLine(`line${i}`, paragraphContent[i - 1], typeSpeed);
     typeSpeed += 6;
 }
