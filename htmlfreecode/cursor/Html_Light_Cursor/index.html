@@ -1,0 +1,65 @@
+<style>
+body {
+    background-color: #1d1e22;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: none;
+}
+
+p {
+    position: absolute;
+    color: #ace1af;
+    width: 260px;
+    font-size: 26px;
+    top: 5%;
+    right: 5%;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 8em;
+    position: fixed;
+    mix-blend-mode: exclusion;
+    color: #1d1e22;
+    z-index: 1;
+}
+
+#cursor-custom {
+    height: 50px;
+    width: 50px;
+    pointer-events: none;
+    position: fixed;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 70px #fff, 0 0 80px #fff, 0 0 100px #fff, 0 0 150px #fff;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<aside>
+    <h1>
+        have a nice day buddy
+    </h1>
+    <div id="cursor-custom"></div>
+    <p>
+        using the custom cursor try to read
+        secret inscription in the middle of the screen
+    </p>
+</aside>
+
+<script>
+const cursor = document.getElementById("cursor-custom"),
+    radius = cursor.offsetHeight / 2;
+
+document.addEventListener("mousemove", e => {
+    let top = e.clientY - radius,
+        left = e.clientX - radius;
+
+    cursor.style = `top: ${top}px; left: ${left}px`;
+});
+</script>
