@@ -1,0 +1,116 @@
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --roboto: 'Roboto';
+}
+
+body {
+    font-size: 14px;
+    line-height: 26px;
+    font-family: var(--roboto);
+    background-color: lightgrey;
+}
+
+
+.mainCont {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #d5e0ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    z-index: 0;
+}
+
+    .mainCont::after {
+        content: attr(data-content);
+        font-size: 13vw;
+        line-height: normal;
+        white-space: nowrap;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        font-family: Montserrat;
+        font-style: italic;
+        letter-spacing: -15px;
+        font-weight: 900;
+        text-align: center;
+        max-width: 100vw;
+        opacity: 0.03;
+    }
+
+.miniClndr_cont {
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px;
+    min-height: 150px;
+    min-width: 260px;
+    padding-bottom: 10px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-box-reflect: below 2px linear-gradient(transparent,transparent, rgb(0 0 0 / 10%), #fff);
+}
+
+    .miniClndr_cont p {
+        position: relative;
+        font-size: 18px;
+        margin: 15px 0;
+    }
+
+    .miniClndr_cont #_month {
+        background-color: #4689d2;
+        color: white;
+        height: 50px;
+        line-height: 54px;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin: 0;
+    }
+
+    .miniClndr_cont #_number {
+        font-size: 90px;
+        margin: 20px 0;
+        line-height: 65px;
+        font-weight: 700;
+        color: #1f63ad;
+    }
+</style>
+<div class="mainCont" data-content="mini calendar">
+   <div class="miniClndr_cont">
+      <p id="_month"></p>
+      <p id="_day"></p>
+      <h2 id="_number"></h2>
+      <p id="_year"></p>
+   </div>
+</div>
+<script>
+// Getting local browser language
+const lang = navigator.language;
+
+let date = new Date();
+let dayNumber = date.getDate();
+let month = date.getMonth();
+
+// Declaring date,month,day,year values in seperate variables
+let dayName = date.toLocaleString(lang, { weekday: 'long' });
+let monthName = date.toLocaleString(lang, { month: 'long' });
+let year = date.getFullYear();
+
+// Day Number/Value
+var _number = document.getElementById('_number').innerHTML = dayNumber;
+// Day Name/Value
+var _day = document.getElementById('_day').innerHTML = dayName;
+// Month Name/Value
+var _month = document.getElementById('_month').innerHTML = monthName;
+// Year Name/Value
+var _year = document.getElementById('_year').innerHTML = year;
+</script>
