@@ -1,0 +1,75 @@
+<style>
+html {
+    background-color: gray;
+}
+
+    html body #form {
+     
+        top: 5;
+        left: 5;
+        width: max-content;
+        border: 1px darkgray solid;
+        padding: 5px;
+        background: #fff;
+        border-radius: 5px;
+    }
+
+        html body #form label, html body #form input {
+            display: block;
+            margin: 20px;
+            width: 120px;
+        }
+
+    html body #output {
+        width: 200px;
+        padding: 25px;
+        background: #fff;
+        border-radius: 5px;
+        border: 2px solid var(--theme-color);
+        margin: 10px auto;
+        color: var(--theme-color);
+    }
+
+        html body #output div {
+            height: 100px;
+            width: 100px;
+            display: block;
+            background: var(--theme-color);
+        }
+
+        html body #output input {
+            display: block;
+            border: 1px solid var(--theme-color);
+            margin-bottom: 10px;
+            outline: none;
+        }
+
+        html body #output button {
+            padding: 5px 25px;
+            border-radius: 25px;
+            background-color: var(--theme-color);
+            font-weight: bold;
+            border: 0.5px solid var(--theme-color);
+            color: #fff;
+        }
+</style>
+<div id="form">
+	<label for="color">Choose a Color</label>
+	<input name="color" id="color" type="color" value="#666" onChange="updateColor()">
+</div>
+<div id="output">
+	<h2>Template</h2>
+	<p>Watch Me Change</p>
+	<input placeholder="Text Box"></input>
+	<button>Submit</button>
+</div>
+<script>
+let colorInput = document.getElementById('color');
+let outputx = document.getElementById('box');
+
+function updateColor() {
+    console.log(colorInput.value)
+    output.style = "--theme-color:" + colorInput.value + ";";
+}
+updateColor()
+</script>
