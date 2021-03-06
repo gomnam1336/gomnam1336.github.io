@@ -1,0 +1,77 @@
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    margin: 0 48px;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "Roboto Mono", monospace;
+}
+
+.moon {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 50%;
+}
+
+    .moon.boxShadow {
+        box-shadow: inset -10px 0px gold;
+        -webkit-animation: moon1 5s both steps(10) infinite;
+        animation: moon1 5s both steps(10) infinite;
+    }
+
+    .moon.border {
+        border-right: 10px solid gold;
+        -webkit-animation: moon2 5s both steps(10) infinite;
+        animation: moon2 5s both steps(10) infinite;
+    }
+
+@-webkit-keyframes moon1 {
+    to {
+        box-shadow: inset -110px 0px gold;
+    }
+}
+
+@keyframes moon1 {
+    to {
+        box-shadow: inset -110px 0px gold;
+    }
+}
+
+@-webkit-keyframes moon2 {
+    to {
+        border-right: 110px solid gold;
+    }
+}
+
+@keyframes moon2 {
+    to {
+        border-right: 110px solid gold;
+    }
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+<div class="box">
+  <h3>[box-shadow]</h3>
+  <div class="moon boxShadow"></div>
+</div>
+<div class="box">
+  <h3>[border-right]</h3>
+  <div class="moon border"></div>
+</div>
