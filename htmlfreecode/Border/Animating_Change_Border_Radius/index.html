@@ -1,0 +1,93 @@
+<style>
+body {
+    background-color: antiquewhite;
+}
+
+.container {
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 20px dashed #000;
+    animation: change-shape 2s linear infinite;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 58%;
+    transform: translate(-50%, -90%);
+    font-size: 30px;
+    animation: change 2s linear 0s infinite;
+}
+
+@keyframes change {
+    0% {
+        background: linear-gradient(to left, yellow, red);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    25% {
+        background: linear-gradient(to left, rgb(76, 62, 158), #4c00ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    50% {
+        background: linear-gradient(to right, yellow, red);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    75% {
+        background: linear-gradient(to left, rgb(76, 62, 158), #4c00ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    100% {
+        background: linear-gradient(to right, yellow, red);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+@keyframes change-shape {
+    0% {
+        border-radius: 0px;
+    }
+
+    25% {
+        border-radius: 50%;
+    }
+
+    50% {
+        border-radius: 0px;
+    }
+
+    75% {
+        border-radius: 50%;
+    }
+
+    100% {
+        border-radius: 0px;
+    }
+}
+</style>
+<div class="container">
+      <p class="text">Lorem Ipsum</p>
+</div>
