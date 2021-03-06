@@ -1,0 +1,81 @@
+<style>
+/* css base : reset */
+/* get negative value of a css variable : https://stackoverflow.com/a/48639938 */
+:root {
+    --elemSize: 5px;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Tahoma;
+    background: #d1d5da;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #f6f8fa;
+    padding: 2rem;
+    border: var(--elemSize) solid #e1e4e8;
+    position: relative;
+}
+
+    .container::before {
+        content: '';
+        width: var(--elemSize);
+        height: var(--elemSize);
+        background: white;
+        position: absolute;
+        /* negative value */
+        top: calc(-1 * var(--elemSize));
+        left: calc(-1 * var(--elemSize));
+        animation: borderAnime 5s infinite;
+    }
+
+@keyframes borderAnime {
+    0% {
+        top: calc(-1 * var(--elemSize));
+        left: calc(-1 * var(--elemSize))
+    }
+
+    25% {
+        top: calc(-1 * var(--elemSize));
+        left: 100%
+    }
+
+    50% {
+        top: 100%;
+        left: 100%
+    }
+
+    75% {
+        top: 100%;
+        left: calc(-1 * var(--elemSize))
+    }
+}
+
+.container h1 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.container a {
+    display: inline-block;
+    background: #0366d6;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.05rem;
+    padding: 1rem 3rem;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<div class="container">
+  <h1>New books out now!</h1>
+  <a href="">Read the book now</a>
+</div>
