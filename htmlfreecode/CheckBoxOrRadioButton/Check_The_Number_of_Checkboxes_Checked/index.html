@@ -1,0 +1,74 @@
+<style>
+input:checked {
+counter-increment: total;
+}
+
+output::before {
+content: counter(total);
+}
+
+/* checkboxes don't scale up in size very well in all browsers, so we'll hide them in an accessible way... */
+input {
+position: absolute;
+width: 1px;
+clip: rect(0 0 0 0);
+overflow: hidden;
+white-space: nowrap;
+}
+
+/* ...and style every <label> to look like a checkbox... */
+label {
+display: grid;
+place-items: center;
+width: 50px;
+height: 50px;
+background-color: #fff;
+overflow: hidden;
+}
+
+/* ...and add in a focus style to keep things accessible... */
+input:focus + label {
+outline: 2px solid #406f99;
+}
+
+/* ...and add a checkmark into <label> via ::before whenever its actual (hidden) checkbox is checked */
+input:checked + label::before {
+content: '✔';
+}
+
+/* everything below is for demo appearances and not important to the concept */
+
+body {
+box-sizing: border-box;
+display: grid;
+place-items: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+color: #406f99;
+background-color: #cbd9e6;
+font: 700 2.5rem/1 'Fira Mono', monospace;
+}
+
+.wrapper {
+display: flex;
+justify-content: space-between;
+width: 100%;
+max-width: 500px;
+}
+
+span, output {
+height: 50px;
+line-height: 50px;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
+<div class="wrapper">
+  <input id="c1" type="checkbox"><label for="c1"></label>
+  <input id="c2" type="checkbox" checked><label for="c2"></label>
+  <input id="c3" type="checkbox" checked><label for="c3"></label>
+  <input id="c4" type="checkbox"><label for="c4"></label>
+  <input id="c5" type="checkbox"><label for="c5"></label>
+  <span>=</span>
+  <output></output>
+</div>
