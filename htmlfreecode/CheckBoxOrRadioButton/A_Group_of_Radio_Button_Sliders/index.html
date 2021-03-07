@@ -1,0 +1,98 @@
+<style>
+/** For prettyiness **/
+body {
+font-family: sans-serif;
+margin-top: 50px;
+}
+
+/** vars **/
+:root {
+--padding: 2px;
+--radius: 5px;
+--height: 20px;
+--width: 100px;
+--on-color-bg: #22dd55;
+--off-color-bg: lightgray;
+--on-color-fg: dimgrey;
+--off-color-fg: var(--on-color-fg);
+}
+
+/** Main slider CSS **/
+.slider-checkbox {
+position: relative;
+width: 50%;
+margin: 0 auto 0.5rem auto;
+}
+
+@media only screen and (max-width: 800px) {
+.slider-checkbox {
+flex-direction: row;
+width: 90%;
+}
+}
+
+.slider-checkbox input {
+display: none;
+}
+
+.slider-checkbox input:checked + label:after {
+left: calc(50% + calc(var(--width) / 2));
+background: var(--on-color-fg);
+}
+
+.slider-checkbox input:checked + label:before {
+background: var(--on-color-bg);
+}
+
+.slider-checkbox label {
+cursor: pointer;
+}
+
+.slider-checkbox label:hover {
+color: #888;
+}
+
+.slider-checkbox label:before, .slider-checkbox label:after {
+position: absolute;
+display: inline-block;
+content: "";
+left: calc(50% - var(--padding));
+border-radius: var(--radius);
+}
+
+.slider-checkbox label:before {
+background: var(--off-color-bg);
+width: var(--width);
+z-index: 1;
+height: var(--height);
+transition: all 250ms;
+}
+
+.slider-checkbox label:after {
+width: calc(var(--width) /2 - var(--padding) *2);
+background: var(--off-color-fg);
+z-index: 2;
+transition: all 200ms;
+height: calc(var(--height) - var(--padding) * 2);
+top: var(--padding);
+left: calc(50% + var(--padding));
+}
+</style>
+<div class="slider-checkbox">
+    <input id="option-1" type="radio" value="1" name="options">
+    <label for="option-1">
+        First option
+    </label>
+</div>
+<div class="slider-checkbox">
+    <input id="option-2" type="radio" value="1" name="options">
+    <label for="option-2">
+        Second option
+    </label>
+</div>
+<div class="slider-checkbox">
+    <input id="option-3" type="radio" value="1" name="options">
+    <label for="option-3">
+        Third option
+    </label>
+</div>
