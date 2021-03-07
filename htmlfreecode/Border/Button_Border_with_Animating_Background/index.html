@@ -1,4 +1,4 @@
-﻿<style>
+<style>
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
 
 * {
@@ -30,7 +30,7 @@ section {
     background: #78ddff;
 }
 
-a {
+#atag {
     position: relative;
     display: inline-block;
     padding: 15px 30px;
@@ -45,7 +45,7 @@ a {
     background-repeat: no-repeat;
 }
 
-    a:before {
+    #atag:before {
         content: "";
         position: absolute;
         top: 6px;
@@ -58,11 +58,11 @@ a {
         transition-delay: 0.5s;
     }
 
-    a:hover:before {
+    #atag:hover:before {
         transform: scaleY(0);
     }
 
-    a:after {
+    #atag:after {
         content: "";
         position: absolute;
         left: 6px;
@@ -74,16 +74,16 @@ a {
         transform: scaleX(1);
     }
 
-    a:hover:after {
+    #atag:hover:after {
         transform: scaleX(0);
     }
 
-    a:hover {
+    #atag:hover {
         color: #fff;
         transition: 1s;
     }
 
-    a span {
+    #atag span {
         position: relative;
         z-index: 3;
     }
@@ -99,10 +99,9 @@ a {
 }
 </style>
 <section>
-	<a href="#">
+	<a href="#" id="atag">
 		<span>
 			Button
 		</span>
 	</a>
 </section>
-
