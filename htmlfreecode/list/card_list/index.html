@@ -1,0 +1,100 @@
+<style>
+@import url(https://fonts.googleapis.com/css?family=Cursive New:400,700);
+
+h1 {
+color: #ccf;
+text-shadow: 0 0 1px #00f,2px 1px 0 #00f, 5px 5px 4px #77f;
+text-align: center;
+}
+
+ol, li, p, h4 {
+margin: 0;
+}
+
+body {
+background: #ccf;
+max-width: 80%;
+width: 500px;
+margin: 40px auto;
+font: normal 16px/24px "Cursive New", serif;
+}
+
+h3 {
+font-size: 1.65rem;
+margin: 15px 0;
+text-align: center;
+}
+
+ol {
+counter-reset: section;
+}
+
+li {
+list-style-type: none;
+position: relative;
+font-size: 1.5rem;
+padding: 15px;
+margin-bottom: 15px;
+background: #aaf;
+color: #fff;
+outline: 3px solid #fff;
+outline-offset: -3px;
+box-shadow: 0 0 7px, 4px 4px 3px #77f;
+text-shadow: 0 0 1px #00f,2px 1px 0 #00f, 5px 5px 4px #77f;
+}
+
+h4 {
+position: relative;
+padding-bottom: 10px;
+}
+
+h3:after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 25px;
+height: 2px;
+background: white;
+}
+
+p {
+font-size: .9rem;
+line-height: 1.4rem;
+margin-top: 15px;
+text-shadow: none;
+text-align: center;
+}
+
+li::before {
+counter-increment: section;
+content: counter(section);
+text-align: center;
+display: inline-block;
+background-color: #bbf;
+color: #bbf;
+border-radius: 50%;
+position: absolute;
+left: -65px;
+top: 50%;
+transform: translateY(-50%);
+padding: 12px;
+font-size: 2rem;
+width: 25px;
+height: 25px;
+border: 3px solid #bbf;
+text-shadow: 0 0 2px #fff, 2px 1px 0 #fff;
+box-shadow: 3px 1px 2px #fff, inset 3px 1px 2px #fff, -1px -1px 1px #fff, inset -1px -1px 1px #fff
+}
+</style>
+<h1>CARD LIST</h1>
+<ol>
+    <li>
+    <h3>List #Item 1</h3>
+    <p>htmlfreecode.</p>
+    </li>
+    <li>
+    <h3>List #Item 2</h3>
+    <p> htmlfreecode</p>
+    </li>   
+</ol>
