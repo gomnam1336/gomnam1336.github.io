@@ -1,0 +1,83 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Warnes&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, hsl(271.4,11.2%,36.7%) 74%);
+}
+
+button {
+    width: 150px;
+    background: none;
+    border: none;
+    color: #333;
+    font-family: 'Warnes', cursive;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+button span {
+    margin: -6px;
+    padding: 0;
+}
+
+#neon:hover span {
+    animation: flicker 1s linear forwards;
+}
+
+#neon:hover #e {
+    animation-delay: .2s;
+}
+
+#neon:hover #o {
+    animation-delay: .5s;
+}
+
+#neon:hover #n2 {
+    animation-delay: .6s;
+}
+
+@keyframes flicker {
+0% {
+    color: #333;
+}
+
+5%, 15%, 25%, 30%, 100% {
+    color: #fff;
+    text-shadow: 0px 0px 25px cyan;
+}
+
+10%, 20% {
+    color: #333;
+    text-shadow: none;
+}
+}
+
+#neon:focus {
+    outline: none;
+}
+</style>
+<button id="neon">
+    <span id="n">H</span>
+    <span id="e">t</span>
+    <span id="o">m</span>
+    <span id="o">l</span>
+    <span id="n2">f</span>
+    <span id="n">r</span>
+    <span id="e">e</span>
+    <span id="o">e</span>
+    <span id="n2">c</span>
+    <span id="n">o</span>
+    <span id="e">d</span>
+    <span id="o">e</span>
+</button>
