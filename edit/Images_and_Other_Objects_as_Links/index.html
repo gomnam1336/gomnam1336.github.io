@@ -1,5 +1,199 @@
-﻿<a href="http://htmlfreecode.com/" target="_self">
+<style>
+.table a {
+    display: block;
+    text-decoration: none;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.card {
+    position: relative;
+}
+
+.card h2 a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+div {
+    display: flex;
+    margin-top:20px;
+    flex-wrap: wrap;
+}
+
+div > * {
+    padding: .5em 1em;
+    margin: 0 0.5em 1em 0.5em;
+    flex: 0 1 20em;
+    border: .2em solid rgba(0,0,0,.15);
+    border-radius: 1em;
+    background-color: #fff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h3 {
+    margin: .2em 0;
+    line-height: 1.2;
+}
+
+p {
+    margin: .2em 0;
+}
+
+a:focus, a:hover {
+    text-decoration: none;
+}
+
+.default a:link {
+    text-decoration: none;
+    color: #333;
+}
+
+.default a:focus h3, .default a:hover h3 {
+    color: #00f;
+    text-decoration: underline;
+}
+
+button {
+    font: inherit;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+button:focus, button:hover {
+    outline: none;
+}
+
+button span {
+    display: block;
+    text-align: center;
+    padding: .5em 1em;
+    margin: .5em 1em;
+    border: .1em solid #00c;
+    border-radius: .25em;
+    background-color: #00c;
+    color: #fff;
+}
+
+button:focus span, button:hover span {
+    color: #00c;
+    background-color: #fff;
+}
+
+/* Move the image above the heading */
+
+.reorder {
+    display: flex;
+    flex-direction: column;
+    padding-top: .5em;
+}
+
+.reorder img {
+    /*  see comment on post  */
+    order: -1;
+}
+
+
+
+.block {
+    position: relative;
+}
+
+.block a[href]::after, .block button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.block:hover, .block:focus-within, .default:hover, .default:focus-within {
+    border-color: rgba(0,0,255,.5);
+    box-shadow: 0 0 .5em rgba(0,0,0,.25);
+}
+
+/* Help out IE */
+
+.block a[href]:hover, .block a[href]:focus {
+    outline: .4em solid rgba(0,0,255,.25);
+    outline-offset: .25em;
+}
+
+/* Undo the IE */
+
+.block:hover a[href]:hover, .block:hover a[href]:focus, .block:hover button:focus, .block:hover button:hover, .block:focus-within a[href]:hover, .block:focus-within a[href]:focus, .block:focus-within button:focus, .block:focus-within button:hover {
+    outline: none;
+}
+
+/* ------------------------------------ */
+
+/* Now with another link in the block thinger */
+
+.block.extracta a[href]::after {
+    bottom: 3.75em;
+}
+
+.block.extracta p a[href]::after {
+    content: none;
+}
+
+.block.extracta p a[href] {
+    display: block;
+    text-align: center;
+    margin: 1em 2em 0 2em;
+    padding: .5em 1em;
+    border: .1em solid #00c;
+    border-radius: .25em;
+    text-decoration: none;
+    color: #fff;
+    background-color: #00c;
+}
+
+.block.extracta p a[href]:focus, .block.extracta p a[href]:hover {
+    color: #00c;
+    background-color: #fff;
+}
+
+</style>
+<a href="http://htmlfreecode.com/" target="_self">
     <img src="https://gomnam1336.github.io/edit/Images_and_Other_Objects_as_Links/Denver-Web-Design-CSS-Tip8.jpg" alt="" height="81" width="132" />
 </a>
-<br>
+<br />
+<table width="200" border="1" class="table">
+    <tr>
+        <td><a href="#">item1</a></td>
+        <td>item2</td>
+        <td>item3</td>
+    </tr>
+</table>
+
+<div>
+    <article class="default">
+        <a href="htmlfreecode.com" rel="nofollow">
+            <h3>Wrapping Entire Thing</h3>
+            <img src="https://gomnam1336.github.io/edit/Images_and_Other_Objects_as_Links/Denver-Web-Design-CSS-Tip8.jpg" width="640" height="360" alt="">
+            <p>
+                htmlfreecode.com
+            </p>
+        </a>
+    </article>
+</div>
+
+
 
