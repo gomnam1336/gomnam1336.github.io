@@ -1,0 +1,184 @@
+<style>
+body {
+    margin: 0;
+    background: #cffdfd;
+}
+
+#oscar {
+	width: 100px;
+}
+/* All CSS was supplied by lynda.com's Javascript Essential Training course with Morten Rand-Hendriksen for the coding challenge: create an anolouge clock */
+
+/* Layout */
+.main {
+    display: flex;
+    padding: 2em;
+    height: 90px;
+    justify-content: center;
+    align-items: middle;
+}
+
+.clockbox,
+#clock {
+    width: 100%;
+}
+
+/* Clock styles */
+.circle {
+    fill: none;
+    stroke: #000;
+    stroke-width: 9;
+    stroke-miterlimit: 10;
+}
+
+.mid-circle {
+    fill: #000;
+}
+
+.hour-marks {
+    fill: none;
+    stroke: #000;
+    stroke-width: 9;
+    stroke-miterlimit: 10;
+}
+
+.hour-hand {
+    fill: none;
+    stroke: #000;
+    stroke-width: 17;
+    stroke-miterlimit: 10;
+}
+
+.minute-hand {
+    fill: none;
+    stroke: #000;
+    stroke-width: 11;
+    stroke-miterlimit: 10;
+}
+
+.second-hand {
+    fill: none;
+    stroke: #000;
+    stroke-width: 4;
+    stroke-miterlimit: 10;
+}
+
+/* Transparent box ensuring arms center properly. */
+.sizing-box {
+    fill: none;
+}
+
+/* Make all arms rotate around the same center point. */
+#hour,
+#minute,
+#second {
+    transform-origin: 300px 300px;
+    transition: transform .5s ease-in-out;
+}
+
+</style>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js'></script>
+<div id="wrapper">
+	<svg xmlns="" id="oscar" viewBox="0 0 600 600" >
+
+		<svg id="clock" xmlns="#" width="600" height="600" viewBox="0 0 600 600">
+			<g id="face">
+				<circle class="circle" cx="300" cy="300" r="253.9" />
+				<path class="hour-marks" d="M300.5 94V61M506 300.5h32M300.5 506v33M94 300.5H60M411.3 107.8l7.9-13.8M493 190.2l13-7.4M492.1 411.4l16.5 9.5M411 492.3l8.9 15.3M189 492.3l-9.2 15.9M107.7 411L93 419.5M107.5 189.3l-17.1-9.9M188.1 108.2l-9-15.6" />
+				<circle class="mid-circle" cx="300" cy="300" r="16.2" />
+			</g>
+			<g id="hour">
+				<path class="hour-hand" d="M300.5 298V142" />
+				<circle class="sizing-box" cx="300" cy="300" r="253.9" />
+			</g>
+			<g id="minute">
+				<path class="minute-hand" d="M300.5 298V67" />
+				<circle class="sizing-box" cx="300" cy="300" r="253.9" />
+			</g>
+			<g id="second">
+				<path class="second-hand" d="M300.5 350V55" />
+				<circle class="sizing-box" cx="300" cy="300" r="253.9" />
+			</g>
+		</svg>
+
+	</svg>
+</div>
+
+
+<script>
+
+const HOURHAND = document.querySelector("#hour");
+const MINUTEHAND = document.querySelector("#minute");
+const SECONDHAND = document.querySelector("#second");
+
+// gets the current time and adds hours / mins / secs to individual let varriables
+var date = new Date();
+let hr = date.getHours();
+let min = date.getMinutes();
+let sec = date.getSeconds();
+
+// converts current time into degrees of the 360 degree clock
+// the calculation on hr & min incriments the clock smootly instead of jumping from minuite to minuite or hour to hour it is  percentages of a minuite / hour respectivly
+let hrPosition = (hr * 360 / 12) + (min * (360 / 60) / 12);
+let minPosition = (min * 360 / 60) + (sec * (360 / 60) / 60);
+let secPosition = sec * 360 / 60;
+
+// function that sets clock to current time and adds a second to it every time it is called
+function runClock() {
+
+    // adds degrees in an hour divide by seconds in an hour to previous time
+    hrPosition += (30 / 3600);
+
+    // adds degrees in a minuite divide by seconds in an minuite to previous time
+    minPosition += (6 / 60);
+
+    // adds degrees in a second to previous time
+    secPosition += 6;
+
+    // position clock hands to degrees values calculated above using transfrom rotate
+    HOURHAND.style.transform = "rotate(" + hrPosition + "deg)";
+    MINUTEHAND.style.transform = "rotate(" + minPosition + "deg)";
+    SECONDHAND.style.transform = "rotate(" + secPosition + "deg)";
+
+}
+
+// intival that automates the clock by calling the runClock function every second
+var interval = setInterval(runClock, 1000);
+
+console.clear();
+
+var oscar = document.getElementById("wrapper");
+document.addEventListener("mousemove", getMouse);
+oscar.style.position = "absolute";
+var oscarpos = { x: 0, y: 0 };
+setInterval(followMouse, 50);
+var mouse = { x: 0, y: 0 };
+var dir = "right";
+function getMouse(e) {
+	mouse.x = e.pageX;
+	mouse.y = e.pageY;
+	if (mouse.x > oscarpos.x) {
+		dir = "right";
+	} else {
+		dir = "left";
+	}
+}
+function followMouse() {
+	var distX = mouse.x - oscarpos.x - 15;
+	var distY = mouse.y - oscarpos.y - 10;
+	//Easing motion
+	//Progressive reduction of distance
+	oscarpos.x += distX / 5;
+	oscarpos.y += distY / 2;
+	oscar.style.left = oscarpos.x + "px";
+	oscar.style.top = oscarpos.y + "px";
+	//Apply css class
+	if (dir == "right") {
+		oscar.setAttribute("class", "right");
+	} else {
+		oscar.setAttribute("class", "left");
+	}
+}
+TweenMax.set('#wrapper', { perspective: 800, force3D: true, transformStyle: "preserve-3d" });
+
+</script>
