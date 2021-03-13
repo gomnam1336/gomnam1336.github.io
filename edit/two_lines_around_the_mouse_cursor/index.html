@@ -1,0 +1,170 @@
+<style>
+.pipe {
+    margin: 10px;
+    color: red;
+    font-size: 35px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cursor {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    pointer-events: none;
+    z-index: 99;
+    transform: translate(50vw, 50vh) translate(-50%, -50%);
+}
+
+.cursor .cursor-inner {
+    display: flex;
+    display: inline-flex;
+    align-items: center;
+    transition: 600ms all cubic-bezier(0.23, 1, 0.32, 1);
+    transform: rotate(0deg);
+}
+
+.cursor.grab .cursor-inner {
+    transform: rotate(180deg);
+}
+
+.cursor.grab .cursor-centre {
+    background-color: #000;
+    transform: scale(0.3);
+}
+
+.cursor.grab .cursor-arrow.arrow-left .arrow-inner {
+    transform: scale(2) rotate(-135deg) translateX(5px) translateY(-5px);
+}
+
+.cursor.grab .cursor-arrow .arrow-inner {
+    transform: scale(2) rotate(45deg) translateX(5px) translateY(-5px);
+}
+
+.cursor .cursor-centre {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    transition: 600ms all cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cursor .cursor-arrow {
+    width: 10px;
+    height: 10px;
+    margin: 0 3px;
+}
+
+.cursor .cursor-arrow.arrow-left .arrow-inner {
+    transform: rotate(-135deg);
+}
+
+.cursor .cursor-arrow .arrow-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    transform: rotate(45deg);
+    transition: 600ms all cubic-bezier(0.23, 1, 0.32, 1);
+}
+</style>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<div class="cursor">
+  <div class="cursor-inner">
+  <div class="">
+    <div class="arrow-inner pipe">|</div>
+  </div>
+  <div class="cursor-centre"></div>
+  <div class="">
+    
+    <div class="arrow-inner pipe">|</div>
+  </div>
+    </div>
+</div>
+<script>
+$(window).on("load", function () {
+var cursor = $(".cursor"),
+    arrowLeft = $(".arrow-left"),
+    arrowRight = $(".arrow-right"),
+    mouseX = 0,
+    mouseY = 0,
+    currentX = 0,
+    currentY = 0;
+
+$(this).on("mousemove", function (e) {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+});
+
+$(this).on("mousedown", function (e) {
+    cursor.addClass("grab");
+    listWrap.addClass("grab");
+    startX = e.pageX;
+    dragActive = true;
+});
+
+$(this).on("mouseup", function () {
+    cursor.removeClass("grab");
+    listWrap.removeClass("grab");
+    dragActive = false;
+
+
+});
+
+function animate() {
+var accelerationX = mouseX - currentX,
+accelerationY = mouseY - currentY;
+
+currentX += accelerationX / 10;
+currentY += accelerationY / 10;
+
+var cursorScale = 1 - Math.abs(accelerationX / 1000);
+
+if (cursorScale < 0.6) {
+cursorScale = 0.6;
+}
+
+
+
+cursor.css(
+    "transform",
+    " translate3d(-50%, -50%, 0) translate3d(" +
+    currentX +
+    "px, " +
+    currentY +
+    "px, 0) scaleY(" +
+    cursorScale +
+    ")"
+);
+
+var leftX = accelerationX;
+if (accelerationX > 0) {
+    leftX = 0;
+}
+
+arrowLeft.css(
+    "transform",
+    "translate3d(" + leftX / 6 + "px," + accelerationY * 1 / 10 + "px, 0)"
+);
+
+var rightX = accelerationX;
+if (accelerationX < 0) {
+    rightX = 0;
+}
+
+arrowRight.css(
+    "transform",
+    "translate3d(" + rightX / 6 + "px," + accelerationY * 1 / 10 + "px, 0)"
+);
+
+window.requestAnimationFrame(animate);
+}
+
+window.requestAnimationFrame(animate);
+});
+</script>
