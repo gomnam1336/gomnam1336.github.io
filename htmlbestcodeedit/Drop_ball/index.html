@@ -1,0 +1,64 @@
+<div align="center" id="staticBall" style="position:relative;visibility:visible">
+    <img src="https://www.htmlbestcodes.com/images/ball.gif" height=30 width=30 alt="Static ball">
+</div>
+<div id="ball" style="visibility:hidden; position:absolute; left:100; top:10; height:34; width:34">
+    <img src="https://www.htmlbestcodes.com/images/ball.gif" height=30 width=30 alt="Bouncing ball">
+</div>
+<script language="Javascript">
+
+//Begin
+iter = 0;
+setId = 0;
+down = true;
+up = false;
+var ns = ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) >= 4));
+ie = !ns;
+bouncingBall = document.getElementById("ball").style;
+stillBall = document.getElementById("staticBall").style;
+var winH;//= (ns) ? window.innerHeight - 55 : document.body.offsetHeight - 55;
+document.onmouseup = buttonUp;
+if (ns)
+    document.captureEvents(Event.MOUSEUP);
+function buttonUp(e) {
+winH = (ns) ? window.innerHeight - 55 + window.scrollY : document.body.offsetHeight - 55 + document.body.scrollTop;
+if (((ns) ? e.which : event.button) != 1) return true;
+if (setId != 0) clearInterval(setId);
+    bouncingBall.visibility = "visible";
+    stillBall.visibility = "hidden";
+    bouncingBall.left = (ns) ? e.pageX - 15 : event.clientX - 15;
+    bouncingBall.top = (ns) ? e.pageY - 15 : event.clientY - 15 + document.body.scrollTop;
+    iter = 0;
+    setId = setInterval("generateGravity()", 20);
+return true;
+}
+function generateGravity() {
+if ((parseInt(bouncingBall.top) + iter < winH) && down) {
+    bouncingBall.top = parseInt(bouncingBall.top) + iter;
+    iter++;
+    return;
+}
+else {
+if ((parseInt(bouncingBall.top) < winH) && down) {
+    bouncingBall.top = winH + 5;
+    return;
+}
+down = false;
+up = true;
+if (iter < 0 && parseInt(bouncingBall.top) > winH) {
+    clearInterval(setId);
+    bouncingBall.visibility = "hidden";
+    stillBall.visibility = "visible";
+    setId = 0;
+}
+if (parseInt(bouncingBall.top) > 0 && up && iter >= 0) {
+    bouncingBall.top = parseInt(bouncingBall.top) - iter;
+    iter--;
+    if (iter % 3 == 0) iter--;
+    return;
+}
+down = true;
+up = false;
+}
+}
+// End -->
+</script>
