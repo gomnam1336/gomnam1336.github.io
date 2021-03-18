@@ -1,0 +1,154 @@
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 30px;
+}
+
+#highlight {
+    display: none;
+}
+
+/*styles for the pre tag*/
+#layer {
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    background: linear-gradient(white, white 19px, #ddd 19px, #ddd 20px);
+    background-size: 20px 20px;
+    padding: 20px 30px;
+    white-space: pre-wrap; /*to wrap words*/
+    word-wrap: break-word; /*IE 5.5+*/
+}
+
+/*colors*/
+.sc {
+    color: brown;
+}
+
+.keyword {
+    color: purple;
+    font-weight: bold;
+}
+
+.string {
+    color: darkgreen;
+}
+
+.comment {
+    color: green;
+    background: lightyellow;
+}
+
+.function {
+    color: red;
+}
+</style>
+
+<pre id="layer"></pre>
+
+    <!-- textarea to contain the raw sql -->
+<textarea id="highlight" name="highlight">
+#This is a mysql syntax highlighter
+-- This is a comment
+/*
+And this is a multi line comment
+SELECT things FROM table;
+*/
+
+SELECT 
+ag.name AS agent, `d.date`, d.first_payment_date, d.account_number, d.id as disbursement_id, d.amount as loan_amount, d.late_fee, b.id as bid, b.name as borrower, tf.name as payment_frequency, ap.id as application_id, 
+
+(SELECT COUNT(id) FROM payment_schedule WHERE disbursement_id = d.id AND skip = '1') as skip_count, 
+
+IFNULL(SUM(r.principal), 0) as paid_principal, 
+
+IF(d.interest_calculation_method_id = 2, d.amount, IFNULL((SELECT SUM(principal) FROM payment_schedule WHERE disbursement_id = d.id AND skip = '0' AND date <= CURDATE()), 0)) as psprincipal, 
+
+IF(d.interest_calculation_method_id IN(2, 3), d.amount - (SELECT IFNULL(SUM(principal), 0) FROM receipts WHERE disbursement_id = d.id), IFNULL((SELECT SUM(principal+interest) FROM payment_schedule WHERE disbursement_id = d.id AND skip = '0' AND date <= CURDATE()), 0)) as psamount, 
+
+FROM disbursements d 
+LEFT JOIN receipts r ON r.disbursement_id=d.id 
+LEFT JOIN applications ap ON d.application_id = ap.id  
+LEFT JOIN agents ag ON ap.vt_user_id = ag.vt_user_id 
+LEFT JOIN borrowers b ON ap.borrower_id = b.id 
+LEFT JOIN time_frequencies tf ON d.payment_frequency_id = tf.id 
+
+WHERE d.status = 'active'
+ORDER BY due_date
+</textarea>
+
+    <!-- jquery -->
+<script src="http://www.htmlbestcodes.com/javascripts/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//full list of reserved words: http://dev.mysql.com/doc/refman/5.0/en/reserved-words.html
+	var k = ["AND", "AS", "ASC", "BETWEEN", "BY", "CASE", "CURRENT_DATE", "CURRENT_TIME", "DELETE", "DESC", "DISTINCT", "EACH", "ELSE", "ELSEIF", "FALSE", "FOR", "FROM", "GROUP", "HAVING", "IF", "IN", "INSERT", "INTERVAL", "INTO", "IS", "JOIN", "KEY", "KEYS", "LEFT", "LIKE", "LIMIT", "MATCH", "NOT", "NULL", "ON", "OPTION", "OR", "ORDER", "OUT", "OUTER", "REPLACE", "RIGHT", "SELECT", "SET", "TABLE", "THEN", "TO", "TRUE", "UPDATE", "VALUES", "WHEN", "WHERE"];
+	//adding lowercase keyword support
+	var len = k.length;
+	for(var i = 0; i < len; i++)
+	{
+		k.push(k[i].toLowerCase());
+	}
+
+	var re;
+	var c = $("#highlight").val(); //raw code
+
+	//regex time
+	//highlighting special characters. /, *, + are escaped using a backslash
+	//'g' = global modifier = to replace all occurances of the match
+	//$1 = backreference to the part of the match inside the brackets (....)
+	c = c.replace(/(=|%|\/|\*|-|,|;|\+|<|>)/g, "<span class=\"sc\">$1</span>");
+
+	//strings - text inside single quotes and backticks
+	c = c.replace(/(['`].*?['`])/g, "<span class=\"string\">$1</span>");
+
+	//numbers - same color as strings
+	c = c.replace(/(\d+)/g, "<span class=\"string\">$1</span>");
+
+	//functions - any string followed by a '('
+	c = c.replace(/(\w*?)\(/g, "<span class=\"function\">$1</span>(");
+
+	//brackets - same as special chars
+	c = c.replace(/([\(\)])/g, "<span class=\"sc\">$1</span>");
+
+	//reserved mysql keywords
+	for(var i = 0; i < k.length; i++)
+	{
+		//regex pattern will be formulated based on the array values surrounded by word boundaries. since the replace function does not accept a string as a regex pattern, we will use a regex object this time
+		re = new RegExp("\\b"+k[i]+"\\b", "g");
+		c = c.replace(re, "<span class=\"keyword\">"+k[i]+"</span>");
+	}
+
+	//comments - tricky...
+	//comments starting with a '#'
+	c = c.replace(/(#.*?\n)/g, clear_spans);
+
+	//comments starting with '-- '
+	//first we need to remove the spans applied to the '--' as a special char
+	c = c.replace(/<span class=\"sc\">-<\/span><span class=\"sc\">-<\/span>/g, "--");
+	c = c.replace(/(-- .*?\n)/g, clear_spans);
+
+	//comments inside /*...*/
+	//filtering out spans attached to /* and */ as special chars
+	c = c.replace(/<span class=\"sc\">\/<\/span><span class=\"sc\">\*<\/span>/g, "/*");
+	c = c.replace(/<span class=\"sc\">\*<\/span><span class=\"sc\">\/<\/span>/g, "*/");
+	//In JS the dot operator cannot match newlines. So we will use [\s\S] as a hack to select everything(space or non space characters)
+	c = c.replace(/(\/\*[\s\S]*?\*\/)/g, clear_spans);
+
+	$("#layer").html(c); //injecting the code into the pre tag
+
+	//as you can see keywords are still purple inside comments.
+	//we will create a filter function to remove those spans. This function will noe be used in .replace() instead of a replacement string
+	function clear_spans(match)
+	{
+		match = match.replace(/<span.*?>/g, "");
+		match = match.replace(/<\/span>/g, "");
+		return "<span class=\"comment\">"+match+"</span>";
+	}
+})
+</script>
