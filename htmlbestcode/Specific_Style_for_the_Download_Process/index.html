@@ -1,0 +1,230 @@
+<style>
+body {
+    background-color: #FDD13B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+}
+
+.content {
+    display: flex;
+    height: 85vh;
+    align-items: center;
+}
+
+.credits span {
+    font-weight: bold;
+}
+
+.credits a {
+    text-decoration: none;
+    color: red;
+}
+
+.button {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial;
+}
+
+.button__checkbox {
+    position: absolute;
+    display: none;
+}
+
+.button__checkbox:checked + label {
+    pointer-events: none;
+}
+
+.button__checkbox:checked + label > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    width: 300px;
+}
+
+.button__checkbox:checked + label > div > div.button__inner__panel {
+    margin-left: auto;
+    margin-right: auto;
+    animation: moveButton 5s ease-out;
+    animation-fill-mode: forwards;
+}
+
+.button__checkbox:checked + label > div > div.button__inner__panel .button__inner__panel__span {
+    display: none;
+}
+
+.button__checkbox:checked + label > div > div.button__inner__panel .button__inner__panel__doneMessage {
+    opacity: 1;
+    animation: labelMoveUp 1s 5s forwards;
+}
+
+.button__checkbox:checked + label > div .button__outer__panel__downloadMessage > span {
+    animation: labelFadeIn 1s forwards;
+    animation-delay: 1s;
+}
+
+.button__checkbox:checked + label > div .button__outer__panel__downloadMessage__close {
+    animation: labelFadeIn 0.5s forwards 0.5, rotateCloseButton 1 forwards 1s;
+    cursor: pointer;
+}
+
+.button__outer__panel {
+    position: relative;
+    background-color: #FFF;
+    height: 60px;
+    width: 180px;
+    transition: all 0.2s;
+    overflow: hidden;
+}
+
+.button__outer__panel:hover > div {
+    height: 55px;
+}
+
+.button__outer__panel__downloadMessage {
+    text-align: center;
+}
+
+.button__outer__panel__downloadMessage > span {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial;
+    transition: opacity 10s linear;
+    transition-delay: 0s;
+    opacity: 0;
+}
+
+.button__outer__panel__downloadMessage__close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    opacity: 0;
+}
+
+.button__inner__panel {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: #FEAE00;
+    height: 60px;
+    width: 180px;
+    transition: all 0.05s;
+    z-index: 1;
+}
+
+.button__inner__panel__doneMessage {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #FFF;
+    position: absolute;
+    top: 100%;
+}
+
+@keyframes moveButton {
+1% {
+    bottom: 23%;
+    left: 6%;
+}
+
+25% {
+    position: absolute;
+    height: 12px;
+    width: 20px;
+    bottom: 0px;
+    left: 0px;
+}
+
+26% {
+    position: absolute;
+    height: 12px;
+    width: 20px;
+    bottom: 0px;
+    left: 0px;
+}
+
+75%, 95% {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    height: 12px;
+    width: 300px;
+    bottom: 0px;
+    left: 0px;
+}
+
+100% {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+    width: 300px;
+    pointer-events: auto;
+}
+}
+
+@keyframes labelFadeIn {
+from {
+    opacity: 0;
+}
+
+to {
+    opacity: 1;
+}
+}
+
+@keyframes rotateCloseButton {
+from {
+    transform: rotate(0deg);
+}
+
+to {
+    transform: rotate(360deg);
+}
+}
+
+@keyframes labelMoveUp {
+from {
+    top: 100%;
+}
+
+to {
+    top: 50%;
+}
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+<div class="content">
+<input class="button__checkbox" type="checkbox" id="panelCheck"/>
+  <label for="panelCheck" class="button">
+    <div class="button__outer__panel">
+      <div class="button__outer__panel__downloadMessage">
+        
+        <span>
+          DOWNLOADING IN PROGRESS.
+          <br>
+          PLEASE WAIT A FEW SECONDS.
+        </span>
+      </div>
+      <div class="button__inner__panel">
+        <span class="button__inner__panel__span">
+          DOWNLOAD
+        </span>
+        <span class="button__inner__panel__doneMessage">
+          ALL IS DONE
+        </span>
+      </div>
+    </div>
+</label>
+</div>
