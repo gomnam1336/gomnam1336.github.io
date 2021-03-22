@@ -1,0 +1,279 @@
+<style>
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,greek);
+
+html, body, p, h1, h2, h3, h4, h5, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+html {
+    background: #151515;
+    
+    background-repeat: repeat-y;
+    background-position: center;
+    background-size: 3px;
+}
+
+body {
+    font-family: Georgia, serif;
+    color: #333;
+}
+
+.top {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    padding: 25px;
+    background: #e5e5d8;
+}
+
+/* TOP SECTION ------------------------------------------ */
+
+.top {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+}
+
+.top h1 {
+    font-size: 58px;
+    line-height: 80%;
+    font-weight: 700;
+    margin-left: -9px;
+    /* To ensure OPTICAL alignment if first letter is T. */
+}
+
+.undertitle {
+    margin-top: 10px;
+    padding-bottom: 12px;
+}
+
+.top h2 {
+    font-size: 16px;
+    font-weight: 400;
+    float: left;
+    /* margin-left: 10px; */
+}
+
+.top ul {
+    font-weight: 700;
+    float: right;
+    color: #999; /* This is just for the slashes between li's */
+}
+
+.top li {
+    display: inline;
+}
+
+nav {
+    margin-right: 7px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #999;
+    transition: all .1s linear;
+}
+
+nav a:hover {
+    color: #333;
+}
+
+
+/* CONTENT ------------------------------------------------- */
+
+article {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    padding: 25px;
+    background: #e5e5d8;
+    /* box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, .5); */
+}
+
+article h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+article p {
+    line-height: 1.4em;
+    margin-top: 15px;
+}
+
+article img {
+    width: 100%;
+    margin-top: 15px;
+}
+
+article a {
+    color: inherit;
+    transition: all .1s linear;
+}
+
+article a:hover {
+    color: #999;
+}
+
+iframe {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* POST META ------------------------------------------- */
+
+h5 abbr {
+    display: block;
+    margin-top: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 14px;
+    text-align: right;
+    font-weight: bold;
+    color: #999;
+    /* float: right; */
+}
+
+abbr a {
+    text-decoration: none;
+    color: #999;
+}
+
+abbr a:hover {
+    color: #333;
+}
+
+/* PAGE NAV ------------------------------------------ */
+
+#pageNav {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+    background: #e5e5d8;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+}
+
+#pageNav li {
+    display: inline;
+}
+
+#pageNav ul {
+    color: #333; /* This is just for the slashes between li's */
+}
+
+#pageNav li a {
+    color: #333;
+}
+
+#pageNav li a:hover {
+    text-decoration: underline;
+}
+
+#pageNav li a#current {
+    text-decoration: underline;
+}
+
+
+/* MEDIA QUERIES -------------------------------------- */
+
+@media (max-width: 565px) {
+.top h1 {
+    font-size: 40px;
+    line-height: 105%;
+    margin-left: -5px;
+}
+
+.top h2 {
+    margin: 0;
+    float: none;
+}
+
+.undertitle {
+    margin: 0;
+    padding: 0;
+}
+
+.top ul {
+    float: none;
+}
+
+nav {
+    margin: 15px 0 0 0;
+}
+
+article h1 {
+    font-size: 22px;
+}
+}
+
+@media (max-width: 410px) {
+.top h1 {
+    max-width: 180px;
+}
+}
+</style>
+<div class="top">
+  <h1>TOGETHER WE STOOD</h1>
+  
+ <div class="undertitle">
+  <h2>Possible Subtitle Here</h2>
+    <nav role='navigation'>
+    <ul>
+      <li><a href="#">ΑΡΧΕΙΟ</a></li> /
+      <li><a href="#">ΣΤΗΝ ΤΥΧΗ</a></li> /
+      <li><a href="#">RSS</a></li>
+    </ul>
+    </nav>
+  </div>
+</div>
+
+ <article>
+   <h1>Lorem ipsum dolor sit ametorum rem ipsum dolor sit amet</h1>
+   <p>Lorem ipsum dolor sit amet, <a href="">consectetur</a> adipisicing elit. Praesentium et voluptas dolor consectetur dolorem quia laboriosam ipsum reiciendis cum non cupiditate ea pariatur nobis laudantium dignissimos sequi amet! Temporibus veniam!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste expedita assumenda ipsa sunt possimus quibusdam voluptas dolore. Corrupti quo molestias laudantium esse impedit sunt assumenda explicabo enim quisquam temporibus vitae.</p>
+   
+   <h5>
+     <abbr title="">
+       <a href="">21ST AUG 2013</a> /
+       <a href="">41 NOTES</a>
+     </abbr>
+   </h5>
+ </article>
+
+<article>
+  <h1>Here goes another post heading</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae repellendus ipsa iste repellat nemo impedit quibusdam commodi laboriosam dolorum deserunt libero facilis in dicta quisquam quis rem mollitia ut cum.</p>
+  <img src="401-300x400.jpg" alt="" />
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia tempora nobis deleniti sit minima maiores tempore natus dolore saepe esse illum iure ducimus necessitatibus animi laborum voluptatibus repellendus sunt alias?</p>
+  
+  <h5>
+     <abbr title="">
+       <a href="">21ST AUG 2013</a> /
+       <a href="">41 NOTES</a>
+     </abbr>
+   </h5>
+</article>
+
+<article>
+  
+  <h1>Watch this awesome video!</h1>
+  <video width="100%" height="315" src="https://gomnam1336.github.io/FrontEndSite/sample.mp4" frameborder="0" allowfullscreen autoplay="true" ></video>
+  <p>Seriously, this video is friggin' awesome!</p>
+  
+  <h5>
+     <abbr title="">
+       <a href="">21ST AUG 2013</a> /
+       <a href="">41 NOTES</a>
+     </abbr>
+   </h5>
+</article>
+
+<nav id="pageNav">
+<ul>
+  <li><a id="current" href="#">1</a></li> |
+  <li><a href="#">2</a></li> |
+  <li><a href="#">OLDER</a></li>
+</ul>  
+</nav>
