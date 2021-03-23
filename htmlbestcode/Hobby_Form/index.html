@@ -1,0 +1,114 @@
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+* {
+    font-family: "Lato";
+}
+
+form {
+    width: 300px;
+    height: 300px;
+    border: 1px black solid;
+    border-radius: 300px;
+    background-color: black;
+    color: white;
+    font-size: 9px;
+  
+    box-shadow: 0px 1px 20px 5px rgba(0, 0, 0, 0.65);
+}
+
+.form {
+    text-align: center;
+    padding-top: 4px;
+}
+
+
+
+::placeholder {
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #CBCCD1;
+   
+}
+
+.name {
+    margin: 0 0 20px 0;
+}
+
+.checkinghobby {
+    margin-bottom: 5px;
+}
+
+.hobby {
+    display: block;
+    font-weight: 60px;
+    letter-spacing: 1px;
+}
+
+label {
+    font-style: italic;
+    font-weight: 30px;
+    letter-spacing: 1px;
+}
+
+input {
+    margin: 5px 0;
+    font-size:10px;
+}
+
+textarea {
+    
+    margin-top: 5px;
+}
+
+.ig {
+    margin-bottom: 20px;
+}
+
+button {
+
+    background: black;
+    color: white;
+    border-radius: 20px;
+    border: 1px white solid;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background: white;
+    color: black;
+}
+</style>
+
+
+<form action="#">
+  <div class="form"> 
+    
+  <div class="name">
+    Name <br><input type="text" placeholder="Kristina"> <br>
+    Nickname <br><input type="text" placeholder="Unicorn Kris">
+  </div>
+    
+  <div class="checkinghobby">
+    <span class="hobby">Check your hobbies, please</span> <br>
+    <input type="checkbox" id="it"><label for="it">&nbsp;IT</label>
+    <input type="checkbox" id="free"><label for="free">&nbsp;Freelance</label>
+    <input type="checkbox" id="travelling"><label for="travelling">&nbsp;Travelling</label>
+    <input type="checkbox" id="freediving"><label for="freediving">&nbsp;Freediving</label> <br>
+    <input type="checkbox" id="paddle"><label for="paddle">&nbsp;Paddle-boarding</label>
+    <input type="checkbox" id="reading"><label for="reading">&nbsp;Reading</label> <br>
+    <textarea name="" id=""  placeholder="Something else?"></textarea> 
+  </div>
+    
+  <div class="ig">
+    Do you follow my Instagram? <br>
+    <input type="radio" id="yeap" name="follow" checked><label for="yeap">&nbsp;Yeap</label>
+    <input type="radio" id="no" name="follow"><label for="no">&nbsp;No</label> <br>
+  </div>
+    
+    <button type="submit">Submit</button>
+  </div>
+ </form>
