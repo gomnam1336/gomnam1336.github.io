@@ -1,0 +1,165 @@
+<style>
+:root {
+    --dark-color: #232323;
+    --light-color: #f4f4f4;
+    --facebook-color: #3b5999;
+    --twitter-color: #1c9dec;
+    --reddit-color: #d7d7d7;
+    --github-color: #333333;
+    /*  Everything is fully scalable so feel free to adjust the value of the '--icon-size' in order to meet your demands :) */
+    --icon-size: 170px;
+    --icon-offset: calc(var(--icon-size) * .5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    background-color: var(--light-color);
+    font-family: Helvetica, sans-serif;
+}
+
+.social-container {
+    display: inline-block;
+}
+
+.center-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.social-container {
+    display: inline-block;
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+.social-container > input[type="checkbox"] {
+    display: none;
+}
+
+.social-container .social-icon {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: transparent;
+    color: var(--light-color) !important;
+    z-index: 0;
+    transition: all 500ms ease;
+}
+
+.social-container .social-icon:hover {
+    cursor: pointer;
+}
+
+.social-container .social-icon.facebook {
+    background-color: var(--facebook-color);
+    transform: rotate(22.5deg);
+}
+
+.social-container .social-icon.twitter {
+    background-color: var(--twitter-color);
+    transform: rotate(50deg);
+}
+
+.social-container .social-icon.reddit {
+    background-color: var(--reddit-color);
+    transform: rotate(72.5deg);
+}
+
+.social-container .social-icon.github {
+    background-color: var(--github-color);
+    transform: rotate(90deg);
+}
+
+.social-container .social-icon i {
+    opacity: 0;
+    font-size: calc(var(--icon-size) * .4);
+    transform: translate(-50%, -50%) rotate(90deg);
+    transition: all 350ms ease-in-out;
+}
+
+.social-container .social-icon:last-of-type .description {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    text-align: center;
+    font-size: calc(var(--icon-size) * .16);
+    transition: opacity 250ms ease-out;
+}
+
+.social-container input[type="checkbox"]:checked ~ .github {
+    transform: translate(var(--icon-offset), var(--icon-offset)) rotate(-90deg);
+}
+
+.social-container input[type="checkbox"]:checked ~ .reddit {
+    transform: translate(var(--icon-offset), calc(var(--icon-offset) * -1)) rotate(-90deg);
+}
+
+.social-container input[type="checkbox"]:checked ~ .twitter {
+    transform: translate(calc(var(--icon-offset) * -1), calc(var(--icon-offset) * -1)) rotate(-90deg);
+}
+
+.social-container input[type="checkbox"]:checked ~ .facebook {
+    transform: translate(calc(var(--icon-offset) * -1), var(--icon-offset)) rotate(-90deg);
+}
+
+.social-container input[type="checkbox"]:checked ~ .social-icon .description {
+    opacity: 0;
+}
+
+.social-container input[type="checkbox"]:checked ~ .social-icon i {
+    opacity: 1;
+}
+
+.social-container input[type="checkbox"]:checked ~ .social-icon:hover i {
+    transform: translate(-35%, -50%) rotate(90deg);
+}
+
+.social-container input[type="checkbox"]:checked ~ .social-icon::before {
+    content: attr(data-description);
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    right: 35%;
+    width: inherit;
+    text-align: center;
+    font-size: calc(var(--icon-size) * .15);
+    font-weight: bold;
+    opacity: 0;
+    transform: rotate(90deg) translateY(50%);
+    transition: all 350ms 50ms ease;
+}
+
+.social-container input[type="checkbox"]:checked ~ .social-icon:hover::before {
+    right: 25%;
+    opacity: 1;
+}
+</style>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css'>
+
+<label class="social-container center-content">
+  <input type="checkbox">
+<!--  Each description is taken from attribute which is named as 'data-description'  -->
+  <a class="social-icon facebook" data-description="facebook">
+    <i class="fab fa-facebook-f center-content"></i>
+  </a>
+  <a class="social-icon twitter" data-description="twitter">
+    <i class="fab fa-twitter center-content"></i>
+  </a>
+  <a class="social-icon reddit" data-description="reddit">
+    <i class="fab fa-reddit-alien center-content"></i>
+  </a>
+  <a class="social-icon github" data-description="github">
+    <i class="fab fa-github center-content"></i>
+    <div class="description">Follow me on ...</div>
+  </a>
+</label>
