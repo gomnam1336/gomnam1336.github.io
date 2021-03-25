@@ -1,0 +1,157 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<style>
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: #e6e5e6;
+}
+
+nav {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    height: 6rem;
+    width: 24rem;
+    background: #fff;
+    font-family: sans-serif;
+    font-weight: 600;
+    border-radius: 2rem;
+    padding: 0 1rem;
+    box-shadow: 0 -1.1px 2.2px rgba(0,0,0,0.02), 0 -2.7px 5.3px rgba(0,0,0,0.028), 0 -5px 10px rgba(0,0,0,0.035), 0 -8.9px 17.9px rgba(0,0,0,0.042), 0 -16.7px 33.4px rgba(0,0,0,0.05), 0 -40px 80px rgba(0,0,0,0.07);
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+
+nav li {
+    display: contents;
+}
+
+nav li:nth-of-type(1) {
+    --clr-accent-h: 133deg;
+    --clr-accent-s: 54%;
+    --clr-accent-l: 53%;
+}
+
+nav li:nth-of-type(2) {
+    --clr-accent-h: 349deg;
+    --clr-accent-s: 100%;
+    --clr-accent-l: 83%;
+}
+
+nav li:nth-of-type(3) {
+    --clr-accent-h: 220deg;
+    --clr-accent-s: 83%;
+    --clr-accent-l: 69%;
+}
+
+nav li:nth-of-type(4) {
+    --clr-accent-h: 252deg;
+    --clr-accent-s: 52%;
+    --clr-accent-l: 52%;
+}
+
+nav label {
+    position: relative;
+    font-size: 0;
+    line-height: 1rem;
+    border-radius: 100vmax;
+    padding: 1rem 1rem;
+    -webkit-padding-start: 2rem;
+    padding-inline-start: 2rem;
+    width: 3rem;
+    transition: width 0.3s 0.25s linear, color 0.3s linear, font-size 0s 0.3s linear, background 0.3s linear, -webkit-padding-start 0.3s 0.25s linear;
+    transition: padding-inline-start 0.3s 0.25s linear, width 0.3s 0.25s linear, color 0.3s linear, font-size 0s 0.3s linear, background 0.3s linear;
+    transition: padding-inline-start 0.3s 0.25s linear, width 0.3s 0.25s linear, color 0.3s linear, font-size 0s 0.3s linear, background 0.3s linear, -webkit-padding-start 0.3s 0.25s linear;
+    color: transparent;
+    text-align: center;
+    cursor: pointer;
+    border: solid 2px transparent;
+}
+
+nav label svg {
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    inset-inline-start: 0.9rem;
+    inset-block: 0;
+    margin: auto;
+    fill: #cdcbcd;
+    transition: fill 0.2s linear;
+}
+
+nav label::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: HSLA(var(--clr-accent-h), var(--clr-accent-s), var(--clr-accent-l));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s 0.45s linear;
+    pointer-events: none;
+}
+
+nav input {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+nav input:checked + label {
+    background: HSLA(var(--clr-accent-h), var(--clr-accent-s), var(--clr-accent-l), 0.25);
+    font-size: 1rem;
+    width: 8rem;
+    color: HSLA(var(--clr-accent-h), var(--clr-accent-s), var(--clr-accent-l));
+    -webkit-padding-start: 3rem;
+    padding-inline-start: 3rem;
+    transition: width 0.3s 0.25s linear, color 0.3s 0.5s linear, font-size 0s linear, background 0.3s linear, -webkit-padding-start 0.3s 0.25s linear;
+    transition: padding-inline-start 0.3s 0.25s linear, width 0.3s 0.25s linear, color 0.3s 0.5s linear, font-size 0s linear, background 0.3s linear;
+    transition: padding-inline-start 0.3s 0.25s linear, width 0.3s 0.25s linear, color 0.3s 0.5s linear, font-size 0s linear, background 0.3s linear, -webkit-padding-start 0.3s 0.25s linear;
+}
+
+nav input:checked + label svg {
+    fill: HSLA(var(--clr-accent-h), var(--clr-accent-s), var(--clr-accent-l));
+}
+
+nav input:checked + label::before {
+    opacity: 1;
+    transition: opacity 0.3s 0.15s linear;
+}
+
+nav label:hover svg {
+    fill: HSLA(var(--clr-accent-h), var(--clr-accent-s), var(--clr-accent-l));
+}
+
+nav input:focus + label {
+    outline: none;
+    border: solid 2px HSLA(var(--clr-accent-h), var(--clr-accent-s), var(--clr-accent-l));
+}
+</style>
+<nav>
+  <ul>
+    <li><input type="radio" name="tab" id="home"><label for="home">
+      <svg viewBox="0 0 211 212"><path d="M211 205l0 -112c0,-5 -1,-9 -5,-12l-88 -77c-6,-5 -15,-5 -21,0l-91 78c-4,3 -6,7 -6,12l0 111c0,4 3,7 8,7l56 0c5,0 8,-3 8,-7l0 -56c0,-15 12,-26 26,-26l15 0c15,0 26,11 26,26l0 56c0,4 4,7 8,7l57 0c4,0 7,-3 7,-7z"/></svg>
+      Home
+    </label></li>
+    <li><input type="radio" name="tab" id="likes"><label for="likes">
+      <svg viewBox="0 0 90 90"><path d="M45,23.9L45,23.9c0,0,18.1-22.3,37.3-5.4c11.3,9.9,9.7,25.4-2,37.1L45,89.7L9.7,55.6C-2,43.9-3.6,28.4,7.7,18.5  C26.9,1.6,45,23.9,45,23.9L45,23.9z"/></svg>
+      Likes
+    </label></li>
+    <li><input type="radio" name="tab" id="chats"><label for="chats">
+      <svg viewBox="0 0 100 100"><path d="M92.77,0H7.23A7,7,0,0,0,0,6.72V68.83a7,7,0,0,0,7.23,6.72H40.5L73,100V75.55H92.77A7,7,0,0,0,100,68.83V6.72A7,7,0,0,0,92.77,0Z"/></svg>
+      Chats
+    </label></li>
+    <li><input type="radio" name="tab" id="settings"><label for="settings">
+      <svg viewBox="0 0 270 270"><path class="fil0" d="M166 39c5,2 10,4 15,6l24 -18c5,-3 11,-2 14,1l22 22c4,4 4,10 1,14l-17 25c2,5 4,10 6,15l30 5c5,0 9,5 9,10l0 31c0,5 -4,10 -9,11l-30 5c-2,5 -4,10 -6,15l18 24c3,5 2,11 -1,14l-22 22c-4,4 -10,4 -14,1l-25 -17c-5,2 -10,4 -15,6l-5 30c-1,5 -6,9 -11,9l-31 0c-5,0 -10,-4 -10,-9l-5 -30c-5,-2 -10,-4 -15,-6l-25 17c-4,3 -10,3 -14,-1l-22 -22c-3,-3 -4,-9 -1,-13l18 -25c-3,-5 -5,-10 -6,-15l-30 -5c-5,-1 -9,-6 -9,-11l0 -31c0,-5 4,-10 9,-10l30 -5c1,-6 3,-10 6,-15l-18 -25c-3,-4 -2,-10 2,-14l22 -22c3,-3 9,-4 13,-1l25 18c5,-2 10,-4 15,-6l5 -30c0,-5 5,-9 10,-9l31 0c5,0 10,4 11,9l5 30zm-31 39c-31,0 -57,26 -57,57 0,31 26,57 57,57 31,0 57,-26 57,-57 0,-31 -26,-57 -57,-57z"/></svg>
+      Settings
+    </label></li>
+  </ul>
+</nav>
