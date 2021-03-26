@@ -1,0 +1,81 @@
+<style>
+body {
+    background: radial-gradient(#dc143c, #580818);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.sliced {
+    position: relative;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    transform: rotate(-5deg);
+    height: 5rem;
+    width: 100%;
+}
+
+.sliced > .top,
+.sliced > .bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 4rem;
+    line-height: 1.3;
+    overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.sliced > .top::before,
+.sliced > .bottom::before {
+    position: absolute;
+    content: attr(title);
+    transform: rotate(5deg);
+}
+
+.sliced > .top {
+    top: 0;
+    bottom: 50%;
+}
+
+.sliced > .top::before {
+    animation: cut 2s ease-in-out infinite;
+    left: 0;
+    right: 0;
+}
+
+.sliced > .bottom {
+    top: 50%;
+    bottom: 0;
+}
+
+.sliced > .bottom::before {
+    top: -39px;
+    left: 0;
+    right: 0;
+}
+
+@keyframes cut {
+0%, 100% {
+    left: 0;
+}
+
+50%, 99% {
+    left: 10px;
+}
+}
+</style>
+<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+
+<main class="container">
+    <section class="sliced">
+        <div class="top" title="Html Best Code"></div>
+        <div class="bottom" title="Html Best Code"></div>
+    </section>
+</main>
