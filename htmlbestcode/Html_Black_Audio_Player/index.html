@@ -1,392 +1,448 @@
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,500,500i,600,600i|Playfair+Display:300,400,400i,500,500i,600,600i|Lobster:400,400i,500,500i,600,600i|Montserrat:400,400i,500,500i,600,600i' rel='stylesheet' type='text/css'>
 <style>
-body {
-    background: #eee;
-    margin: 0;
-    font: 15px Open Sans;
-}
-
-.posts {
-    margin: 60px auto;
-    border: 1px solid #dfdfdf;
-    background: #fff;
-    max-width: 60%;
-    padding: 40px;
-    line-height: 1.5em;
-    text-align: justify;
-    border-radius: 8px;
-}
-
-.posts h1 {
-    text-align: center;
-        font-size:18px;
-}
-
-.separate {
-    padding: 30px 0;
-    display: block;
-}
-
-.one {
-    background: #fff;
-}
-
-.two {
-    background: #888;
-}
-
-a {
-    text-decoration: none;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-}
-
-a:hover {
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-}
-
-/* start STYLE 1 */
-
-.style-1 {
-    border: 3px solid #000;
-    color: #000;
-    font: 12px Montserrat;
-    text-transform: uppercase;
-    padding: 10px;
-    font-weight: 600;
-    max-width: 250px;
-    display: block;
-    text-align: center;
-    margin: 10px auto;
-    position: relative;
-}
-
-.style-1:hover {
-    background: #000;
-    border-color: #000;
-    color: #fff;
-}
-
-/* end STYLE 1 */
-
-/* start STYLE 2 */
-
-.style-2 {
-    border: 3px solid #000;
-    color: #000;
-    font: 12px Montserrat;
-    text-transform: uppercase;
-    padding: 10px;
-    font-weight: 600;
-    max-width: 250px; /* max width of button */
-    display: block;
-    text-align: left;
-    margin: 10px auto;
-    position: relative;
-}
-
-.style-2:before {
-    content: ">";
-    position: absolute;
-    right: 0;
-    top: 0;
-    background: #000;
-    color: #fff;
-    font-size: 20px;
-    width: 35px;
+html {
     height: 100%;
-    line-height: 31px;
-    text-align: center;
-    font-family: consolas;
-    padding-right: 15px;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
 }
 
-.style-2:hover:before {
-    padding-right: 0;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
+body {
+    min-height: 100%;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 500;
+    padding: 3.75em 1.875em; /* 60 30 */
 }
 
-.style-2:hover {
-    background: yellow;
-    border-color: #000;
-    color: #000;
+strong {
+    font-weight: 700;
 }
 
-/* end STYLE 2 */
-
-/* start STYLE 3 */
-
-.style-3 {
-    background: #eee;
-    border: 1px solid #dfdfdf;
-    color: #666;
-    font: italic 15px Playfair Display;
-    padding: 11px;
-    font-weight: 400;
-    max-width: 250px;
-    display: block;
-    text-align: center;
-    margin: 10px auto;
-    position: relative;
-    border-radius: 25px;
-}
-
-.style-3:hover {
-    -webkit-box-shadow: inset 0 0 10px 25px #ff9999;
-    box-shadow: inset 0 0 10px 25px #ff9999;
-    border-color: #ff9999;
-    color: #fff;
-}
-
-/* end STYLE 3 */
-
-/* start STYLE 4 */
-
-.style-4 {
-    background:;
-    color: #fff;
-    font: 13px Montserrat;
-    text-transform: uppercase;
-    padding: 11px;
-    font-weight: 600;
-    max-width: 250px;
-    display: block;
-    text-align: center;
-    margin: 10px auto;
-    position: relative;
-    -moz-transform: skewX(-6deg);
-    -webkit-transform: skewX(-6deg);
-    -o-transform: skewX(-6deg);
-    -ms-transform: skewX(-6deg);
-    transform: skewX(-6deg);
-    box-shadow: inset -150px 0 0 0 #ccccff, inset 150px 0 0 0 #ccccff; /* set the 150 for maximum width division */
-    -webkit-transition: box-shadow 0.5s ease-out;
-    -moz-transition: box-shadow 0.5s ease-out;
-    -ms-transition: box-shadow 0.5s ease-out;
-    -o-transition: box-shadow 0.5s ease-out;
-    transition: box-shadow 0.5s ease-out;
-}
-
-.style-4:hover {
-    -webkit-transition: box-shadow 0.5s ease-out;
-    -moz-transition: box-shadow 0.5s ease-out;
-    -ms-transition: box-shadow 0.5s ease-out;
-    -o-transition: box-shadow 0.5s ease-out;
-    transition: box-shadow 0.5s ease-out;
-    box-shadow: inset 150px 0 0 0 #1FFF87, inset -150px 0 0 0 #1FFF87; /* set the 150 for maximum width division */
-    color: #fff;
-}
-
-/* end STYLE 4 */
-
-/* start STYLE 5 */
-
-.style-5 {
-    color: #000;
-    font: 9px Montserrat;
-    text-transform: uppercase;
-    padding: 10px;
-    font-weight: 600;
-    max-width: 250px; /* max width of button */
-    display: block;
-    text-align: center;
-    margin: 10px auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.style-5:before, .style-5:after {
-    content: "//////";
-    color: orange;
-    font-size: 18px;
-    font-family: consolas;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-}
-
-.style-5:before {
-    margin-right: 10px;
-}
-
-.style-5:after {
-    margin-left: 10px;
-}
-
-.style-5:hover:before, .style-5:hover:after {
-    letter-spacing: -2px;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-}
-
-.style-5:hover {
-    color: orange;
-}
-
-/* end STYLE 5 */
-
-/* start STYLE 6 */
-
-.style-6 {
-    background: #defac3;
-    border: 3px solid #5bb700;
-    color: #5bb700;
-    font: 12px Montserrat;
-    text-transform: uppercase;
-    padding: 10px;
-    font-weight: 600;
-    max-width: 200px; /* max width of button */
-    display: block;
-    text-align: left;
-    margin: 20px 19px 0px auto;
-    position: relative;
-}
-
-.style-6:before {
-    content: ">";
+#wrapper {
+    width: 30em; /* 480 */
+    height: 8.75em; /* 140 */
     position: absolute;
-    right: -21px;
-    top: -3px;
-    border-radius: 100%;
-    background: #5bb700;
+    top: 50%;
+    left: 50%;
+    margin: -4.375em 0 0 -15em; /* 70 240 */
+}
+
+/*
+		PLAYER
+	*/
+
+.audioplayer {
+    height: 2.5em; /* 40 */
     color: #fff;
-    font-size: 20px;
-    width: 41px;
-    height: 41px;
-    line-height: 39px;
-    text-align: center;
-    font-family: consolas;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-}
-
-.style-6:hover:before {
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-    text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
-}
-
-.style-6:hover {
-    background: transparent;
-    border-color: #5bb700;
-    color: #5bb700;
-    letter-spacing: 3px;
-}
-
-/* end STYLE 6 */
-
-/* start STYLE 7 */
-
-.style-7 {
-    border: 3px solid #000;
-    color: #000;
-    font: 12px Montserrat;
-    text-transform: uppercase;
-    padding: 10px;
-    font-weight: 600;
-    max-width: 250px;
-    display: block;
-    text-align: center;
-    margin: 30px auto 10px auto;
+    text-shadow: 1px 1px 0 #000;
+    border: 1px solid #222;
     position: relative;
-    -webkit-box-shadow: -10px -10px 0 0 #D66D75, 10px 10px 0 0 #E29587;
-    box-shadow: -10px -10px 0 0 #D66D75, 10px 10px 0 0 #E29587;
+    z-index: 1;
+    background: #333;
 }
 
-.style-7:hover {
-    background: #000;
-    border-color: #000;
-    color: #fff;
-    -webkit-box-shadow: -10px -10px 0 0 #D66D75, 10px 10px 0 0 #E29587;
-    box-shadow: 10px -10px 0 0 #D66D75, -10px 10px 0 0 #E29587;
+/* mini mode (fallback) */
+
+.audioplayer-mini {
+    width: 2.5em; /* 40 */
+    margin: 0 auto;
 }
 
-/* end STYLE 7 */
+/* player elements: play/pause and volume buttons, played/duration timers, progress bar of loaded/played */
+
+.audioplayer > div {
+    position: absolute;
+}
+
+
+/* play/pause button */
+
+.audioplayer-playpause {
+    width: 2.5em; /* 40 */
+    height: 100%;
+    text-align: left;
+    text-indent: -9999px;
+    cursor: pointer;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.audioplayer:not(.audioplayer-mini) .audioplayer-playpause {
+    border-right: 1px solid #555;
+    border-right-color: rgba( 255, 255, 255, .1 );
+}
+
+.audioplayer-mini .audioplayer-playpause {
+    width: 100%;
+}
+
+.audioplayer-playpause:hover,
+.audioplayer-playpause:focus {
+    background-color: #222;
+}
+
+.audioplayer-playpause a {
+    display: block;
+}
+
+.audioplayer-stopped .audioplayer-playpause a {
+    width: 0;
+    height: 0;
+    border: 0.5em solid transparent; /* 8 */
+    border-right: none;
+    border-left-color: #fff;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -0.5em 0 0 -0.25em; /* 8 4 */
+}
+
+.audioplayer-playing .audioplayer-playpause a {
+    width: 0.75em; /* 12 */
+    height: 0.75em; /* 12 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -0.375em 0 0 -0.375em; /* 6 */
+}
+
+.audioplayer-playing .audioplayer-playpause a:before,
+.audioplayer-playing .audioplayer-playpause a:after {
+    width: 40%;
+    height: 100%;
+    background-color: #fff;
+    content: '';
+    position: absolute;
+    top: 0;
+}
+
+.audioplayer-playing .audioplayer-playpause a:before {
+    left: 0;
+}
+
+.audioplayer-playing .audioplayer-playpause a:after {
+    right: 0;
+}
+
+
+/* timers */
+
+.audioplayer-time {
+    width: 4.375em; /* 70 */
+    height: 100%;
+    line-height: 2.375em; /* 38 */
+    text-align: center;
+    z-index: 2;
+    top: 0;
+}
+
+.audioplayer-time-current {
+    border-left: 1px solid #111;
+    border-left-color: rgba( 0, 0, 0, .25 );
+    left: 2.5em; /* 40 */
+}
+
+.audioplayer-time-duration {
+    border-right: 1px solid #555;
+    border-right-color: rgba( 255, 255, 255, .1 );
+    right: 2.5em; /* 40 */
+}
+
+.audioplayer-novolume .audioplayer-time-duration {
+    border-right: 0;
+    right: 0;
+}
+
+
+/* progress bar of loaded/played */
+
+.audioplayer-bar {
+    height: 0.875em; /* 14 */
+    background-color: #222;
+    cursor: pointer;
+    z-index: 1;
+    top: 50%;
+    right: 6.875em; /* 110 */
+    left: 6.875em; /* 110 */
+    margin-top: -0.438em; /* 7 */
+}
+
+.audioplayer-novolume .audioplayer-bar {
+    right: 4.375em; /* 70 */
+}
+
+.audioplayer-bar div {
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.audioplayer-bar-loaded {
+    background-color: #333;
+    z-index: 1;
+}
+
+.audioplayer-bar-played {
+    background: #007fd1;
+    z-index: 2;
+}
+
+
+/* volume button */
+
+.audioplayer-volume {
+    width: 2.5em; /* 40 */
+    height: 100%;
+    border-left: 1px solid #111;
+    border-left-color: rgba( 0, 0, 0, .25 );
+    text-align: left;
+    text-indent: -9999px;
+    cursor: pointer;
+    z-index: 2;
+    top: 0;
+    right: 0;
+}
+
+.audioplayer-volume:hover,
+.audioplayer-volume:focus {
+    background-color: #222;
+}
+
+.audioplayer-volume-button {
+    width: 100%;
+    height: 100%;
+}
+
+.audioplayer-volume-button a {
+    width: 0.313em; /* 5 */
+    height: 0.375em; /* 6 */
+    background-color: #fff;
+    display: block;
+    position: relative;
+    z-index: 1;
+    top: 40%;
+    left: 35%;
+}
+
+.audioplayer-volume-button a:before,
+.audioplayer-volume-button a:after {
+    content: '';
+    position: absolute;
+}
+
+.audioplayer-volume-button a:before {
+    width: 0;
+    height: 0;
+    border: 0.5em solid transparent; /* 8 */
+    border-left: none;
+    border-right-color: #fff;
+    z-index: 2;
+    top: 50%;
+    right: -0.25em;
+    margin-top: -0.5em; /* 8 */
+}
+
+.audioplayer:not(.audioplayer-muted) .audioplayer-volume-button a:after {
+    width: 0.313em; /* 5 */
+    height: 0.313em; /* 5 */
+    border: 0.25em double #fff; /* 4 */
+    border-width: 0.25em 0.25em 0 0; /* 4 */
+    left: 0.563em; /* 9 */
+    top: -0.063em; /* 1 */
+    -webkit-border-radius: 0 0.938em 0 0; /* 15 */
+    -moz-border-radius: 0 0.938em 0 0; /* 15 */
+    border-radius: 0 0.938em 0 0; /* 15 */
+    -webkit-transform: rotate( 45deg );
+    -moz-transform: rotate( 45deg );
+    -ms-transform: rotate( 45deg );
+    -o-transform: rotate( 45deg );
+    transform: rotate( 45deg );
+}
+
+
+/* volume dropdown */
+
+.audioplayer-volume-adjust {
+    height: 6.25em; /* 100 */
+    cursor: default;
+    position: absolute;
+    left: 0;
+    right: -1px;
+    top: -9999px;
+    background: #333;
+}
+
+.audioplayer-volume:not(:hover) .audioplayer-volume-adjust {
+    opacity: 0;
+}
+
+.audioplayer-volume:hover .audioplayer-volume-adjust {
+    top: auto;
+    bottom: 100%;
+}
+
+.audioplayer-volume-adjust > div {
+    width: 40%;
+    height: 80%;
+    background-color: #222;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    margin: 30% auto 0;
+}
+
+.audioplayer-volume-adjust div div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #007fd1;
+}
+
+.audioplayer-novolume .audioplayer-volume {
+    display: none;
+}
+
+
+/* CSS3 decorations */
+
+body {
+    -webkit-box-shadow: inset 0 0 18.75em rgba( 0, 0, 0, .5 ); /* 300 */
+    -moz-box-shadow: inset 0 0 18.75em rgba( 0, 0, 0, 5 ); /* 300 */
+    box-shadow: inset 0 0 18.75em rgba( 0, 0, 0, .5 ); /* 300 */
+}
+
+.audioplayer {
+    -webkit-box-shadow: inset 0 1px 0 rgba( 255, 255, 255, .15 ), 0 0 1.25em rgba( 0, 0, 0, .5 ); /* 20 */
+    -moz-box-shadow: inset 0 1px 0 rgba( 255, 255, 255, .15 ), 0 0 1.25em rgba( 0, 0, 0, .5 ); /* 20 */
+    box-shadow: inset 0 1px 0 rgba( 255, 255, 255, .15 ), 0 0 1.25em rgba( 0, 0, 0, .5 ); /* 20 */
+}
+
+.audioplayer-volume-adjust {
+    -webkit-box-shadow: -2px -2px 2px rgba( 0, 0, 0, .15 ), 2px -2px 2px rgba( 0, 0, 0, .15 );
+    -moz-box-shadow: -2px -2px 2px rgba( 0, 0, 0, .15 ), 2px -2px 2px rgba( 0, 0, 0, .15 );
+    box-shadow: -2px -2px 2px rgba( 0, 0, 0, .15 ), 2px -2px 2px rgba( 0, 0, 0, .15 );
+}
+
+.audioplayer-bar,
+.audioplayer-volume-adjust > div {
+    -webkit-box-shadow: -1px -1px 0 rgba( 0, 0, 0, .5 ), 1px 1px 0 rgba( 255, 255, 255, .1 );
+    -moz-box-shadow: -1px -1px 0 rgba( 0, 0, 0, .5 ), 1px 1px 0 rgba( 255, 255, 255, .1 );
+    box-shadow: -1px -1px 0 rgba( 0, 0, 0, .5 ), 1px 1px 0 rgba( 255, 255, 255, .1 );
+}
+
+.audioplayer-volume-adjust div div,
+.audioplayer-bar-played {
+    -webkit-box-shadow: inset 0 0 5px rgba( 255, 255, 255, .5 );
+    -moz-box-shadow: inset 0 0 5px rgba( 255, 255, 255, .5 );
+    box-shadow: inset 0 0 5px rgba( 255, 255, 255, .5 );
+}
+
+.audioplayer-playpause,
+.audioplayer-volume a {
+    -webkit-filter: drop-shadow( 1px 1px 0 #000 );
+    -moz-filter: drop-shadow( 1px 1px 0 #000 );
+    -ms-filter: drop-shadow( 1px 1px 0 #000 );
+    -o-filter: drop-shadow( 1px 1px 0 #000 );
+    filter: drop-shadow( 1px 1px 0 #000 );
+}
+
+.audioplayer,
+.audioplayer-volume-adjust {
+    background: -webkit-gradient( linear, left top, left bottom, from( #444 ), to( #222 ) );
+    background: -webkit-linear-gradient( top, #444, #222 );
+    background: -moz-linear-gradient( top, #444, #222 );
+    background: -ms-radial-gradient( top, #444, #222 );
+    background: -o-linear-gradient( top, #444, #222 );
+    background: linear-gradient( to bottom, #444, #222 );
+}
+
+.audioplayer-bar-played {
+    background: -webkit-gradient( linear, left top, right top, from( #007fd1 ), to( #c600ff ) );
+    background: -webkit-linear-gradient( left, #007fd1, #c600ff );
+    background: -moz-linear-gradient( left, #007fd1, #c600ff );
+    background: -ms-radial-gradient( left, #007fd1, #c600ff );
+    background: -o-linear-gradient( left, #007fd1, #c600ff );
+    background: linear-gradient( to right, #007fd1, #c600ff );
+}
+
+.audioplayer-volume-adjust div div {
+    background: -webkit-gradient( linear, left bottom, left top, from( #007fd1 ), to( #c600ff ) );
+    background: -webkit-linear-gradient( bottom, #007fd1, #c600ff );
+    background: -moz-linear-gradient( bottom, #007fd1, #c600ff );
+    background: -ms-radial-gradient( bottom, #007fd1, #c600ff );
+    background: -o-linear-gradient( bottom, #007fd1, #c600ff );
+    background: linear-gradient( to top, #007fd1, #c600ff );
+}
+
+.audioplayer-bar,
+.audioplayer-bar div,
+.audioplayer-volume-adjust div {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.audioplayer {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.audioplayer-volume-adjust {
+    -webkit-border-top-left-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-topright: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.audioplayer *,
+.audioplayer *:before,
+.audioplayer *:after {
+    -webkit-transition: color .25s ease, background-color .25s ease, opacity .5s ease;
+    -moz-transition: color .25s ease, background-color .25s ease, opacity .5s ease;
+    -ms-transition: color .25s ease, background-color .25s ease, opacity .5s ease;
+    -o-transition: color .25s ease, background-color .25s ease, opacity .5s ease;
+    transition: color .25s ease, background-color .25s ease, opacity .5s ease;
+}
+
+
+/* responsiveness */
+
+@media only screen and ( max-width: 32.5em ) /* 520 */
+{
+body {
+    -webkit-box-shadow: inset 0 0 9.375em rgba( 0, 0, 0, .5 ); /* 150 */
+    -moz-box-shadow: inset 0 0 9.375em rgba( 0, 0, 0, 5 ); /* 150 */
+    box-shadow: inset 0 0 9.375em rgba( 0, 0, 0, .5 ); /* 150 */
+}
+
+#wrapper {
+    width: 90%;
+    height: auto;
+    position: static;
+    padding: 1.25em; /* 20 */
+    margin: 0;
+}
+}
 </style>
 
-<div class="posts">
-  <h1>Read More Style 1</h1>
- Html Best Codes
-  
-  <a href="#" class="style-1">Read More</a>
-  
-</div>
+<div id="wrapper">
 
-<div class="posts">
-    <h1>Read More Style 2</h1>
-    Html Best Codes
-    <a href="#" class="style-2">Read More</a>
+	<audio preload="auto" controls>
+		<source src="https://gomnam1336.github.io/htmlbestcode/Html_Black_Audio_Player/track.mp3" />
+	</audio>
 
 </div>
+<script src="https://gomnam1336.github.io/htmlbestcode/Html_Black_Audio_Player/jquery.min.js"></script>
+<script src="https://gomnam1336.github.io/htmlbestcode/Html_Black_Audio_Player/audioplayer.js"></script>
 
-<div class="posts">
-  <h1>Read More Style 3</h1>
-  Html Best Codes
-  
-  <a href="#" class="style-3">Read More</a>
-  
-</div>
 
-<div class="posts">
-  <h1>Read More Style 4</h1>
-  Html Best Codes
-  
-  <a href="#" class="style-4">Read More</a>
-  
-</div>
-
-<div class="posts">
-  <h1>Read More Style 5</h1>
-  Html Best Codes
-  
-  <a href="#" class="style-5">Read More</a>
-  
-</div>
-
-<div class="posts">
-  <h1>Read More Style 6</h1>
-  Html Best Codes
-  
-  <a href="#" class="style-6">Read More</a>
-  
-</div>
-
-<div class="posts">
-  <h1>Read More Style 7</h1>
-  Html Best Codes
-  
-  <a href="#" class="style-7">Read More</a>
-  
-</div>
+<script>
+$(function () {
+    $('audio').audioPlayer();
+});
+</script>
