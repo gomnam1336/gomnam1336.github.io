@@ -1,0 +1,421 @@
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap");
+
+body {
+    color: #949494;
+    font-family: "Montserrat", sans-serif;
+    background: #222;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    color: #fff;
+    font-family: "Arvo", serif;
+    padding: 20px ;
+    font-size: 18px;
+    line-height: 18px;
+    margin: 5px 0;
+    text-align: center;
+}
+
+h2.section-heading {
+    background: #ad0377;
+    color: #fff;
+    font-family: "Arvo", serif;
+    padding: 15px ;
+    font-size: 18px;
+    line-height: 34px;
+    margin: 15px 0;
+}
+
+.container {
+    padding-bottom: 50px;
+}
+
+.control-group {
+    margin-left: 50px;
+    margin-bottom: 25px;
+}
+
+.control-group label {
+    padding-left: 36px;
+    position: relative;
+}
+
+.control-group label::before,
+.control-group label::after {
+    position: absolute;
+    display: inline-block;
+}
+
+.control-group input[type="checkbox"] {
+    opacity: 0;
+}
+
+.control-group label::before {
+    content: "";
+    border: 4px solid #4a4949;
+    border-radius: 8px;
+    width: 19px;
+    height: 20px;
+    left: 0;
+    top: -4px;
+}
+
+.control-group label::after {
+    color: #ffff00;
+    content: "";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 13px;
+    top: 4px;
+    left: 7px;
+}
+
+.control-group input[type="checkbox"] + label::before {
+    animation-name: uncheckedJiggle;
+    animation-duration: 700ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    -webkit-animation-name: uncheckedJiggle;
+    -webkit-animation-duration: 700ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.control-group input[type="checkbox"] + label::after {
+    content: none;
+}
+
+.control-group input[type="checkbox"]:checked + label::before {
+    border-color: #ffff00;
+    box-shadow: 0 0 20px 0 #8f6e01;
+    animation-name: jiggle;
+    animation-duration: 700ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    -webkit-animation-name: jiggle;
+    -webkit-animation-duration: 700ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.control-group input[type="checkbox"]:checked + label::after {
+    content: "\f00c";
+    animation-name: innerJiggle;
+    animation-duration: 700ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    -webkit-animation-name: innerJiggle;
+    -webkit-animation-duration: 700ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes jiggle {
+0% {
+    transform: scale(0.8, 0.8);
+}
+
+30% {
+    transform: scale(0.75, 1.15);
+}
+
+50% {
+    transform: scale(1.12, 0.75);
+}
+
+60% {
+    transform: scale(0.9, 1.12);
+}
+
+70% {
+    transform: scale(1.05, 0.95);
+}
+
+80% {
+    transform: scale(0.85, 1.05);
+}
+
+90% {
+    transform: scale(1.02, 0.98);
+}
+
+95% {
+    transform: scale(0.98, 1.02);
+}
+
+98% {
+    transform: scale(1.01, 0.99);
+}
+
+100% {
+    transform: scale(1, 1);
+}
+}
+
+@-webkit-keyframes jiggle {
+0% {
+    -webkit-transform: scale(0.8, 0.8);
+}
+
+30% {
+    -webkit-transform: scale(0.75, 1.15);
+}
+
+50% {
+    -webkit-transform: scale(1.12, 0.75);
+}
+
+60% {
+    -webkit-transform: scale(0.9, 1.12);
+}
+
+70% {
+    -webkit-transform: scale(1.05, 0.95);
+}
+
+80% {
+    -webkit-transform: scale(0.85, 1.05);
+}
+
+90% {
+    -webkit-transform: scale(1.02, 0.98);
+}
+
+95% {
+    -webkit-transform: scale(0.98, 1.02);
+}
+
+98% {
+    -webkit-transform: scale(1.01, 0.99);
+}
+
+100% {
+    -webkit-transform: scale(1, 1);
+}
+}
+
+@keyframes uncheckedJiggle {
+0% {
+    transform: scale(0.8, 0.8);
+}
+
+30% {
+    transform: scale(0.75, 1.15);
+}
+
+50% {
+    transform: scale(1.12, 0.75);
+}
+
+60% {
+    transform: scale(0.9, 1.12);
+}
+
+70% {
+    transform: scale(1.05, 0.95);
+}
+
+80% {
+    transform: scale(0.85, 1.05);
+}
+
+90% {
+    transform: scale(1.02, 0.98);
+}
+
+95% {
+    transform: scale(0.98, 1.02);
+}
+
+98% {
+    transform: scale(1.01, 0.99);
+}
+
+100% {
+    transform: scale(1, 1);
+}
+}
+
+@-webkit-keyframes uncheckedJiggle {
+0% {
+    -webkit-transform: scale(0.8, 0.8);
+}
+
+30% {
+    -webkit-transform: scale(0.75, 1.15);
+}
+
+50% {
+    -webkit-transform: scale(1.12, 0.75);
+}
+
+60% {
+    -webkit-transform: scale(0.9, 1.12);
+}
+
+70% {
+    -webkit-transform: scale(1.05, 0.95);
+}
+
+80% {
+    -webkit-transform: scale(0.85, 1.05);
+}
+
+90% {
+    -webkit-transform: scale(1.02, 0.98);
+}
+
+95% {
+    -webkit-transform: scale(0.98, 1.02);
+}
+
+98% {
+    -webkit-transform: scale(1.01, 0.99);
+}
+
+100% {
+    -webkit-transform: scale(1, 1);
+}
+}
+
+@keyframes innerJiggle {
+0% {
+    transform: scale(0.8, 0.8);
+}
+
+30% {
+    transform: scale(0.75, 1.15);
+}
+
+50% {
+    transform: scale(1.12, 0.75);
+}
+
+60% {
+    transform: scale(0.9, 1.12);
+}
+
+70% {
+    transform: scale(1.05, 0.95);
+}
+
+80% {
+    transform: scale(0.85, 1.05);
+}
+
+90% {
+    transform: scale(1.02, 0.98);
+}
+
+95% {
+    transform: scale(0.98, 1.02);
+}
+
+98% {
+    transform: scale(1.01, 0.99);
+}
+
+100% {
+    transform: scale(1, 1);
+}
+}
+
+@-webkit-keyframes innerJiggle {
+0% {
+    -webkit-transform: scale(0.8, 0.8);
+}
+
+30% {
+    -webkit-transform: scale(0.75, 1.15);
+}
+
+50% {
+    -webkit-transform: scale(1.12, 0.75);
+}
+
+60% {
+    -webkit-transform: scale(0.9, 1.12);
+}
+
+70% {
+    -webkit-transform: scale(1.05, 0.95);
+}
+
+80% {
+    -webkit-transform: scale(0.85, 1.05);
+}
+
+90% {
+    -webkit-transform: scale(1.02, 0.98);
+}
+
+95% {
+    -webkit-transform: scale(0.98, 1.02);
+}
+
+98% {
+    -webkit-transform: scale(1.01, 0.99);
+}
+
+100% {
+    -webkit-transform: scale(1, 1);
+}
+}
+
+@keyframes compress {
+0% {
+    transform: scale(1, 1);
+}
+
+100% {
+    transform: scale(0.8, 0.8);
+}
+}
+
+@-webkit-keyframes compress {
+0% {
+    -webkit-transform: scale(1, 1);
+}
+
+100% {
+    -webkit-transform: scale(0.8, 0.8);
+}
+}
+</style>
+
+<h1>Pure CSS Checkboxes</h1>
+
+<h2 class="section-heading">Select your pizza toppings</h2>
+
+<div class="container">
+  <div class="control-group">
+    <input id="pepperoni-topping" type="checkbox" name="toppings[]" value="pepperoni" />
+    <label for="pepperoni-topping" class="jiggle-label">Pepperoni</label>
+  </div>
+
+  <div class="control-group">
+    <input id="bacon-topping" type="checkbox" name="toppings[]" value="bacon" />
+    <label for="bacon-topping" class="jiggle-label">Bacon</label>
+  </div>
+
+  <div class="control-group">
+    <input id="green-pepper-topping" type="checkbox" name="toppings[]" value="green_pepper" />
+    <label for="green-pepper-topping" class="jiggle-label">Green Peppers</label>
+  </div>
+
+  <div class="control-group">
+    <input id="onion-topping" type="checkbox" name="toppings[]" value="onion" />
+    <label for="onion-topping" class="jiggle-label">White Onion</label>
+  </div>
+</div>
