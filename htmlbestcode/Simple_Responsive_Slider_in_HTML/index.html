@@ -1,0 +1,79 @@
+<link rel='stylesheet' href='https://keycdn.layerjs.org/libs/layerjs/layerjs-0.6.2.css'>
+<style>
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+[lj-type="stage"] {
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.btn-left {
+    float: left;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+#arrows {
+    width: 100%;
+}
+
+#arrows > div {
+    width: 100%;
+    pointer-events: none;
+}
+
+.btn-right {
+    float: right;
+}
+
+.btn {
+    background-color: rgba(128, 128, 128, 0.5);
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+    border-radius: 50%;
+    width: 30px;
+    pointer-events: all;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+</style>
+<div lj-type="stage">
+
+  <div lj-type="layer" lj-name="slider" lj-default-frame="frame1" lj-native-scroll="false">
+    <div lj-type="frame" lj-name="frame1" lj-fit-to="cover" lj-no-scrolling="true" lj-start-position="center" lj-neighbors.r="frame2">
+      <img src="https://cdn.layerjs.org/examples/slider/img/samples1a.png">
+    </div>
+    <div lj-type="frame" lj-name="frame2" lj-fit-to="cover" lj-no-scrolling="true" lj-start-position="center" lj-neighbors.l="frame1" lj-neighbors.r="frame3">
+      <img src="https://cdn.layerjs.org/examples/slider/img/samples1b.png">
+    </div>
+    <div lj-type="frame" lj-name="frame3" lj-fit-to="cover" lj-no-scrolling="true" lj-start-position="center" lj-neighbors.l="frame2">
+      <img src="https://cdn.layerjs.org/examples/slider/img/samples1c.png">
+    </div>
+  </div>
+  <!--  A second layer for the controls -->
+  <div lj-type="layer" lj-native-scroll="false" id="arrows">
+    <!--  The control frame. The frame will be centered in the stage. -->
+    <div lj-type="frame" lj-fit-to="width" lj-start-position="center" lj-no-scrolling="true">
+      <!--  the link will trigger the transition to the previous frame of the currently active frame in layer "slider". -->
+      <a class="btn-left btn" href="#slider.!left&p=right">&lt;</a>
+      <a class="btn-right btn" href="#slider.!right&p=left">&gt;</a>
+    </div>
+  </div>
+</div>
+
+<script src='https://keycdn.layerjs.org/libs/layerjs/layerjs-0.6.2.min.js'></script>
