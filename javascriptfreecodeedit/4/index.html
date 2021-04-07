@@ -1,0 +1,94 @@
+<style>
+.outer::-webkit-scrollbar {
+    width: 20px;
+}
+
+.outer::-webkit-scrollbar-track {
+    background: #ccc;
+}
+
+.outer::-webkit-scrollbar-thumb {
+    background: tomato;
+}
+
+/* basic styles */
+html, body {
+    background: #000;
+    color: #111;
+    font-size: 19px;
+}
+
+.outer {
+    height: 350px;
+    max-width: 400px;
+    margin: 0 auto;
+    overflow-y: scroll;
+    background: #fff;
+    padding: 15px;
+}
+
+.inner {
+    height: 150%;
+}
+
+.buttons {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background: none;
+    border: none;
+    color: white;
+    flex: 1 auto;
+}
+
+[value$=f00] {
+    background: #f00;
+}
+
+[value=green] {
+    background: green;
+}
+
+[value=dodgerblue] {
+    background: dodgerblue;
+}
+</style>
+
+<div class="buttons">
+	<button value="#f00">red</button>		
+	<button value="green">green</button>
+	<button value="dodgerblue">blue</button>
+</div>
+
+<div class="outer">
+	<div class="inner">
+		<span>Pick a color above to change Scrollbar color. Chrome only!</span>
+	</div>
+</div>
+
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script>
+(function () {
+
+var color, picker, new_stylesheet;
+
+$('button').click(function getcolor() {
+    color = $(this).val();
+    picker = ".outer::-webkit-scrollbar-thumb {background:" + color + ";}";
+    new_stylesheet = "<style type='text/css' id='currentCSS'>" + picker + "</style>";
+
+    existingStylesheet = $("#currentCSS");
+
+    if (existingStylesheet.length) {
+        existingStylesheet.replaceWith(new_stylesheet);
+    } else {
+        $(new_stylesheet).appendTo('head');
+    }
+});
+
+})();
+</script>
