@@ -1,0 +1,92 @@
+<style>
+.fridge {
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 15vmin;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 10vmin;
+    text-align: center;
+    text-shadow: .25vmin .5vmin .25vmin rgba(0,0,0,.25);
+}
+
+.fridge span {
+    display: inline-block;
+    position: relative;
+}
+
+.fridge .dotted:before {
+    content: "|";
+    font-size: 50%;
+    left: 50%;
+    position: absolute;
+    top: 15%;
+    transform: translate(-50%,0);
+    z-index: -1;
+}
+
+.fridge .word {
+    white-space: nowrap;
+}
+</style>
+<span class="fridge">Javascript Free Code</span>
+<script>
+console.clear();
+
+const fridge = document.querySelector('.fridge');
+
+function randomColor() {
+    const colors = ['#f80', '#0a0', '#fc0', '#0af', '#f09'];
+    const index = Math.floor(Math.random() * colors.length);
+    return colors[index];
+}
+
+function randomAngle() {
+    const angle = Math.floor(Math.random() * 12) - 6;
+    return angle;
+}
+
+function randomVerticalOffset() {
+    const verticalOffset = Math.floor(Math.random() * 3) - 1.5;
+    return verticalOffset;
+}
+
+function randomPercentage() {
+    const percentage = Math.floor(Math.random() * 100);
+    return percentage;
+}
+
+function addStyling(item) {
+    if (item !== ' ') {
+        item = item.toLowerCase();
+        let span = document.createElement('span');
+        span.textContent = item;
+        span.style.transform = 'rotate(' + randomAngle() + 'deg)';
+
+        span.style.top = randomVerticalOffset() + 'vmin';
+        span.style.color = randomColor();
+        if (item === 'i' || item === 'j') {
+            span.classList.add('dotted');
+        }
+        else {
+            if (randomPercentage() < 20) {
+                span.style.fontSize = '12vmin';
+                span.style.textTransform = 'upperCase';
+            }
+        }
+        return span.outerHTML;
+    }
+    else {
+        return '</span> <span class="word">';
+    }
+}
+
+function fridgeLetterify() {
+    const chars = fridge.textContent.split('');
+    const spans = chars.map(addStyling);
+    const lettering = '<span class="word">' + spans.join('') + '</span>';
+    fridge.innerHTML = lettering;
+};
+
+fridgeLetterify();
+</script>
