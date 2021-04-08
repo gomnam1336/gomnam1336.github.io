@@ -1,7 +1,15 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
 <script language="JavaScript">
 
-    document.addEventListener('contextmenu', event => event.preventDefault());
+    
+    $(function () {
+        $(this).bind("contextmenu", function (e) {
+            e.preventDefault();
+            alert("You can not copy in this page!!");
+        });
+    }); 
 </script>
+
 
 <p>https://www.javascriptfreecode.com/</p>
 <br />
