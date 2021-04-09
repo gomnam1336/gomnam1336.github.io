@@ -1,0 +1,76 @@
+<style>
+    *, *:before, *:after {
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        font: 16px "Roboto", arial, sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100%;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    a {
+        font-size: 200%;
+        position: absolute;
+        bottom: 0.5em;
+        right: 0.5em;
+    }
+</style>
+<link rel='stylesheet' href='https://cdn.rawgit.com/smore-inc/clippy.js/master/build/clippy.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700'>
+
+
+<!-- partial:index.partial.html -->
+<div class="container">
+  <h1>Play state: <span class="js-state">move and speak</span></h1>
+  <div class="js-states"></div>
+</div>
+<!-- partial -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='clippy.min.js'></script>
+<script  >
+    let agent;
+    clippy.load('Merlin', function (agent) {
+        const animations = agent.animations();
+        $('.js-states').text(animations.join(' '));
+        agent.show();
+        agent.moveTo(100, 100);
+        agent.speak('When all else fails, bind some paper together. My name is Clippy.');
+        setTimeout(animate.bind(null, agent, animations), 8000);
+    });
+
+    function animate(agent, animations) {
+
+        function doneCallback(animation) {
+            console.log('done ' + animation);
+        }
+
+        let statesText = animations.join(' '),
+            $state = $('.js-state'),
+            $states = $('.js-states');
+
+        for (var i = 0; i < animations.length; i++) {
+            (index => {
+                setTimeout(_ => {
+                    let animation = animations[index];
+                    let currentStateInStates = statesText.replace(animation, `<b>${animation}</b>`);
+                    $state.text(animation);
+                    $states.html(currentStateInStates);
+                    agent.play(animation, undefined, doneCallback.bind(null, animation));
+                }, index * 8000);
+            })(i);
+        }
+    }
+</script>
