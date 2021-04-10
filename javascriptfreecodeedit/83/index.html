@@ -1,0 +1,31 @@
+<form name="login">
+    <input type="text" name="js4ir" size="14">
+    <input type="button" value="Go" onClick="Login(this.form)">
+</form>
+<script language="JavaScript" link="www.js4ir.com">
+function Login(form) {
+    var js4ir = form.js4ir.value;
+    if (js4ir) {
+        var site = "http://" + js4ir;
+        //window.location = site;
+        popw = "";
+        Q = "";
+        d = document;
+        w = window;
+        if (d.selection) {
+            Q = d.selection.createRange().text;
+        } else if (w.getSelection) {
+            Q = w.getSelection();
+        } else if (d.getSelection) {
+            Q = d.getSelection();
+        }
+        popw = w.open(
+            //"http://google.com",
+            site,
+            "gmailForm",
+            "scrollbars=yes,width=680,height=575,top=175,left=75,status=no,resizable=yes"
+        );
+    }
+    else { alert("Please enter your adress"); }
+}
+</script>
