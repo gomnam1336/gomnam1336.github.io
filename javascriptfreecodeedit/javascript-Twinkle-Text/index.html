@@ -1,0 +1,20 @@
+<style>
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:30px;
+    height: 100%;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+<div id="Foo" class="center">Javascript Free code</div>
+<script>
+$(document).ready(function () {
+    var f = document.getElementById('Foo');
+    setInterval(function () {
+        f.style.display = (f.style.display == 'none' ? '' : 'none');
+    }, 500);
+
+});
+</script>
