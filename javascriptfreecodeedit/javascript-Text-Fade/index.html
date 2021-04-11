@@ -1,0 +1,37 @@
+<style>
+.show-up-and-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    margin: 100px 100px;
+    font-size:24px;
+}
+.show-up-and-fade.animate {
+    animation: show-up-and-fade 2s forwards;
+}
+
+@keyframes show-up-and-fade {
+50% {
+    opacity: 1;
+}
+
+100% {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<button>Start Animation</button>
+<div class="container">
+    <div class="show-up-and-fade center">Javascript free code</div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("button").click(function () {
+            $('.show-up-and-fade').toggleClass('animate');
+        });
+    });
+</script>
