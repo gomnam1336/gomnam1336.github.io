@@ -25,32 +25,13 @@
 ; (function () {
 
     var msg = "javascript";
-
-    // Set font's style size for calculating dimensions
-    // Set to number of desired pixels font size (decimal and negative numbers not allowed)
     var size = 24;
+    var circleY = 0; var circleX = 1.5;
+    var letter_spacing = 5;
+    var diameter = 12;
 
-    // Set both to 1 for plain circle, set one of them to 2 for oval
-    // Other numbers & decimals can have interesting effects, keep these low (0 to 3)
-    var circleY = 1; var circleX = 1;
-
-    // The larger this divisor, the smaller the spaces between letters
-    // (decimals allowed, not negative numbers)
-    var letter_spacing = 4;
-
-    // The larger this multiplier, the bigger the circle/oval
-    // (decimals allowed, not negative numbers, some rounding is applied)
-    var diameter = 20;
-
-    // Rotation speed, set it negative if you want it to spin clockwise (decimals allowed)
     var rotation = 0;
-
-    // This is not the rotation speed, its the reaction speed, keep low!
-    // Set this to 1 or a decimal less than one (decimals allowed, not negative numbers)
     var speed = 0.5;
-
-    ////////////////////// Stop Editing //////////////////////
-
     if (!window.addEventListener && !window.attachEvent || !document.createElement) return;
 
     msg = msg.split('');
