@@ -1,5 +1,7 @@
 <style>
 .container {
+    width: 800px;
+    margin: 30px auto;
 }
 
 .mejs__container {
@@ -82,31 +84,31 @@
 }
 
 .mejs__play > button {
-    background: transparent url("https://gomnam1336.github.io/javascriptfreecodeedit/65/mediaplayer-sprite-gray.svg") no-repeat;
+    background: transparent url("https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg") no-repeat;
 }
 
 .mejs__pause > button {
-    background: transparent url("https://gomnam1336.github.io/javascriptfreecodeedit/65/mediaplayer-sprite-gray.svg") no-repeat;
+    background: transparent url("https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg") no-repeat;
     background-position: -20px 0;
 }
 
 .mejs__mute > button {
-    background: transparent url("https://gomnam1336.github.io/javascriptfreecodeedit/65/mediaplayer-sprite-gray.svg") no-repeat;
+    background: transparent url("https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg") no-repeat;
     background-position: -60px 0;
 }
 
 .mejs__unmute > button {
-    background: transparent url("https://gomnam1336.github.io/javascriptfreecodeedit/65/mediaplayer-sprite-gray.svg") no-repeat;
+    background: transparent url("https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg") no-repeat;
     background-position: -40px 0;
 }
 
 .mejs-skip-back-button > button,
 .mejs__skip-back-button > button {
-    background: transparent url("https://gomnam1336.github.io/javascriptfreecodeedit/65/cdn.jsdelivr.net/gh/ivorpad/images-src/skipback.svg");
+    background: transparent url("https://cdn.jsdelivr.net/gh/ivorpad/images-src/skipback.svg");
 }
 
 .mejs-jump-forward-button > button, .mejs__jump-forward-button > button {
-    background: url("https://gomnam1336.github.io/javascriptfreecodeedit/65/jumpforward.svg") no-repeat;
+    background: url("https://cdn.jsdelivr.net/gh/ivorpad/images-src/jumpforward.svg") no-repeat;
 }
 
 .mejs__button > button {
@@ -126,19 +128,21 @@
 
 <div class="container">
   <div class="podcast">
-    <h3 class="podcast__episode_title">Debugging Tools + Tips</h3>
+    <h3 class="podcast__episode_title">Javascript Free Code</h3>
     <h5 class="podcast__title">
-      Syntax.fm
-      <i>Episode 152</i>
+      <i>Music Player</i>
     </h5>
 
     <div class="podcast__meta">
-      <audio controls width="100%"autoplay="true">
-  <source src="https://gomnam1336.github.io/javascriptfreecodeedit/65/track.mp3">
-  Your browser does not support the audio tag.
-</audio>
+        <audio controls autoplay id="player">
+
+            <source src="track.wma" type="audio/x-ms-wma">
+            <source src="track.mp3" type="audio/mp3">
+            <source src="track.midi" type="audio/mid">
+            Your browser does not support the audio tag.
+        </audio>
       <a href="#" class="artwork">
- <img src="https://gomnam1336.github.io/javascriptfreecodeedit/65/image1.webp" alt="" style="padding:10px">
+ <img src="https://images.unsplash.com/photo-1490821872962-f2e55097079b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&h=300" alt="">
 </a>
     </div>
   </div>
@@ -149,12 +153,25 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mediaelement-plugins/2.5.0/jump-forward/jump-forward.min.js'></script>
 <script src='https://cdn.jsdelivr.net/gh/ivorpad/mediaelement-changespeed/changespeed.js'></script>
 <script>
+var myAudio = document.getElementById('player');
+
+if (myAudio.canPlayType('audio/mp3')) {
+    myAudio.setAttribute('src', 'track.mp3');
+} else if (myAudio.canPlayType('audio/x-ms-wma')) {
+    myAudio.setAttribute('src', 'track.wma');
+}
+else if (myAudio.canPlayType('audio/midi')) {
+    myAudio.setAttribute('src', 'track.midi');
+}
+
+myAudio.play();
 "use strict";
 
 const options = {
     defaultSpeed: '1.00',
     speeds: ['1.25', '1.50', '2.00', '0.75'],
     loop: true,
+    
     skipBackInterval: 15,
     jumpForwardInterval: 15,
     features: [
