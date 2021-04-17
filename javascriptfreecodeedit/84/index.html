@@ -4,7 +4,6 @@ body {
     background: #0094ff;
     height: 3000px;
 }
-
 #oscar {
     width: 170px;
     border: 5px solid #000;
@@ -15,34 +14,25 @@ body {
         <text x="5" y="15" fill="#140862"  font-size="28px">Javascript Free Code!</text>
     </svg>
 </div>
-
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js'></script>
 <script>
 console.clear();
-
 var oscar = document.getElementById("wrapper");
 document.addEventListener("mousemove", getMouse);
-
-
 oscar.style.position = "absolute";
 var oscarpos = { x: 0, y: 0 };
-
 setInterval(followMouse, 50);
-
 var mouse = { x: 0, y: 0 };
 var dir = "right";
-
 function getMouse(e) {
     mouse.x = e.pageX;
     mouse.y = e.pageY;
-
     if (mouse.x > oscarpos.x) {
         dir = "right";
     } else {
         dir = "left";
     }
 }
-
 function followMouse() {
     var distX = mouse.x - oscarpos.x - 15;
     var distY = mouse.y - oscarpos.y - 10;
@@ -50,21 +40,14 @@ function followMouse() {
     //Progressive reduction of distance 
     oscarpos.x += distX / 5;
     oscarpos.y += distY / 2;
-
     oscar.style.left = oscarpos.x + "px";
     oscar.style.top = oscarpos.y + "px";
-
-
     //Apply css class 
     if (dir == "right") {
         oscar.setAttribute("class", "right");
     } else {
         oscar.setAttribute("class", "left");
     }
-
 }
-
-
 TweenMax.set('#wrapper', { perspective: 800, force3D: true, transformStyle: "preserve-3d" });
-
 </script>
