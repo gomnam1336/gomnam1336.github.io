@@ -1,1 +1,74 @@
-<iframe scrolling="no" frameborder="no" clocktype=\"html5\" style="overflow:hidden;border:0;margin:0;padding:0;width:480px;height:250px;" src="https://www.clocklink.com/clocks/HTML5/html5-world.html?Beijing&Chelyabinsk&New_York&480&gray"></iframe>
+<style>
+#clock {
+    font-family: "Courier New";
+    background-color: #CCCCCC;
+    border: solid #999999 1px;
+    color: #000000;
+    width: 300px;
+    padding: 10px;
+}
+#date {
+    font-size: 20px;
+}
+#time {
+    font-size: 42px;
+}
+</style>
+<div >
+  <p>World Clock</p>
+  <hr />
+  <div id="clock">
+    <select id="city">
+    <option value="-10">Honolulu (USA)</option>
+    <option value="-8">Los Angeles (USA)</option>
+    <option value="-5">New York (USA)</option>
+    <option value="-3">Rio de Janeiro (BRAZIL)</option>
+    <option value="-0">London (UK)</option>
+    <option value="2">Cairo (EGYPT)</option>
+    <option value="5.5">New Delhi (INDIA)</option>
+    <option value="7">Bangkok (THAILAND)</option>
+    <option value="9" selected>Tokyo (JAPAN)</option>
+    <option value="10">Sydney (AUSTRALIA)</option>
+    </select>
+    <span id="timezone"></span>
+    <div id="date">----/--/-- ---</div>
+    <div id="time">--:--:--</div>
+  </div>
+</div>
+<script>
+var myVar;
+function myFunction() {
+    myVar = setInterval(clock, 1000);
+}
+function clock() {
+    var now = new Date();
+    var timeTokyo = now.getTime();
+    var timeUTC = timeTokyo - 9 * 60 * 60 * 1000;
+    var cityElement = document.getElementById('city');
+    var index = cityElement.selectedIndex;
+    var timeZone = cityElement.options[index].value;
+    var timezoneElement = document.getElementById('timezone');
+    timezoneElement.innerHTML = "Timezone:" + timeZone;
+    var timeCity = timeUTC + timeZone * 60 * 60 * 1000;
+    now = new Date(timeCity);
+    var hour = now.getHours();
+    var min = now.getMinutes();
+    var sec = now.getSeconds();
+    if (hour < 10) hour = "0" + hour;
+    if (min < 10) min = "0" + min;
+    if (sec < 10) sec = "0" + sec;
+    var timeElement = document.getElementById('time');
+    timeElement.innerHTML = hour + ":" + min + ":" + sec;
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var day = now.getDate();
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+    var weekArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var week = weekArray[now.getDay()];
+    var dateElement = document.getElementById('date');
+    dateElement.innerHTML = year + "/" + month + "/"
+        + day + " " + week;
+}
+myFunction();
+</script>
