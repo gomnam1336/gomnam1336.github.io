@@ -1,0 +1,129 @@
+<style>
+h1 {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+p {
+    margin-top: 25px;
+    font-family: "Source Sans Pro", sans-serif;
+    text-align: justify;
+    line-height: 1.6;
+    font-weight: 300;
+}
+a {
+    position: relative;
+    text-decoration: none;
+    padding-top: 3px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid blue;
+    transition: 0.75s ease;
+}
+a:hover {
+    text-decoration: none;
+    border-top: 1px solid blue;
+}
+
+h1,
+.adjust,
+.small {
+    text-align: center;
+}
+.adjust {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+}
+.small {
+    margin: 0;
+    font-size: 0.75rem;
+}
+footer {
+    cursor: pointer;
+}
+.link a {
+    font-size: 0.65rem;
+}
+
+/* THE MAGIC BIT */
+.darkmode {
+    color: #f0f0f0;
+    background: linear-gradient(to bottom, #1a1e25, #222831);
+}
+.darkmode a {
+    color: white;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid white;
+}
+.darkmode a:hover {
+    border-top: 1px solid white;
+}
+/* STYLING BODY AND FONT SIZES */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap");
+html {
+    font-size: 16pt;
+}
+body {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #25263D;
+    background: linear-gradient(to bottom right, #fff8dd, #fffcf1);
+    transition: background-color 1s, color 1s;
+}
+main {
+    width: min(600px, 90%);
+}
+
+@media (max-width: 700px) {
+main {
+    margin: 5% auto 0;
+}
+h1 {
+    font-size: 50px;
+}
+footer {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+.adjust {
+    font-size: 1.25rem;
+}
+.small {
+    font-size: 0.6em;
+}
+}
+</style>
+<main>
+  <h1>Contrast</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> 
+</main>
+<footer id="dark-mode-toggle">
+  <p class="adjust"><i class="fa fa-adjust"></i></p>
+  <p class="small">Change contrast</p>
+</footer>
+<!-- Font-Awesome for the light/dark icon at the bottom -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+let darkMode = localStorage.getItem("darkMode");
+function enableDarkMode() {
+    document.body.classList.add("darkmode");
+    localStorage.setItem("darkMode", "enabled");
+}
+function disableDarkMode() {
+    document.body.classList.remove("darkmode");
+    localStorage.setItem("darkMode", null);
+}
+if (darkMode === "enabled") {
+    enableDarkMode();
+}
+// Listeners
+const darkModeToggle = document.querySelector("#dark-mode-toggle");
+darkModeToggle.addEventListener("click", () => {
+    darkMode = localStorage.getItem("darkMode");
+    darkMode !== "enabled" ? enableDarkMode() : disableDarkMode();
+});
+</script>
