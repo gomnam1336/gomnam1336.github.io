@@ -1,0 +1,635 @@
+<style>
+#fluid {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+}
+
+body {
+    height: 100vh;
+    background-color: #1be2c0;
+}
+
+#profile-name-header {
+    color: #191b2d;
+}
+
+.profile-nav-2 {
+    background-color: #ededed;
+    border-color: #d4d4d4;
+}
+
+.profile-nav-2 a {
+    color: #666;
+}
+
+.profile-nav-2 a.active {
+    color: #404040;
+}
+
+.single-pen {
+    border-color: #ededed;
+}
+
+.single-pen .stats {
+    background-color: transparent;
+}
+
+.single-pen .stats:after {
+    background: transparent;
+}
+
+.meta {
+    background-color: #ededed;
+    color: #666;
+}
+
+.button-outline {
+    border-color: #191b2d;
+    color: #191b2d;
+}
+
+.button-outline:hover {
+    background-color: #191b2d;
+    color: #fff;
+}
+
+.button-dark {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.pagination-button {
+    border-color: #fff;
+}
+
+.links-and-stats {
+    background-color: #1be2c0;
+}
+
+.iframe-wrap > .meta-overlay .pen-actions {
+    border-color: #db3192;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+<!-- partial:index.partial.html -->
+<svg id="fluid">
+</svg>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js'></script>
+<script>
+(function (window, Date) {
+    // feature testing
+    var raf = window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    window.animLoop = function (render, element) {
+        var running, lastFrame = +new Date;
+        function loop(now) {
+            if (running !== false) {
+                raf ?
+                    raf(loop, element) :
+                    setTimeout(loop, 16);
+                now = now && now > 1E4 ? now : +new Date;
+                var deltaT = now - lastFrame;
+                if (deltaT < 160) {
+                    running = render(deltaT, now);
+                }
+                lastFrame = now;
+            }
+        }
+        loop();
+    };
+})(window, Date);
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+function cubPath(points) {
+    var path = "M" + points[0][0] + "," + points[0][1];
+    path += " C" + points[1][0] + "," + points[1][1];
+    path += " " + points[2][0] + "," + points[2][1];
+    path += " " + points[3][0] + "," + points[3][1];
+    path += " " + points[4][0] + "," + points[4][1];
+    path += " " + points[5][0] + "," + points[5][1];
+    path += " " + points[6][0] + "," + points[6][1];
+    path += " " + points[7][0] + "," + points[7][1];
+    path += " " + points[8][0] + "," + points[8][1];
+    path += " " + points[9][0] + "," + points[9][1];
+    path += " " + points[10][0] + "," + points[10][1];
+    path += " " + points[11][0] + "," + points[11][1];
+    path += " " + points[12][0] + "," + points[12][1];
+    path += " " + points[13][0] + "," + points[13][1];
+    path += " " + points[14][0] + "," + points[14][1];
+    path += " " + points[15][0] + "," + points[15][1];
+    path += " " + points[16][0] + "," + points[16][1];
+    path += " " + points[17][0] + "," + points[17][1];
+    path += " " + points[18][0] + "," + points[18][1] + "z";
+    return path;
+}
+function mapPoints(points) {
+    for (var p = 0; p < points.length; p++) {
+        var point = paper.circle(points[p][0], points[p][1], 2);
+        point.attr({ fill: 'orange' });
+        if (p == 0 || p % 3 === 0) {
+            point.attr({ fill: "black" });
+        }
+    }
+    var end = points.length - 1;
+    var startline = paper.line(points[0][0], points[0][1], points[1][0], points[1][1]);
+    var endline = paper.line(points[end][0], points[end][1], points[end - 1][0], points[end - 1][1]);
+    startline.attr({ stroke: "black" });
+    endline.attr({ stroke: "black" });
+    for (var l = 3; l < points.length; l += 3) {
+        var nextPoint = points[l + 1],
+            prevPoint = points[l - 1];
+        if (nextPoint) {
+            var line1 = paper.line(points[l][0], points[l][1], nextPoint[0], nextPoint[1]);
+            line1.attr({ stroke: "black" });
+        }
+        if (prevPoint) {
+            var line2 = paper.line(points[l][0], points[l][1], prevPoint[0], prevPoint[1]);
+            line2.attr({ stroke: "black" });
+        }
+    }
+}
+var Drip = function (paper, opts) {
+    this.x = opts.x;
+    this.y = opts.y;
+    this.size = opts.size;
+    this.frame = 0;
+    this.speed = opts.speed || 6000;
+    this.color = opts.color || 'rgba(0,0,0,0.2)';
+    this.frames = new Array();
+    this.paper = paper;
+    var drip = this;
+    for (var f = 0; f <= 6; f++) {
+        drip.frames[f] = drip.getFrames(f);
+    }
+    var frames = this.frames;
+    var goo = paper.path(frames[0].goo);
+    goo.attr({ fill: drip.color });
+    var drop = paper.path(frames[2].drop);
+    drop.attr({ fill: "rgba(0,0,0,0)" });
+    goo.animate({
+        path: frames[1].goo
+    }, frames[1].speed, frames[1].easing, function () {
+        goo.animate({
+            path: frames[2].goo
+        }, frames[2].speed, frames[2].easing, function () {
+            drop.attr({ fill: drip.color });
+            drop.animate({
+                path: frames[3].drop
+            }, frames[3].speed, frames[3].easing, function () {
+                drop.animate({
+                    path: frames[4].drop
+                }, frames[4].speed, frames[4].easing, function () {
+                    drop.animate({
+                        path: frames[5].drop
+                    }, frames[5].speed, frames[5].easing, function () {
+                        drop.animate({
+                            path: frames[6].drop,
+                            transform: "translate(0, -" + drip.size * 0.65 + ")"
+                        }, frames[6].speed, mina.linear, function () {
+                            drop.animate({
+                                rotate: 360,
+                                transform: "translate(0, -" + fluid.paperHeight + ")"
+                            }, fluid.paperHeight / drip.speed * 100000, mina.easeOut, function () {
+                                drop.remove();
+                            })
+                        });
+                    })
+                });
+            });
+            goo.animate({
+                path: frames[3].goo
+            }, frames[3].speed, frames[3].easing, function () {
+                goo.animate({
+                    path: frames[4].goo
+                }, frames[4].speed, frames[4].easing, function () {
+                    goo.animate({
+                        path: frames[5].goo
+                    }, frames[5].speed, frames[5].easing, function () {
+                        goo.animate({
+                            path: frames[6].goo
+                        }, frames[6].speed, mina.linear);
+                    }, function () {
+                        goo.remove();
+                    });
+                });
+            });
+        });
+    });
+}
+Drip.prototype.getFrames = function (frame) {
+    var drip = this,
+        x = drip.x,
+        y = drip.y,
+        speed = drip.speed,
+        frameData;
+    switch (frame) {
+        case 0:
+            var b = drip.size * 2,
+                f = b * 0.2,
+                h = 0,
+                points = [
+                    [x - b, y],
+                    [x - b * 0.75, y],
+                    [x - b * 0.54, y - h * 0.25],
+                    [x - b * 0.44, y - h * 0.4],
+                    [x - b * 0.39, y - h * 0.5],
+                    [x - f * 1.25, y - h * 0.75],
+                    [x - f * 0.9, y - h * 0.85],
+                    [x - f * 0.6, y - h * 0.94],
+                    [x - f * 0.4, y - h],
+                    [x, y - h],
+                    [x + f * 0.4, y - h],
+                    [x + f * 0.6, y - h * 0.94],
+                    [x + f * 0.9, y - h * 0.85],
+                    [x + f * 1.25, y - h * 0.75],
+                    [x + b * 0.39, y - h * 0.5],
+                    [x + b * 0.44, y - h * 0.4],
+                    [x + b * 0.54, y - h * 0.25],
+                    [x + b * 0.75, y],
+                    [x + b, y]
+                ];
+            frameData = {
+                goo: cubPath(points),
+                speed: 750,
+                easing: mina.easeIn
+            }
+            break;
+        case 1:
+            var b = drip.size,
+                f = b * 0.2,
+                h = drip.size * 0.5,
+                points = [
+                    [x - b, y],
+                    [x - b * 0.75, y],
+                    [x - b * 0.54, y - h * 0.25],
+                    [x - b * 0.44, y - h * 0.4],
+                    [x - b * 0.39, y - h * 0.5],
+                    [x - f * 1.25, y - h * 0.75],
+                    [x - f * 0.9, y - h * 0.85],
+                    [x - f * 0.6, y - h * 0.94],
+                    [x - f * 0.4, y - h],
+                    [x, y - h],
+                    [x + f * 0.4, y - h],
+                    [x + f * 0.6, y - h * 0.94],
+                    [x + f * 0.9, y - h * 0.85],
+                    [x + f * 1.25, y - h * 0.75],
+                    [x + b * 0.39, y - h * 0.5],
+                    [x + b * 0.44, y - h * 0.4],
+                    [x + b * 0.54, y - h * 0.25],
+                    [x + b * 0.75, y],
+                    [x + b, y]
+                ];
+            frameData = {
+                goo: cubPath(points),
+                speed: 750,
+                easing: mina.linear
+            };
+            break;
+        case 2:
+            var b = drip.size * 1.5,
+                f = b * 0.25,
+                h = drip.size * 1.5,
+                dropPoints = [
+                    [x, y - h * 0.125],
+                    [x - f * 0.125, y - h * 0.125],
+                    [x - f * 0.36, y - h * 0.15],
+                    [x - f * 0.44, y - h * 0.2],
+                    [x - f * 0.52, y - h * 0.25],
+                    [x - f * 0.65, y - h * 0.45],
+                    [x - f * 0.6, y - h * 0.55],
+                    [x - f * 0.5, y - h * 0.75],
+                    [x - f * 0.25, y - h * 0.8],
+                    [x, y - h * 0.8],
+                    [x + f * 0.25, y - h * 0.8],
+                    [x + f * 0.5, y - h * 0.75],
+                    [x + f * 0.6, y - h * 0.55],
+                    [x + f * 0.65, y - h * 0.45],
+                    [x + f * 0.52, y - h * 0.25],
+                    [x + f * 0.44, y - h * 0.2],
+                    [x + f * 0.36, y - h * 0.15],
+                    [x + f * 0.125, y - h * 0.125],
+                    [x, y - h * 0.125]
+                ],
+                gooPoints = [
+                    [x - b, y],
+                    [x - b * 0.6, y],
+                    [x - b * 0.5, y - h * 0.25],
+                    [x - b * 0.44, y - h * 0.4],
+                    [x - b * 0.41, y - h * 0.5],
+                    [x - f, y - h * 0.75],
+                    [x - f * 0.9, y - h * 0.85],
+                    [x - f * 0.78, y - h * 0.94],
+                    [x - f * 0.4, y - h],
+                    [x, y - h],
+                    [x + f * 0.4, y - h],
+                    [x + f * 0.78, y - h * 0.94],
+                    [x + f * 0.9, y - h * 0.85],
+                    [x + f, y - h * 0.75],
+                    [x + b * 0.41, y - h * 0.5],
+                    [x + b * 0.44, y - h * 0.4],
+                    [x + b * 0.5, y - h * 0.25],
+                    [x + b * 0.6, y],
+                    [x + b, y]
+                ];
+            frameData = {
+                goo: cubPath(gooPoints),
+                drop: cubPath(dropPoints),
+                speed: 1000,
+                easing: mina.linear
+            };
+            break;
+        case 3:
+            var b = drip.size,
+                f = drip.size * 0.5625,
+                h = 2.85 * drip.size,
+                dropPoints = [
+                    [x, y - h * 0.3],
+                    [x - b * 0.125, y - h * 0.3],
+                    [x - b * 0.25, y - h * 0.35],
+                    [x - b * 0.25, y - h * 0.4],
+                    [x - b * 0.5, y - h * 0.6],
+                    [x - f, y - h * 0.75],
+                    [x - f * 0.9, y - h * 0.85],
+                    [x - f * 0.78, y - h * 0.94],
+                    [x - f * 0.4, y - h],
+                    [x, y - h],
+                    [x + f * 0.4, y - h],
+                    [x + f * 0.78, y - h * 0.94],
+                    [x + f * 0.9, y - h * 0.85],
+                    [x + f, y - h * 0.75],
+                    [x + b * 0.5, y - h * 0.6],
+                    [x + b * 0.25, y - h * 0.4],
+                    [x + b * 0.25, y - h * 0.35],
+                    [x + b * 0.125, y - h * 0.3],
+                    [x, y - h * 0.3]
+                ],
+                gooPoints = [
+                    [x - b, y],
+                    [x - b * 0.125, y],
+                    [x - b * 0.25, y - h * 0.2],
+                    [x - b * 0.25, y - h * 0.25],
+                    [x - b * 0.25, y - h * 0.3],
+                    [x - b * 0.25, y - h * 0.5],
+                    [x - b * 0.25, y - h * 0.55],
+                    [x - b * 0.25, y - h * 0.6],
+                    [x - b * 0.2, y - h * 0.65],
+                    [x, y - h * 0.65],
+                    [x + b * 0.2, y - h * 0.65],
+                    [x + b * 0.25, y - h * 0.6],
+                    [x + b * 0.25, y - h * 0.55],
+                    [x + b * 0.25, y - h * 0.5],
+                    [x + b * 0.25, y - h * 0.3],
+                    [x + b * 0.25, y - h * 0.25],
+                    [x + b * 0.25, y - h * 0.2],
+                    [x + b * 0.125, y],
+                    [x + b, y]
+                ];
+
+            frameData = {
+                goo: cubPath(gooPoints),
+                drop: cubPath(dropPoints),
+                speed: 1000,
+                easing: mina.linear
+            };
+            break;
+        case 4:
+            var b = 0.5 * drip.size,
+                f = drip.size * 0.5625,
+                h = 3.8 * drip.size,
+                dropPoints = [
+                    [x, y - h * 0.54],
+                    [x - b * 0.05, y - h * 0.54],
+                    [x - b * 0.15, y - h * 0.55],
+                    [x - b * 0.25, y - h * 0.6],
+                    [x - b * 0.44, y - h * 0.65],
+                    [x - f, y - h * 0.75],
+                    [x - f * 0.9, y - h * 0.85],
+                    [x - f * 0.78, y - h * 0.94],
+                    [x - f * 0.4, y - h],
+                    [x, y - h],
+                    [x + f * 0.4, y - h],
+                    [x + f * 0.78, y - h * 0.94],
+                    [x + f * 0.9, y - h * 0.85],
+                    [x + f, y - h * 0.75],
+                    [x + b * 0.44, y - h * 0.65],
+                    [x + b * 0.25, y - h * 0.6],
+                    [x + b * 0.15, y - h * 0.55],
+                    [x + b * 0.05, y - h * 0.54],
+                    [x, y - h * 0.54]
+                ],
+                gooPoints = [
+                    [x - b, y],
+                    [x - b * 0.4, y],
+                    [x - b * 0.32, y - h * 0.1],
+                    [x - b * 0.25, y - h * 0.15],
+                    [x - b * 0.2, y - h * 0.2],
+                    [x - b * 0.18, y - h * 0.32],
+                    [x - b * 0.15, y - h * 0.35],
+                    [x - b * 0.1, y - h * 0.4],
+                    [x - b * 0.15, y - h * 0.54],
+                    [x, y - h * 0.54],
+                    [x + b * 0.15, y - h * 0.54],
+                    [x + b * 0.1, y - h * 0.4],
+                    [x + b * 0.15, y - h * 0.35],
+                    [x + b * 0.18, y - h * 0.32],
+                    [x + b * 0.2, y - h * 0.2],
+                    [x + b * 0.25, y - h * 0.15],
+                    [x + b * 0.32, y - h * 0.1],
+                    [x + b * 0.4, y],
+                    [x + b, y]
+                ];
+
+            frameData = {
+                goo: cubPath(gooPoints),
+                drop: cubPath(dropPoints),
+                speed: 500,
+                easing: mina.linear
+            };
+            break;
+        case 5:
+            var b = drip.size,
+                f = drip.size * 0.5625,
+                h = 4.5 * drip.size,
+                dropPoints = [
+                    [x, y - h * 0.68],
+                    [x, y - h * 0.68],
+                    [x, y - h * 0.68],
+                    [x, y - h * 0.68],
+                    [x - f * 0.6, y - h * 0.68],
+                    [x - f * 1.35, y - h * 0.72],
+                    [x - f * 1.35, y - h * 0.78],
+                    [x - f * 1.35, y - h * 0.875],
+                    [x - f * 0.4, y - h * 0.9],
+                    [x, y - h * 0.9],
+                    [x + f * 0.4, y - h * 0.9],
+                    [x + f * 1.35, y - h * 0.875],
+                    [x + f * 1.35, y - h * 0.78],
+                    [x + f * 1.35, y - h * 0.72],
+                    [x + f * 0.6, y - h * 0.68],
+                    [x, y - h * 0.68],
+                    [x, y - h * 0.68],
+                    [x, y - h * 0.68],
+                    [x, y - h * 0.68]
+                ],
+                gooPoints = [
+                    [x - b, y],
+                    [x - b * 0.75, y],
+                    [x - b * 0.625, y - h * 0.025],
+                    [x - b * 0.5, y - h * 0.05],
+                    [x - b * 0.4, y - h * 0.075],
+                    [x - b * 0.19, y - h * 0.14],
+                    [x - b * 0.15, y - h * 0.175],
+                    [x - b * 0.14, y - h * 0.185],
+                    [x - b * 0.15, y - h * 0.25],
+                    [x, y - h * 0.25],
+                    [x + b * 0.15, y - h * 0.25],
+                    [x + b * 0.14, y - h * 0.185],
+                    [x + b * 0.15, y - h * 0.175],
+                    [x + b * 0.19, y - h * 0.14],
+                    [x + b * 0.4, y - h * 0.075],
+                    [x + b * 0.5, y - h * 0.05],
+                    [x + b * 0.625, y - h * 0.025],
+                    [x + b * 0.75, y],
+                    [x + b, y]
+                ];
+
+            frameData = {
+                goo: cubPath(gooPoints),
+                drop: cubPath(dropPoints),
+                speed: 500,
+                easing: mina.linear
+            };
+            break;
+        case 6:
+            var b = drip.size * 2,
+                f = drip.size * 0.5,
+                h = 4.5 * drip.size,
+                dropPoints = [
+                    [x, y - h * 0.65],
+                    [x, y - h * 0.65],
+                    [x, y - h * 0.65],
+                    [x, y - h * 0.65],
+                    [x - f * 0.6, y - h * 0.65],
+                    [x - f * 1.25, y - h * 0.7],
+                    [x - f * 1.25, y - h * 0.78],
+                    [x - f * 1.25, y - h * 0.88],
+                    [x - f * 0.6, y - h * 0.93],
+                    [x, y - h * 0.93],
+                    [x + f * 0.6, y - h * 0.93],
+                    [x + f * 1.25, y - h * 0.88],
+                    [x + f * 1.25, y - h * 0.78],
+                    [x + f * 1.25, y - h * 0.7],
+                    [x + f * 0.6, y - h * 0.65],
+                    [x, y - h * 0.65],
+                    [x, y - h * 0.65],
+                    [x, y - h * 0.65],
+                    [x, y - h * 0.65]
+                ],
+                gooPoints = [
+                    [x - b, y],
+                    [x - b * 0.85, y],
+                    [x - b * 0.75, y],
+                    [x - b * 0.7, y],
+                    [x - b * 0.6, y],
+                    [x - b * 0.5, y],
+                    [x - b * 0.4, y],
+                    [x - b * 0.25, y],
+                    [x - b * 0.15, y],
+                    [x, y],
+                    [x + b * 0.15, y],
+                    [x + b * 0.25, y],
+                    [x + b * 0.4, y],
+                    [x + b * 0.5, y],
+                    [x + b * 0.6, y],
+                    [x + b * 0.7, y],
+                    [x + b * 0.75, y],
+                    [x + b * 0.85, y],
+                    [x + b, y]
+                ];
+            frameData = {
+                goo: cubPath(gooPoints),
+                drop: cubPath(dropPoints),
+                speed: 500,
+                easing: mina.bounce
+            };
+            break;
+    }
+    return frameData;
+};
+var Fluid = function (el, opts) {
+    var fluid = this;
+    fluid.basin = document.getElementById(el);
+    fluid.paper = Snap('#' + el);
+    fluid.drops = [];
+    fluid.color = opts.color;
+    fluid.density = opts.density || 5;
+    fluid.velocity = opts.velocity || 10;
+    fluid.init();
+    fluid.loop();
+};
+Fluid.prototype.reset = function () {
+    var fluid = this;
+    fluid.die = true;
+    // fluid.animLoop = null;
+    fluid.paper.clear();
+    fluid.init();
+}
+Fluid.prototype.init = function () {
+    var fluid = this,
+        maxSize = window.innerWidth * 0.1,
+        minSize = window.innerWidth * 0.01,
+        rect = this.basin.getBoundingClientRect();
+    if (maxSize > 100) { maxSize = 100; }
+    if (minSize < 20) { minSize = 20; }
+    this.die = false;
+    this.minSize = minSize;
+    this.maxSize = maxSize;
+    this.paperWidth = rect.width;
+    this.paperHeight = rect.height;
+    this.speed = this.velocity * this.paperHeight;
+    this.fillTo = this.paperHeight;
+    this.surface = this.paper.rect(0, this.fillTo, this.paperWidth, this.paperHeight);
+    this.surface.attr({
+        fill: fluid.color
+    });
+    new Drip(fluid.paper, {
+        x: randomNumber(1, fluid.paperWidth),
+        y: fluid.fillTo + 1,
+        color: fluid.color,
+        size: randomNumber(minSize, maxSize),
+        speed: 6000
+    });
+}
+Fluid.prototype.loop = function () {
+    var fluid = this;
+    fluid.animLoop =
+        animLoop(function (deltaT, now) {
+            // Make some new drops if we need to
+            if (fluid.die) {
+                return false;
+            }
+            else if (Math.random() > 0.99) {
+                new Drip(fluid.paper, {
+                    x: randomNumber(1, fluid.paperWidth),
+                    y: fluid.fillTo + 1,
+                    color: fluid.color,
+                    size: randomNumber(fluid.minSize, fluid.maxSize),
+                    speed: randomNumber(5000, 8000)
+                });
+            }
+        }, this.basin);
+}
+var teal = "rgba(27,226,192,1)";
+var fluid = new Fluid('fluid', { color: teal });
+
+function resetFluid() {
+    fluid.reset()
+};
+window.addEventListener('resize', resetFluid);
+</script>
