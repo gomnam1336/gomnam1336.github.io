@@ -1,0 +1,151 @@
+<style>
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+}
+body {
+    background-color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+}
+.circle-ripple {
+    background-color: #DE302F;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+}
+.circle-ripple .text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    line-height: 100px;
+    animation: text-countup linear;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    opacity: 0;
+}
+.circle-ripple .text.data {
+    display: none;
+}
+.circle-ripple .text.last {
+    animation: text-countup-last linear;
+    opacity: 0;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.circle-ripple .blop {
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: #ec8887 1px solid;
+    left: 0;
+    top: 0;
+    animation: drop ease-out;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    opacity: 0;
+}
+@keyframes text-countup {
+0% {
+    opacity: 0;
+    transform: scale(0.5);
+}
+60% {
+    transform: scale(1.9);
+}
+90% {
+    opacity: 0.6;
+}
+100% {
+    opacity: 0;
+    transform: scale(2);
+}
+}
+@keyframes text-countup-last {
+0% {
+    opacity: 0.3;
+    transform: scale(0.75);
+}
+60% {
+    tranform: scale(1.9);
+}
+90% {
+    opacity: 1;
+    transform: scale(2);
+}
+100% {
+    opacity: 1;
+    transform: scale(1);
+}
+}
+@keyframes drop {
+0% {
+    opacity: 0;
+    transform: scale(1);
+}
+10% {
+    opacity: 1;
+}
+100% {
+    opacity: 0;
+    transform: scale(1.75);
+}
+}
+</style>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<div class="circle-ripple" data-countup-duration="5">
+  <div class='text data'>25</div>
+  <div class='text'>1</div>
+  <div class='blop'></div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script>
+$(document).ready(function () {
+    var countupDur = parseFloat(
+        $(".circle-ripple").attr("data-countup-duration")
+    );
+    var countupTo = $(".circle-ripple .text.data").html();
+    var easingFactor = 1.1;
+    var anim_durations = [];
+    anim_durations.push(easingFactor);
+    var summ = easingFactor;
+    for (i = 1; i < countupTo; i++) {
+        tmp = anim_durations[i - 1] * easingFactor;
+        anim_durations.push(tmp);
+        summ += tmp;
+    }
+    //var mult =
+    var summ2 = 0;
+    var $sel = $(".circle-ripple");
+    for (i = 0; i < anim_durations.length; i++) {
+        anim_durations[i] = anim_durations[i] / summ * countupDur;
+        summ2 += anim_durations[i];
+        if (i == anim_durations.length - 1)
+            $("<div/>", {
+                class: "text last",
+                style: "animation-delay:" + summ2 + "s"
+            })
+                .html(i + 1)
+                .appendTo($sel);
+        else
+            $("<div/>", { class: "text", style: "animation-delay:" + summ2 + "s" })
+                .html(i + 1)
+                .appendTo($sel);
+        $("<div/>", {
+            class: "blop",
+            style: "animation-delay:" + summ2 * 1.5 + "s"
+        }).appendTo($sel);
+    }
+});
+</script>
