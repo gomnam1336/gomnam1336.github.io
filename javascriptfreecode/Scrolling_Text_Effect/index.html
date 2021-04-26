@@ -1,0 +1,108 @@
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,700&display=swap");
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+:root {
+    --spacing: 8px;
+    font-size: 1.25rem;
+}
+h1 {
+    white-space: nowrap;
+}
+html {
+    font-family: "Exo";
+    color: #efe4f4;
+}
+main {
+    height: 100vh;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+section {
+    width: 100%;
+    min-height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: calc(var(--spacing) * 8);
+    flex-wrap: wrap;
+    gap: calc(var(--spacing) * 2);
+}
+section:nth-of-type(1) {
+    background-color: #6d42cc;
+}
+section:nth-of-type(2) {
+    background-color: #ff1f64;
+}
+section:nth-of-type(3) {
+    background-color: #f1aa4b;
+}
+section > div {
+    background: #121618;
+    padding: calc(var(--spacing) * 2);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+    max-width: 25rem;
+    position: relative;
+    opacity: 0;
+    top: 60px;
+    transition: all 1s 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+section[data-is-visible=true] > div {
+    opacity: 1;
+    top: 0px;
+}
+</style>
+<main>
+<section id='intro'>
+  <div>
+    <h1>Modern Scroll Site</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+    <ul>
+      <li>Scroll Snapping</li>
+      <li>Visibility Detection</li>
+      <li>Animations</li>
+    </ul>
+  </div>
+</section>
+<section id='details'>
+  <div>
+    <h1>Scroll Snapping</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+  </div>
+
+</section>
+<section id='feedback'>
+  <div>
+    <h1>Feedback</h1>
+    <p>If you know of any edge cases or bugs I may have missed please leave a comment and I'll try my best to fix them ♥</p>
+  </div>
+</section>
+</main>
+<script>
+function intersectionCallback(entries, observer) {
+    entries.forEach((intersectionEntry) => {
+        intersectionEntry.target.setAttribute(
+            "data-is-visible",
+            intersectionEntry.intersectionRatio > 0.15
+        );
+    });
+}
+const observer = new IntersectionObserver(intersectionCallback, {
+    threshold: [0.1, 0.2, 0.3, 0.4, 0.9]
+});
+const items = [...document.querySelectorAll("section")];
+items.forEach((ele) => observer.observe(ele));
+// for the preview
+window.location.hash = "#intro";
+setTimeout(() => (window.location.hash = "#details"), 500);
+setTimeout(() => (window.location.hash = "#intro"), 2000);
+</script>
