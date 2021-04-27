@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<style>
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+body {
+    perspective: 300px;
+    font-family: 'Lato', Arial, sans-serif;
+    background: #2196f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    text-transform: uppercase;
+    color: #333;
+    font-size: 18px;
+    letter-spacing: 2px;
+    overflow: hidden;
+}
+body .container {
+    background: transparent;
+    width: 200px;
+    height: 60px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+    line-height: 60px;
+    text-align: center;
+    transform: rotateX(0deg);
+    transform-style: preserve-3d;
+}
+body .container:hover {
+    cursor: pointer;
+}
+body .container .front {
+    width: 200px;
+    height: 60px;
+    background: #fff;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 4px;
+    z-index: 2;
+    transform: rotateX(0deg);
+}
+body .container .back {
+    width: 200px;
+    height: 60px;
+    position: absolute;
+    background: #fff;
+    border-radius: 4px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+}
+</style>
+<div class="container">
+  <div class="front">disable</div>
+  <div class="back">enable</div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>
+(function () {
+    $(document).ready(function () {
+        var count, rotateX;
+        rotateX = 0;
+        count = 0;
+        $(".container").on("mousedown", function () {
+            rotateX += 180;
+            $("body").css({
+                "transform": "scale(1.2)"
+            });
+            if (count % 2 === 0) {
+                return $(".container").css({
+                    "box-shadow": "0px 32px 56px rgba(0,0,0,.1)"
+                });
+            } else {
+                return $(".container").css({
+                    "box-shadow": "0px -32px 56px rgba(0,0,0,.1)"
+                });
+            }
+        });
+        return $(".container").on("mouseup", function () {
+            $(this).css({
+                "transform": `rotateX(${rotateX}deg)`
+            });
+            $("body").css({
+                "transform": "scale(1)"
+            });
+            if (count % 2 === 0) {
+                $("body").css({
+                    "background": "#ccc"
+                });
+                $(".container").css({
+                    "box-shadow": "0px -2px 4px rgba(0,0,0,.1)"
+                });
+            } else {
+                $("body").css({
+                    "background": "#2196F3"
+                });
+                $(".container").css({
+                    "box-shadow": "0px 2px 4px rgba(0,0,0,.1)"
+                });
+            }
+            return count++;
+        });
+    });
+}).call(this);
+</script>
