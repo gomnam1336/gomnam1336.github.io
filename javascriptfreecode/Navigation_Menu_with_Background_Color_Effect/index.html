@@ -1,0 +1,226 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<style>
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cover-back {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    transition: all 1s cubic-bezier(0.4, 0, 1, 1);
+}
+.cover-back-body {
+    background-image: linear-gradient(#7da4ff, #4161c8);
+}
+.cover-back-tabs {
+    background-color: #7E82EC;
+}
+.tabs {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    overflow: hidden;
+    border-radius: 293px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, .30);
+    transition: all .4s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.tabs-container {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: 150px;
+}
+.tab-item {
+    width: 100px;
+    height: 100px;
+    margin: 0 17.5px;
+    color: #E9E9E9;
+    opacity: 0;
+    transform: scale(0);
+    font-size: 50px;
+    text-align: center;
+    line-height: 100px;
+    transition: all .9s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.tab-item:nth-child(1) {
+    transition-delay: .3s;
+}
+.tab-item:nth-child(2) {
+    transition-delay: .5s;
+}
+.tab-item:nth-child(4) {
+    transition-delay: .7s;
+}
+.tab-item:nth-child(5) {
+    transition-delay: .9s;
+}
+.tab-item {
+    cursor: pointer;
+}
+.tab-item--middle {
+    opacity: 1;
+    transform: scale(1);
+    border-radius: 50%;
+    color: #7074E8;
+    background-color: #A2B2FF;
+}
+/* Animations */
+@keyframes show-tab-items {
+to {
+    opacity: 1;
+    transform: scale(1);
+}
+}
+@keyframes hide-tab-items {
+to {
+    opacity: 0;
+    transform: scale(0);
+}
+}
+@keyframes add-background {
+from {
+    opacity: 0;
+}
+
+to {
+    opacity: 1;
+}
+}
+@keyframes remove-background {
+from {
+    opacity: 1;
+}
+
+to {
+    opacity: 0;
+}
+}
+/* Javascript part */
+.js-tabs-init {
+    width: 150px;
+    border-radius: 50%;
+}
+.js-cover-back-animate {
+    opacity: 0;
+    transition: all 5s;
+    animation: add-background linear 2s forwards;
+}
+.js-tab-item-show {
+    opacity: 1;
+    transform: scale(1);
+}
+.js-tab-item-active {
+    position: relative;
+}
+.js-tab-item-active:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 3px solid #ff5252;
+    background-color: white;
+    opacity: .6;
+}
+.fa, .fab, .fal, .far, .fas {
+    line-height:2;
+}
+</style>
+<div class="cover-back cover-back-body js-cover-back-body"></div>
+<div class="tabs js-tabs">
+  <div class="cover-back cover-back-tabs js-cover-back-tabs"></div>
+  <div class="tabs-container">
+    <div class="tab-item js-tab-item" data-gradient-start="7DA4FF" data-gradient-stop="4161C8" data-tab-color="7E82EC">
+      <i class="fas fa-home"></i>
+    </div>
+    <div class="tab-item js-tab-item" data-gradient-start="FF7DC2" data-gradient-stop="B7C841" data-tab-color="ECB57E">
+      <i class="fas fa-search"></i>
+    </div>
+    <div class="tab-item tab-item--middle js-tab-item js-tab-item-main-control">
+      <i class="fas fa-plus"></i>
+    </div>
+    <div class="tab-item js-tab-item" data-gradient-start="7DC2FF" data-gradient-stop="C8419F" data-tab-color="B97EEC">
+      <i class="far fa-heart"></i>
+    </div>
+    <div class="tab-item js-tab-item" data-gradient-start="B1FF7D" data-gradient-stop="41B5C8" data-tab-color="7EECAE">
+      <i class="fas fa-cog"></i>
+    </div>
+  </div>
+</div>
+<script>
+var tabs = document.querySelector('.js-tabs');
+var tabItems = document.querySelectorAll('.js-tab-item:not(.js-tab-item-main-control)');
+var tabItemMainControl = document.querySelector('.js-tab-item-main-control');
+var coverBackBody = document.querySelector('.js-cover-back-body');
+var coverBackTabs = document.querySelector('.js-cover-back-tabs');
+tabItemMainControl.addEventListener('click', function () {
+    if (tabs.classList.contains('js-tabs-init')) {
+        tabs.classList.remove('js-tabs-init');
+        tabItemMainControl.style.transform = 'rotate(45deg)';
+        for (var i = 0; i < tabItems.length; i++) {
+            tabItems[i].classList.add('js-tab-item-show');
+        }
+    } else {
+        for (var i = 0; i < tabItems.length; i++) {
+            tabItems[i].classList.remove('js-tab-item-show');
+        }
+        setTimeout(function () {
+            tabItemMainControl.style.transform = 'rotate(0deg)';
+            tabs.classList.add('js-tabs-init');
+        }, 2000);
+    }
+});
+for (var i = 0; i < tabItems.length; i++) {
+    tabItems[0].classList.add('js-tab-item-active');
+    tabItems[i].addEventListener('click', function () {
+        //Toggle the active tab item
+        var tabActive = document.querySelector('.js-tab-item-active');
+        tabActive.classList.remove('js-tab-item-active');
+        this.classList.add('js-tab-item-active');
+        //Remove the body's background
+        coverBackBody.style.animationName = 'remove-background';
+        coverBackBody.style.animationDuration = '1s';
+        coverBackBody.style.animationTimingFunction = 'linear';
+        coverBackBody.style.animationFillMode = 'forwards';
+        //Remove the tabs background
+        coverBackTabs.style.width = 0;
+        var self = this;
+        window.setTimeout(function () {
+            //Change the body's background
+            coverBackBody.style.animationName = 'add-background';
+            coverBackBody.style.backgroundImage = 'linear-gradient(#' + self.dataset.gradientStart + ', #' + self.dataset.gradientStop + ')';
+            coverBackBody.classList.add('js-cover-back-animate');
+            //Change the tabs background
+            coverBackTabs.style.backgroundColor = '#' + self.dataset.tabColor;
+            coverBackTabs.style.width = '100%';
+        }, 1200);
+    })
+}
+//Initial state of the tab
+tabs.classList.add('js-tabs-init');
+</script>
