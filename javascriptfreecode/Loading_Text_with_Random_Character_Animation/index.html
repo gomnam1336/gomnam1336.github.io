@@ -1,0 +1,262 @@
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    overflow: hidden;
+    font-family: sans-serif;
+    font-weight: 100;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    text-rendering: optimizeLegibility;
+}
+html .content, body .content {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+html .content .random, body .content .random {
+    color: #eee;
+    opacity: 0;
+    display: inline-block;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    cursor: pointer;
+}
+html .social, body .social {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    text-align: center;
+}
+html .list-item, body .list-item {
+    display: inline-block;
+    width: 110px;
+    text-align: center;
+}
+
+html .list-item .item-link, body .list-item .item-link {
+    font-size: 12px;
+    text-decoration: none;
+    color: #7F7F7F;
+    transition: 0.3s ease-out all;
+}
+
+html .list-item .item-link:focus, body .list-item .item-link:focus {
+    outline: none;
+}
+html .list-item .item-link:after, body .list-item .item-link:after {
+    content: "";
+    position: relative;
+    width: 0;
+    height: 1px;
+    display: block;
+    z-index: 100;
+    background-color: cyan;
+    transition: 0.3s ease-out all;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+}
+html .list-item .item-link:hover, body .list-item .item-link:hover {
+    color: #eee;
+    cursor: help;
+}
+html .list-item .item-link:hover:after, body .list-item .item-link:hover:after {
+    width: 50px;
+}
+.randomCharacter {
+    display: inline-block;
+    height: 10px;
+    padding:1px !important;
+}
+</style>
+<div class="content">
+  <h1 class="random">Javascript Free Code</h1>
+</div>
+<script>
+'use strict'
+var RandomCharacterAnimation = function (options) {
+    var defaults = {
+        d_element: '',
+        d_type: 'char',
+        d_min: 10,
+        d_max: 100,
+        d_kerning: 10,
+    }
+    this.size;
+    this.getLettersArray = [];
+    this.getLettersChanges = [];
+    this.kerningSize = [];
+    this.currentChange = 0;
+    this.char = 'abcdefghijklmnopqrstuvwxyz0123456789!?*()@£$%^&_-+=[]{}:;\'"\\|<>,./~`×';
+    this.charArray = [];
+    this.requestId;
+    if (arguments[0] && typeof arguments[0] === "object") {
+        this.options = _extendDefaults(defaults, arguments[0]);
+    }
+}
+function _extendDefaults(source, properties) {
+    var property;
+    for (property in properties) {
+        if (properties.hasOwnProperty(property)) {
+            source[property] = properties[property];
+        }
+    }
+    return source;
+}
+RandomCharacterAnimation.prototype = {
+    _random: function (minNb, maxNb) {
+        return Math.floor(Math.random() * (maxNb - minNb) + minNb);
+    },
+    _getElementSize: function () {
+        var i, thisLetter;
+        var element_selected = document.querySelector(this.options.d_element).textContent;
+
+        for (i in element_selected) {
+            thisLetter = element_selected[i];
+            this.getLettersArray.push(thisLetter);
+        }
+        return this.getLettersArray;
+    },
+    _setStructure: function () {
+        var element = document.querySelector(this.options.d_element);
+        element.innerHTML = '';
+        var i, j, characterContainer, thisContainer, array, kerningSize;
+        for (i in this.getLettersArray) {
+            characterContainer = document.createElement('span');
+            array = this.getLettersArray[i];
+            // display a whitespace
+            if (array === ' ') {
+                characterContainer.innerHTML = '&nbsp';
+            }
+            characterContainer.classList.add('randomCharacter');
+            element.appendChild(characterContainer);
+            var letter = document.createTextNode(array);
+            // ♫ one mooore hack ♫
+            characterContainer.appendChild(letter);
+            characterContainer.style.opacity = '0';
+        }
+    },
+    _setKerning: function () {
+        var kerning = this.options.d_kerning;
+        var elem = document.querySelector(this.options.d_element);
+        var i, j, thisContainer, array, kerningSize;
+        for (i = 0; i < this.getLettersArray.length; i++) {
+            j = i + 1; //hack
+            thisContainer = elem.querySelector('.randomCharacter:nth-child(' + j + ')');
+            thisContainer.style.padding = '0' + (Math.sqrt(kerning) / thisContainer.offsetWidth) + 'px';
+            kerningSize = thisContainer.offsetWidth;
+            this.kerningSize.push(kerningSize);
+            thisContainer.style.width = kerningSize + 'px';
+        }
+    },
+    _convertStringToArray: function (charType) {
+        var i, thisChar;
+        for (i = 0; i < this.char.length; i++) {
+            thisChar = this.char[i];
+            this.charArray.push(thisChar);
+        }
+    },
+    _setChange: function () {
+        var i, setChange;
+
+        for (i in this.getLettersArray) {
+            setChange = this._random(this.options.d_min, this.options.d_max);
+            this.getLettersChanges.push(setChange);
+        }
+    },
+    _generateRandomCharacter: function () {
+        var charType = this.options.d_type;
+        var elem = document.querySelector(this.options.d_element);
+        this.currentChange++;
+        var chooseRandomLetter = this._random(0, this.getLettersArray.length);
+        var generateContent, setContent, getChar;
+        var changesPlaces = elem.querySelector('.randomCharacter:nth-child(' + (chooseRandomLetter + 1) + ')');
+        if (charType === 'int') {
+            generateContent = this._random(0, 9);
+        } else if (charType === 'char') {
+            getChar = this._random(0, this.charArray.length);
+            generateContent = this.charArray[getChar];
+        } else {
+            getChar = this._random(0, charType.length);
+            generateContent = charType[getChar];
+        }
+        changesPlaces.innerHTML = generateContent;
+        changesPlaces.style.opacity = '1';
+        elem.style.opacity = '1'
+    },
+    _checkNbChanges: function () {
+        var i, j, k, thisChar, setContent, thisContainer;
+        var elem = document.querySelector(this.options.d_element);
+        for (i = 0; i < this.getLettersArray.length; i++) {
+            j = i + 1; //hack
+            thisChar = this.getLettersChanges[i];
+            thisContainer = elem.querySelector('.randomCharacter:nth-child(' + j + ')');
+            setContent = this.getLettersArray[i];
+
+            if (this.currentChange > thisChar) {
+                thisContainer.innerHTML = setContent;
+            }
+        }
+    },
+    _loop: function () {
+        var self = this;
+        this.requestId = requestAnimationFrame(function () {
+            self._loop();
+            if (self.currentChange > self.options.d_max) {
+                self.stop();
+            }
+        });
+        self._generateRandomCharacter(self.options.d_type);
+        self._checkNbChanges();
+    },
+    restart: function () {
+        this.currentChange = 0;
+        this._setChange();
+        this._loop();
+    },
+    start: function () {
+
+        this._getElementSize();
+        this._setStructure();
+        this._setKerning();
+        this._setChange();
+        this._convertStringToArray();
+        this._loop();
+    },
+    stop: function () {
+        window.cancelAnimationFrame(this.requestId);
+    }
+};
+var title = new RandomCharacterAnimation({
+    d_element: '.random',
+    d_kerning: 8000,
+});
+title.start();
+function getIndexOfElementInParent(element) {
+    var parent = element.parentNode;
+    for (var index = 0; index <= parent.children.length - 1; index++) {
+        if (parent.children[index] === element) {
+            return index;
+        }
+    }
+};
+function newEvent(selected_element_class, _event) {
+    var items = document.querySelectorAll(selected_element_class);
+    for (var i = 0; i <= items.length - 1; i++) {
+        items.item(i).addEventListener(_event, function (event) {
+            // call getIndexOfElementInParent
+            var currentItemIndex = getIndexOfElementInParent(event.target.parentNode)
+            obj[currentItemIndex].restart();
+        }, false);
+    }
+};
+newEvent('.item-link', 'mouseenter');
+</script>
