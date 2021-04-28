@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<style>
+@font-face {
+    font-family: 'Share Tech';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/sharetech/v12/7cHtv4Uyi5K0OeZ7bohU8H0JnQ.ttf) format('truetype');
+}
+html,
+body {
+    background-color: #ccc;
+    width: 100%;
+    height: 100%;
+}
+svg {
+    opacity: 0;
+    font-family: 'Arial Narrow';
+}
+svg .st0 {
+    fill: #1f2b35;
+    stroke-width: 6px;
+    stroke: #b68a4a;
+}
+svg #count {
+    text-anchor: middle;
+    fill: #fff;
+}
+button {
+    margin: auto;
+    display: block;
+    background-color: tomato;
+    border: 0;
+    color: white;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-family: 'Share Tech';
+    font-size: 1.2em;
+    border-radius: 4px;
+}
+</style>
+<svg version="1.1" id="cursor" xmlns="" xmlns:xlink="" x="0px" y="0px" width="211px" height="53.6px" viewBox="0 0 211 53.6" style="enable-background:new 0 0 211 53" xml:space="preserve">
+    <style type="text/css">
+    </style>
+    <path class="st0" d="M5.299999999999997,26.5a22.1,22.1 0 1,0 44.2,0a22.1,22.1 0 1,0 -44.2,0" />
+    <text id="count" transform="matrix(1 0 0 1 27.5 31)" class="st1 st2">100</text>
+    <text transform="matrix(1 0 0 1 55.1438 31.1895)" class="st1 st2">Actual Time Elapsed:
+      <tspan id="actual"></tspan>s</text>
+  </svg>
+<button>Click</button>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js'></script>
+<script>
+var body = $('body'),
+    cursor = $('#cursor'),
+    counter = $('#count'),
+    myCircle = Snap.select('.st0'),
+    actualTime = $('#actual'),
+    myLength = myCircle.getTotalLength();
+$('button').on('click', function (e) {
+    myCircle.attr({
+        strokeDasharray: myLength,
+        strokeDashoffset: myLength
+    });
+    body.css({
+        'cursor': 'none'
+    });
+    startNewCursor(6000, 6);
+});
+function startNewCursor(time, actual) {
+    body.on('mousemove', function (e) {
+        changeCursor(e, actual);
+    })
+    startTiming(time);
+}
+function changeCursor(e, actual) {
+    cursor.css({
+        'opacity': '1'
+    }).offset({
+        left: e.pageX,
+        top: e.pageY
+    });
+    actualTime.text(actual);
+}
+function startTiming(time) {
+    myCircle.animate({
+        strokeDashoffset: '0',
+    }, time)
+    counting(time);
+}
+function counting(time) {
+    $({
+        Counter: 0
+    }).animate({
+        Counter: counter.text()
+    }, {
+        duration: time,
+        easing: 'linear',
+        step: function () {
+            counter.text(Math.ceil(this.Counter) + '%');
+        },
+        complete: removeCursor
+    });
+}
+function removeCursor() {
+    body.off('mousemove')
+    body.css({
+        'cursor': 'inherit'
+    });
+    cursor.delay(500).animate({
+        opacity: 0
+    }, {
+        duration: 500,
+        easing: 'linear'
+    });
+}
+</script>
